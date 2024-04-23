@@ -14,8 +14,11 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     match.cpp \
+    myprofilegui.cpp \
     myteam.cpp \
     player.cpp \
+    standingsgui.cpp \
+    stats.cpp \
     team.cpp \
     user.cpp \
     utils.cpp
@@ -25,15 +28,21 @@ HEADERS += \
     league.h \
     mainwindow.h \
     match.h \
+    myprofilegui.h \
     myteam.h \
     player.h \
+    standingsgui.h \
+    stats.h \
     team.h \
     user.h \
     utils.h
 
 FORMS += \
     mainwindow.ui \
-    myteam.ui
+    myprofilegui.ui \
+    myteam.ui \
+    standingsgui.ui \
+    stats.ui
 
 TRANSLATIONS += \
     FantasyProject_en_GB.ts

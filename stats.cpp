@@ -1,20 +1,23 @@
-#include "myteam.h"
-#include "ui_myteam.h"
+#include "stats.h"
+#include "ui_stats.h"
 #include "mainwindow.h"
-MyTeam::MyTeam(QWidget *parent)
+Stats::Stats(QWidget *parent)
     : QDialog(parent)
-    , ui(new Ui::MyTeam)
+    , ui(new Ui::Stats)
 {
     ui->setupUi(this);
     this->setFixedSize(this->width(), this->height());
+
 }
 
-MyTeam::~MyTeam()
+Stats::~Stats()
 {
     delete ui;
 }
 
-void MyTeam::on_commandLinkButton_clicked()
+void Stats::on_commandLinkButton_clicked()
 {
+
     close();
 }
+
