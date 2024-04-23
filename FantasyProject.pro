@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     match.cpp \
+    myteam.cpp \
     player.cpp \
     team.cpp \
     user.cpp \
@@ -24,13 +25,15 @@ HEADERS += \
     league.h \
     mainwindow.h \
     match.h \
+    myteam.h \
     player.h \
     team.h \
     user.h \
     utils.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    myteam.ui
 
 TRANSLATIONS += \
     FantasyProject_en_GB.ts
@@ -41,3 +44,6 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    img.qrc
