@@ -1,31 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MyTeam</class>
- <widget class="QDialog" name="MyTeam">
+ <class>Stats</class>
+ <widget class="QDialog" name="Stats">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>968</width>
-    <height>578</height>
+    <width>840</width>
+    <height>569</height>
    </rect>
   </property>
-  <property name="font">
-   <font>
-    <pointsize>10</pointsize>
-   </font>
-  </property>
   <property name="windowTitle">
-   <string>My Team</string>
-  </property>
-  <property name="sizeGripEnabled">
-   <bool>false</bool>
+   <string>Dialog</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>10</y>
+     <x>380</x>
+     <y>30</y>
      <width>201</width>
      <height>91</height>
     </rect>
@@ -45,7 +37,7 @@
     <enum>Qt::DefaultContextMenu</enum>
    </property>
    <property name="text">
-    <string>My Team</string>
+    <string>Stats</string>
    </property>
   </widget>
   <widget class="QCommandLinkButton" name="commandLinkButton">
@@ -78,10 +70,10 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>-40</x>
-     <y>-50</y>
-     <width>1081</width>
-     <height>651</height>
+     <x>-100</x>
+     <y>-60</y>
+     <width>1051</width>
+     <height>671</height>
     </rect>
    </property>
    <property name="styleSheet">

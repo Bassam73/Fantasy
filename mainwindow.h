@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include "myteam.h"
+#include "stats.h"
+#include "standingsgui.h"
+#include "myprofilegui.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -20,8 +24,19 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_commandLinkButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
 private:
     Ui::MainWindow *ui;
     MyTeam *myteam;
+    Stats *stats;
+    StandingsGui *standingsgui;
+    MyProfileGui *myprofilegui;
 };
 #endif // MAINWINDOW_H

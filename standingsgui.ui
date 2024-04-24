@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MyTeam</class>
- <widget class="QDialog" name="MyTeam">
+ <class>StandingsGui</class>
+ <widget class="QDialog" name="StandingsGui">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>968</width>
-    <height>578</height>
+    <width>812</width>
+    <height>561</height>
    </rect>
   </property>
-  <property name="font">
-   <font>
-    <pointsize>10</pointsize>
-   </font>
-  </property>
   <property name="windowTitle">
-   <string>My Team</string>
+   <string>Dialog</string>
   </property>
-  <property name="sizeGripEnabled">
-   <bool>false</bool>
-  </property>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>-240</x>
+     <y>-70</y>
+     <width>1081</width>
+     <height>651</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/res/vecteezy_zigzag-blue-background-epl-english-premier-league-thumbnail_35674784.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>320</x>
      <y>10</y>
      <width>201</width>
      <height>91</height>
@@ -45,7 +53,7 @@
     <enum>Qt::DefaultContextMenu</enum>
    </property>
    <property name="text">
-    <string>My Team</string>
+    <string>Standings</string>
    </property>
   </widget>
   <widget class="QCommandLinkButton" name="commandLinkButton">
@@ -75,25 +83,6 @@
     </size>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>-40</x>
-     <y>-50</y>
-     <width>1081</width>
-     <height>651</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">image: url(:/res/vecteezy_zigzag-blue-background-epl-english-premier-league-thumbnail_35674784.jpg);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <zorder>label_2</zorder>
-  <zorder>label</zorder>
-  <zorder>commandLinkButton</zorder>
  </widget>
  <resources/>
  <connections/>
