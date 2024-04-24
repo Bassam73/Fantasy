@@ -17,6 +17,7 @@ SOURCES += \
     myprofilegui.cpp \
     myteam.cpp \
     player.cpp \
+    registergui.cpp \
     standingsgui.cpp \
     stats.cpp \
     team.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     myprofilegui.h \
     myteam.h \
     player.h \
+    registergui.h \
     standingsgui.h \
     stats.h \
     team.h \
@@ -41,6 +43,7 @@ FORMS += \
     mainwindow.ui \
     myprofilegui.ui \
     myteam.ui \
+    registergui.ui \
     standingsgui.ui \
     stats.ui
 

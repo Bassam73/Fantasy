@@ -1,10 +1,20 @@
 #ifndef USER_H
 #define USER_H
 
+#include <iostream>
+using namespace std;
 class User
 {
 public:
-    User();
+    int id;
+    string name ;
+    string password;
+    string league;
+    User(string , string , string );
+
+    bool registerUser();
+    bool checkUsername(string );
+    bool isValidPassword(string);
 };
 
 #endif // USER_H
