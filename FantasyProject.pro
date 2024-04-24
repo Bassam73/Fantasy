@@ -16,6 +16,7 @@ SOURCES += \
     match.cpp \
     myteam.cpp \
     player.cpp \
+    registergui.cpp \
     team.cpp \
     user.cpp \
     utils.cpp
@@ -27,13 +28,15 @@ HEADERS += \
     match.h \
     myteam.h \
     player.h \
+    registergui.h \
     team.h \
     user.h \
     utils.h
 
 FORMS += \
     mainwindow.ui \
-    myteam.ui
+    myteam.ui \
+    registergui.ui
 
 TRANSLATIONS += \
     FantasyProject_en_GB.ts
