@@ -5,7 +5,7 @@ User::User(vector<User> & usersList) {
 }
 
 
-
+User::User() {}
 
 bool User::registerUser(string name , string password , string league){
     bool check= userNameCheck(name);

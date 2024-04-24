@@ -35,6 +35,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
+    myteam.ui
     myteam.ui \
     registergui.ui
 
