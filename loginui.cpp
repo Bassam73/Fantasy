@@ -4,6 +4,7 @@
 #include "myteam.h"
 #include "user.h"
 #include <QMessageBox>
+#include "mainwindow.h"
 
 LoginUI::LoginUI(QWidget *parent)
     : QDialog(parent)
@@ -25,9 +26,11 @@ void LoginUI::on_pushButton_clicked()
     string userPassword = password.toStdString();
     User * userLogin = new User();
     bool registerd = userLogin->checkRegisteredUser(username,userPassword);
-
-    MyTeam homePage ;
-    if(registerd) homePage.exec();
+    MainWindow* mainwindowDialog = new MainWindow();
+    if(registerd){
+        close();
+        mainwindowDialog->show();
+    }
     else {
         QMessageBox notFoundUser;
 

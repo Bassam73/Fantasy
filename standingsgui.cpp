@@ -1,6 +1,6 @@
 #include "standingsgui.h"
 #include "ui_standingsgui.h"
-
+#include "mainwindow.h"
 StandingsGui::StandingsGui(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::StandingsGui)
@@ -18,5 +18,7 @@ StandingsGui::~StandingsGui()
 void StandingsGui::on_commandLinkButton_clicked()
 {
     close();
+    MainWindow* mainwindowDialog = new MainWindow();
+    mainwindowDialog->show();
 }
 

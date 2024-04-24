@@ -41,8 +41,11 @@ void RegisterGui::on_pushButton_clicked()
 
 
 
-        MyTeam main ;
-        if(check) main.exec();
+       MainWindow* mainwindowDialog = new MainWindow();
+        if(check){
+           close();
+           mainwindowDialog->show();
+        }
         else {
             QMessageBox registerFailed;
             // registerFailed.setStyleSheet("QLabel{min-width: 700px;}");

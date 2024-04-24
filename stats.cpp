@@ -17,7 +17,8 @@ Stats::~Stats()
 
 void Stats::on_commandLinkButton_clicked()
 {
-
     close();
+    MainWindow* mainwindowDialog = new MainWindow();
+    mainwindowDialog->show();
 }
 

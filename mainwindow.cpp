@@ -17,6 +17,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
+    close();
     MyTeam myTeamDialog;
     myTeamDialog.exec();
 }
@@ -30,6 +31,7 @@ void MainWindow::on_commandLinkButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
+    close();
     Stats statsDialog;
     statsDialog.exec();
 }
@@ -37,6 +39,7 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
+    close();
     StandingsGui standingsguiDialog;
     standingsguiDialog.exec();
 }
@@ -44,6 +47,7 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
+    close();
     MyProfileGui myprofileguiDialog;
     myprofileguiDialog.exec();
 }

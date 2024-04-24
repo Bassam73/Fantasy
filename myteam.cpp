@@ -17,4 +17,6 @@ MyTeam::~MyTeam()
 void MyTeam::on_commandLinkButton_clicked()
 {
     close();
+    MainWindow* mainwindowDialog = new MainWindow();
+    mainwindowDialog->show();
 }
