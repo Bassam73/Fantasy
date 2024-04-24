@@ -5,6 +5,7 @@
 #include "user.h"
 #include <QMessageBox>
 #include "mainwindow.h"
+#include "adminhomegui.h"
 
 LoginUI::LoginUI(QWidget *parent)
     : QDialog(parent)
@@ -24,7 +25,14 @@ void LoginUI::on_pushButton_clicked()
     QString password = ui->passwordLogin->text();
     string username = name.toStdString();
     string userPassword = password.toStdString();
+       AdminHomeGui * a = new AdminHomeGui;
+    if(username == "admin" && userPassword == "admin"){
+        close();
+        a->show();
+    }
+    else{
     User * userLogin = new User();
+
     bool registerd = userLogin->checkRegisteredUser(username,userPassword);
     MainWindow* mainwindowDialog = new MainWindow();
     if(registerd){
@@ -38,8 +46,10 @@ void LoginUI::on_pushButton_clicked()
 
 
     }
+
+
     delete userLogin;
 }
 
 
-
+}

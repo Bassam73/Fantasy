@@ -10,6 +10,9 @@ CONFIG += c++17
 
 SOURCES += \
     admin.cpp \
+    adminhomegui.cpp \
+    controlusersgui.cpp \
+    dataentrygui.cpp \
     league.cpp \
     loginui.cpp \
     main.cpp \
@@ -22,11 +25,16 @@ SOURCES += \
     standingsgui.cpp \
     stats.cpp \
     team.cpp \
+    updateplayers.cpp \
+    updateteamsgui.cpp \
     user.cpp \
     utils.cpp
 
 HEADERS += \
     admin.h \
+    adminhomegui.h \
+    controlusersgui.h \
+    dataentrygui.h \
     league.h \
     loginui.h \
     mainwindow.h \
@@ -38,17 +46,24 @@ HEADERS += \
     standingsgui.h \
     stats.h \
     team.h \
+    updateplayers.h \
+    updateteamsgui.h \
     user.h \
     utils.h
 
 FORMS += \
+    adminhomegui.ui \
+    controlusersgui.ui \
+    dataentrygui.ui \
     loginui.ui \
     mainwindow.ui \
     myprofilegui.ui \
     myteam.ui \
     registergui.ui \
     standingsgui.ui \
-    stats.ui
+    stats.ui \
+    updateplayers.ui \
+    updateteamsgui.ui
 
 TRANSLATIONS += \
     FantasyProject_en_GB.ts

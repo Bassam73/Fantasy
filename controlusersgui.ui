@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ControlUsersGui</class>
+ <widget class="QDialog" name="ControlUsersGui">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>888</width>
+    <height>628</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>-540</x>
+     <y>-130</y>
+     <width>1541</width>
+     <height>971</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/res/vecteezy_zigzag-blue-background-epl-english-premier-league-thumbnail_35674784.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>30</y>
+     <width>201</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:30px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string>Control Users</string>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="commandLinkButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>50</width>
+     <height>20</height>
+    </size>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

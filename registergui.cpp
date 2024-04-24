@@ -65,6 +65,7 @@ void RegisterGui::on_pushButton_clicked()
 
 void RegisterGui::on_pushButton_2_clicked()
 {
+    close();
     LoginUI loginPage;
     loginPage.exec();
 }

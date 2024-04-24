@@ -38,15 +38,18 @@
      <height>461</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
    <property name="title">
     <string>Register</string>
    </property>
    <widget class="QLabel" name="usernameQlabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>70</y>
-      <width>131</width>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>
@@ -66,9 +69,9 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>120</y>
-      <width>131</width>
+      <width>161</width>
       <height>41</height>
      </rect>
     </property>
@@ -88,7 +91,7 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>170</y>
       <width>151</width>
       <height>41</height>
@@ -104,15 +107,15 @@
      <string notr="true">color : white;</string>
     </property>
     <property name="text">
-     <string>RePassword</string>
+     <string>RePass</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>10</x>
       <y>220</y>
-      <width>101</width>
+      <width>111</width>
       <height>41</height>
      </rect>
     </property>
@@ -170,7 +173,7 @@
     </property>
     <item>
      <property name="text">
-      <string>Preimeir league</string>
+      <string>Premier League</string>
      </property>
     </item>
     <item>
@@ -182,10 +185,10 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>330</y>
-      <width>131</width>
-      <height>51</height>
+      <x>140</x>
+      <y>300</y>
+      <width>111</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -198,13 +201,30 @@
      <string>Register</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>360</y>
+      <width>231</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font-size:20px;
+color:white;</string>
+    </property>
+    <property name="text">
+     <string>already have an account?</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>330</y>
-      <width>131</width>
-      <height>51</height>
+      <x>140</x>
+      <y>390</y>
+      <width>121</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
