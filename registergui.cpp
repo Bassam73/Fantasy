@@ -4,6 +4,7 @@
 #include "mainwindow.h"
 #include "myteam.h"
 #include <QMessageBox>
+#include "loginui.h"
 
 RegisterGui::RegisterGui(QWidget *parent)
     : QDialog(parent)
@@ -56,5 +57,12 @@ void RegisterGui::on_pushButton_clicked()
 
 
 
+}
+
+
+void RegisterGui::on_pushButton_2_clicked()
+{
+    LoginUI loginPage;
+    loginPage.exec();
 }
 

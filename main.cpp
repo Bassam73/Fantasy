@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
             break;
         }
     }
-    User uu("Bassam", "ssad2w" , "ayhaga");
+    User uu("Bassam", "1234" , "ayhaga");
     User gg("Bassssssam", "ssad2w" , "ayhaga");
     Admin::usersList.push_back(gg);
     Admin::usersList.push_back(uu);

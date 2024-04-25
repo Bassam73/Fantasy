@@ -9,7 +9,7 @@ User::User(string u , string p , string l)
     password =p ;
     league = l;
 }
-
+User::User(){}
 
 
 bool User::registerUser(){
@@ -48,7 +48,19 @@ bool User::checkUsername(string username){
 
     return true;
 }
+bool User::checkRegisteredUser(string name ,string password){
+    Admin usersList;
 
+    for(int i=0;i<usersList.usersList.size();i++){
+        if(usersList.usersList[i].name==name&&
+            usersList.usersList[i].password==password){
+            return true;
+        }
+
+
+    }
+    return false;
+}
 
 
 

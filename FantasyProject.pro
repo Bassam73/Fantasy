@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     admin.cpp \
     league.cpp \
+    loginui.cpp \
     main.cpp \
     mainwindow.cpp \
     match.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 HEADERS += \
     admin.h \
     league.h \
+    loginui.h \
     mainwindow.h \
     match.h \
     myprofilegui.h \
@@ -40,6 +42,7 @@ HEADERS += \
     utils.h
 
 FORMS += \
+    loginui.ui \
     mainwindow.ui \
     myprofilegui.ui \
     myteam.ui \

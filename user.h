@@ -11,10 +11,11 @@ public:
     string password;
     string league;
     User(string , string , string );
-
+    User();
     bool registerUser();
     bool checkUsername(string );
     bool isValidPassword(string);
+    bool checkRegisteredUser(string, string);
 };
 
 #endif // USER_H
