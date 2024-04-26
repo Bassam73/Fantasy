@@ -1,6 +1,7 @@
 #ifndef USER_H
 #define USER_H
 
+
 #include <iostream>
 using namespace std;
 class User
@@ -16,6 +17,8 @@ public:
     bool checkUsername(string );
     bool isValidPassword(string);
     bool checkRegisteredUser(string, string);
+
 };
+
 
 #endif // USER_H

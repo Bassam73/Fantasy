@@ -5,11 +5,13 @@
 #include "myteam.h"
 #include <QMessageBox>
 #include "loginui.h"
+#include"usersdata.h"
 
 RegisterGui::RegisterGui(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::RegisterGui)
 {
+
     ui->setupUi(this);
 }
 
@@ -66,6 +68,9 @@ void RegisterGui::on_pushButton_clicked()
 void RegisterGui::on_pushButton_2_clicked()
 {
     close();
+    UsersData db;
+    db.dataBase();
+    db.fetchData();
     LoginUI loginPage;
     loginPage.exec();
 }
