@@ -26,9 +26,6 @@ int main(int argc, char *argv[])
     UsersData data;
     data.loadData();
 
-    for(int i = 0; i < Admin::usersList.size(); i++){
-        qDebug() << Admin::usersList[i].id <<" "<< Admin::usersList[i].name;
-    }
 
     // User uu("Bassam", "1234" , "ayhaga");
     // User gg("Bassssssam", "ssad2w" , "ayhaga");
@@ -38,5 +35,7 @@ int main(int argc, char *argv[])
     w.show();
 
 
-    return a.exec();
+    int returnValue = a.exec();
+    data.storeData();
+    return returnValue;
 }

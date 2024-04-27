@@ -7,6 +7,11 @@ using namespace std;
 Admin addData;
 
 
+UsersData::UsersData()
+{
+
+}
+
 void UsersData::loadData(){
     QFile file("C:/Users/besho/Fantasy/dataOfUser.json");
     if(file.open(QIODevice::ReadOnly)){
@@ -39,7 +44,7 @@ void UsersData::loadData(){
 
             for(auto i:arr){
                 user = i.toObject();
-                int id = user.value("id").toInt();
+                id = user.value("id").toInt();
                 userName = user.value("name").toString();
                 password = user.value("password").toString();
                 league = user.value("league").toString();

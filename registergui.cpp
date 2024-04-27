@@ -55,8 +55,8 @@ void RegisterGui::on_pushButton_clicked()
             close();
 
             mainwindowDialog->show();
-            UsersData da;
-            da.storeData();
+            // UsersData da;
+            // da.storeData();
 
 
         }
