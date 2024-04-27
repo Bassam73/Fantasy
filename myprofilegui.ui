@@ -89,7 +89,7 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>270</x>
      <y>140</y>
      <width>311</width>
      <height>61</height>
@@ -97,17 +97,17 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>22</pointsize>
     </font>
    </property>
    <property name="text">
-    <string>12</string>
+    <string>Username</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>230</x>
      <y>240</y>
      <width>311</width>
      <height>61</height>
@@ -119,10 +119,64 @@
     </font>
    </property>
    <property name="text">
-    <string>12</string>
+    <string>League</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>340</y>
+     <width>311</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Points</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>140</y>
+     <width>221</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Username :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>240</y>
+     <width>221</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>League :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -137,7 +191,7 @@
     </font>
    </property>
    <property name="text">
-    <string>12</string>
+    <string>Points : </string>
    </property>
   </widget>
  </widget>

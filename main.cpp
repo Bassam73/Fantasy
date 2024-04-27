@@ -8,6 +8,8 @@
 #include "registergui.h"
 #include "usersdata.h"
 vector<User> Admin::usersList;
+User User::currentUserData;
+
 
 int main(int argc, char *argv[])
 {
@@ -26,13 +28,7 @@ int main(int argc, char *argv[])
     UsersData data;
     data.loadData();
 
-    for(int i=0;i<Admin::usersList.size();i++){
-        qDebug()<<Admin::usersList[i].name;
-    }
-    // User uu("Bassam", "1234" , "ayhaga");
-    // User gg("Bassssssam", "ssad2w" , "ayhaga");
-    // Admin::usersList.push_back(gg);
-    // Admin::usersList.push_back(uu);
+
     RegisterGui w;
     w.show();
 

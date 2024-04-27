@@ -16,8 +16,8 @@ public:
     bool registerUser();
     bool checkUsername(string );
     bool isValidPassword(string);
-    bool checkRegisteredUser(string, string);
-
+    static bool checkRegisteredUser(string, string);
+    static User currentUserData;
 
 
 };

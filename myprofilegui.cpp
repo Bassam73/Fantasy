@@ -7,6 +7,10 @@ MyProfileGui::MyProfileGui(QWidget *parent)
     , ui(new Ui::MyProfileGui)
 {
     ui->setupUi(this);
+    ui->label_3->setText(User::currentUserData.name.data());
+    ui->label_4->setText(User::currentUserData.league.data());
+    ui->label_5->setText("99999");
+
 }
 
 

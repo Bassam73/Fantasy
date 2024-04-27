@@ -51,7 +51,9 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
+    qDebug()<<"1";
     close();
+    qDebug()<<"2";
     MyProfileGui myprofileguiDialog;
     myprofileguiDialog.exec();
 }

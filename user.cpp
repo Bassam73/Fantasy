@@ -55,7 +55,11 @@ bool User::checkRegisteredUser(string name ,string password){
     for(int i=0;i<login.usersList.size();i++){
         if(login.usersList[i].name==name&&
             login.usersList[i].password==password){
-
+            currentUserData.id=login.usersList[i].id;
+            currentUserData.name=login.usersList[i].name;
+            currentUserData.password=login.usersList[i].password;
+            currentUserData.league=login.usersList[i].league;
+            qDebug()<<currentUserData.name;
             return true;
         }
     }
