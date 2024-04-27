@@ -38,7 +38,13 @@ void RegisterGui::on_pushButton_clicked()
     else{
 
         Admin generateId;
-        int id = 9/*generateId.usersList[generateId.usersList.size()-1].id + 1*/;
+        int id;
+        if(generateId.usersList.empty()){
+            id=1;
+        }
+        else{
+            id= generateId.usersList[generateId.usersList.size()-1].id + 1;
+        }
         string username= name.toStdString();
         string userPassword= password.toStdString();
         string userLeague= league.toStdString();

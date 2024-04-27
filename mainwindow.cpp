@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "user.h"
+
+#include <LoginUI.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -26,6 +29,8 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_commandLinkButton_clicked()
 {
     close();
+    LoginUI loginPage;
+    loginPage.exec();
 }
 
 
@@ -43,7 +48,6 @@ void MainWindow::on_pushButton_3_clicked()
     StandingsGui standingsguiDialog;
     standingsguiDialog.exec();
 }
-
 
 void MainWindow::on_pushButton_4_clicked()
 {

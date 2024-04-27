@@ -2,6 +2,7 @@
 #define MYPROFILEGUI_H
 
 #include <QDialog>
+#include <User.h>
 
 namespace Ui {
 class MyProfileGui;
@@ -15,11 +16,13 @@ public:
     explicit MyProfileGui(QWidget *parent = nullptr);
     ~MyProfileGui();
 
+
 private slots:
     void on_commandLinkButton_clicked();
 
+
 private:
-    Ui::MyProfileGui *ui;
+   Ui::MyProfileGui *ui;
 };
 
 #endif // MYPROFILEGUI_H

@@ -18,6 +18,8 @@ public:
     bool isValidPassword(string);
     bool checkRegisteredUser(string, string);
 
+
+
 };
 
 

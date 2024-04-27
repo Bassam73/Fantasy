@@ -1,5 +1,6 @@
 #include "user.h"
 #include "admin.h"
+#include <MyProfileGui.h>
 #include <QString>
 #include <regex>
 
@@ -49,11 +50,12 @@ bool User::checkUsername(string username){
     return true;
 }
 bool User::checkRegisteredUser(string name ,string password){
-    Admin usersList;
+    Admin login;
 
-    for(int i=0;i<usersList.usersList.size();i++){
-        if(usersList.usersList[i].name==name&&
-            usersList.usersList[i].password==password){
+    for(int i=0;i<login.usersList.size();i++){
+        if(login.usersList[i].name==name&&
+            login.usersList[i].password==password){
+
             return true;
         }
     }
