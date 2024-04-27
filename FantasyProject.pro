@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,6 +28,7 @@ SOURCES += \
     updateplayers.cpp \
     updateteamsgui.cpp \
     user.cpp \
+    usersdata.cpp \
     utils.cpp
 
 HEADERS += \
@@ -49,6 +50,7 @@ HEADERS += \
     updateplayers.h \
     updateteamsgui.h \
     user.h \
+    usersdata.h \
     utils.h
 
 FORMS += \
