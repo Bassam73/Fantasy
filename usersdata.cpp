@@ -1,79 +1,89 @@
 #include "usersdata.h"
 #include <QString>
-
-#include <iostream>
+#include "admin.h"
+#include "user.h"
+#include <vector>
 using namespace std;
+Admin addData;
 
 
-UsersData::UsersData() {
+void UsersData::loadData(){
+    QFile file("C:/Users/besho/Fantasy/dataOfUser.json");
+    if(file.open(QIODevice::ReadOnly)){
+        QByteArray Bytes = file.readAll();
+        file.close();
+        QJsonParseError JsonError;
+        QJsonDocument Document =QJsonDocument::fromJson(Bytes, &JsonError);
 
-}
-void UsersData::dataBase(){
-    //database connection
+        if(JsonError.error != QJsonParseError::NoError){
+            qDebug() << "Error is : " << JsonError.errorString();
+            return;
+        }
+        else {
+            qDebug() << "no error";
+        }
+        if (Document.isArray()){
+            QJsonArray arr = Document.array();
 
-    // Qt_connection =QSqlDatabase::addDatabase("QSQLITE");
-    // Qt_connection.setDatabaseName(QCoreApplication::applicationDirPath()+"userData.db");
-    // if(Qt_connection.open()){
-    //     qDebug()<<"is open";
-    // }
-    // else{
-    //     qDebug()<<"is not open";
+            int id;
 
-    // }
-}
+            QJsonObject user;
+            QString userName;
+            QString password;
+            QString league;
 
-void UsersData::fetchData(){
-    Qt_connection =QSqlDatabase::addDatabase("QSQLITE");
-    Qt_connection.setDatabaseName(QCoreApplication::applicationDirPath()+"/userData.db");
-    qDebug()<<QCoreApplication::applicationDirPath();
-    Qt_connection.open();
-    if(Qt_connection.open()){
-        qDebug()<<"is open";
-    }
-    else{
-        qDebug()<<"is not open";
-
-    }
-
-    QSqlDatabase::database().transaction();
-    QSqlQuery loadData(Qt_connection);
+            string name;
+            string pass;
+            string leag;
 
 
+            for(auto i:arr){
+                user = i.toObject();
+                int id = user.value("id").toInt();
+                userName = user.value("name").toString();
+                password = user.value("password").toString();
+                league = user.value("league").toString();
 
+                name = userName.toStdString();
+                pass = password.toStdString();
+                leag = league.toStdString();
 
+                User userData(id , name, pass, leag);
 
-    loadData.prepare("INSERT INTO UsersData(id,username,passwoed,league) VALUES (:id,:username,:passwoed,:league)");
-    loadData.bindValue(":id",2);
-    loadData.bindValue(":username","coco");
-    loadData.bindValue(":passwoed","4321");
-    loadData.bindValue(":league","pl");
-    loadData.exec();
-    QSqlDatabase::database().commit();
-
-    // if(QSqlDatabase::database().commit()){
-    //     qDebug()<<"it works";
-    // }
-    // else {
-    //        qDebug()<<"nope";
-
-    // }
-
-   // loadData.prepare("SELECT username FROM UsersData");
-
-    QVariant singleValue;
-    if(loadData.exec("SELECT * FROM UsersData")){
-        while(loadData.next()){
-        qDebug()<<loadData.value(1).toString();
-            singleValue = loadData.value(1);
+                addData.usersList.push_back(userData);
+            }
         }
     }
-    else{
-        qDebug()<<loadData.lastError().text();
-    }
-   // qDebug()<<singleValue.toString();
-    QString uname = singleValue.toString();
-    uname.toStdString();
-  //  qDebug()<<uname;
-    Qt_connection.close();
-
 }
+
+void UsersData::storeData(){
+
+    QJsonArray users;
+    for(int i = 0; i < addData.usersList.size(); i++){
+
+        QJsonObject user;
+
+        int sid = addData.usersList[i].id;
+        string sname = addData.usersList[i].name;
+        string spass = addData.usersList[i].password;
+        string slea = addData.usersList[i].league;
+
+
+        user["id"] =  sid;
+        user["name"] =  sname.data();
+        user["password"] =  spass.data();
+        user["league"] =  slea.data();
+
+        users.append(user);
+
+        qDebug()<< "hello";
+    }
+
+    QJsonDocument doc(users);
+    QFile file("C:/Users/besho/Fantasy/dataOfUser.json");
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        file.write(doc.toJson(QJsonDocument::Indented));
+        file.close();
+    }
+}
+

@@ -1,12 +1,13 @@
 #include "user.h"
 #include "admin.h"
-
+#include <QString>
 #include <regex>
 
-User::User(string u , string p , string l)
+User::User(int i , string u , string p , string l)
 {
+    id = i;
     name = u ;
-    password =p ;
+    password = p;
     league = l;
 }
 User::User(){}
@@ -23,12 +24,11 @@ bool User::registerUser(){
     Admin registerAdmin;
 
     if  (nameCheck == false || passCheck==false) return false;
-    // int id = 1+ (rand() % 1000);
-    cout <<league;
-    User registeredUser(name , password , league);
-      registerAdmin.usersList.push_back(registeredUser);
+
+    User registeredUser(id ,name , password , league);
+    registerAdmin.usersList.push_back(registeredUser);
     return true;
-};
+}
 
 
 
@@ -36,7 +36,7 @@ bool User::registerUser(){
 bool User::checkUsername(string username){
     cout <<"WeARE IN CHECK USER"<<endl;
     Admin mainAdmin ;
-    cout<<mainAdmin.usersList.size()<<"Size"<<endl;
+
     if (mainAdmin.usersList.empty()) {
         return true;
     }
@@ -56,8 +56,6 @@ bool User::checkRegisteredUser(string name ,string password){
             usersList.usersList[i].password==password){
             return true;
         }
-
-
     }
     return false;
 }

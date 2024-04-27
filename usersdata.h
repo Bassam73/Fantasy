@@ -7,9 +7,9 @@ class UsersData
 public:
     UsersData();
     QSqlDatabase Qt_connection;
-    void dataBase();
-    void fetchData();
 
+    void loadData();
+    void storeData();
 };
 
 

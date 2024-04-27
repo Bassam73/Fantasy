@@ -6,6 +6,9 @@
 #include <QMessageBox>
 #include "loginui.h"
 #include"usersdata.h"
+#include "admin.h"
+
+Admin loadData;
 
 RegisterGui::RegisterGui(QWidget *parent)
     : QDialog(parent)
@@ -33,20 +36,29 @@ void RegisterGui::on_pushButton_clicked()
         QMessageBox::about(this , "Register Failed", "Please confirm the password");
     }
     else{
+
+        Admin generateId;
+        int id = 9/*generateId.usersList[generateId.usersList.size()-1].id + 1*/;
         string username= name.toStdString();
         string userPassword= password.toStdString();
         string userLeague= league.toStdString();
+        qDebug() << "here";
 
-       User * userPtr= new User(username , userPassword , userLeague);
+        User * userPtr= new User(id , username , userPassword , userLeague);
 
         bool check = userPtr->registerUser();
 
 
 
-       MainWindow* mainwindowDialog = new MainWindow();
+        MainWindow* mainwindowDialog = new MainWindow();
         if(check){
-           close();
-           mainwindowDialog->show();
+            close();
+
+            mainwindowDialog->show();
+            UsersData da;
+            da.storeData();
+
+
         }
         else {
             QMessageBox registerFailed;
@@ -56,11 +68,7 @@ void RegisterGui::on_pushButton_clicked()
 
 
         }
-
-        delete userPtr;
     }
-
-
 
 }
 
@@ -68,9 +76,6 @@ void RegisterGui::on_pushButton_clicked()
 void RegisterGui::on_pushButton_2_clicked()
 {
     close();
-    UsersData db;
-    db.dataBase();
-    db.fetchData();
     LoginUI loginPage;
     loginPage.exec();
 }

@@ -25,31 +25,31 @@ void LoginUI::on_pushButton_clicked()
     QString password = ui->passwordLogin->text();
     string username = name.toStdString();
     string userPassword = password.toStdString();
-       AdminHomeGui * a = new AdminHomeGui;
+    AdminHomeGui * a = new AdminHomeGui;
     if(username == "admin" && userPassword == "admin"){
         close();
         a->show();
     }
     else{
-    User * userLogin = new User();
+        User * userLogin = new User();
 
-    bool registerd = userLogin->checkRegisteredUser(username,userPassword);
-    MainWindow* mainwindowDialog = new MainWindow();
-    if(registerd){
-        close();
-        mainwindowDialog->show();
+        bool registerd = userLogin->checkRegisteredUser(username,userPassword);
+        MainWindow* mainwindowDialog = new MainWindow();
+        if(registerd){
+            close();
+            mainwindowDialog->show();
+        }
+        else {
+            QMessageBox notFoundUser;
+
+            notFoundUser.warning(this ,"login Failed" , "invalid Username password");
+
+
+        }
+
+
+        delete userLogin;
     }
-    else {
-        QMessageBox notFoundUser;
-
-        notFoundUser.warning(this ,"login Failed" , "invalid Username password");
-
-
-    }
-
-
-    delete userLogin;
-}
 
 
 }
