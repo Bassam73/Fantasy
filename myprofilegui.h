@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <User.h>
+#include "admin.h"
+
 
 namespace Ui {
 class MyProfileGui;
@@ -18,11 +20,13 @@ public:
 
 
 private slots:
-    void on_commandLinkButton_clicked();
 
+    void on_commandLinkButton_clicked();
+    void on_editButton_clicked(bool ok);
 
 private:
    Ui::MyProfileGui *ui;
+    Admin addData;
 };
 
 #endif // MYPROFILEGUI_H
