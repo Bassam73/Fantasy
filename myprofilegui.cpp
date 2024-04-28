@@ -42,24 +42,18 @@ void MyProfileGui::on_editButton_clicked(bool ok)
 
     QString newUsername = QInputDialog::getText(this, tr("Edit Username"), tr("New Username:"), QLineEdit::Normal, QString(), &ok);
     if (ok && !newUsername.isEmpty()) {
-        // Update the username in the JSON file and the text label
         for (User &user : addData.usersList) {
             if (user.id == User::currentUserData.id) {
                 user.name = newUsername.toStdString();
                 break;
             }
         }
-        // Update the JSON file with the modified data
-        UsersData usersData;
-        usersData.storeData();
 
-        // Update the username in the text label
         ui->label_3->setText(newUsername);
 
-        // Update the current user data
+
         User::currentUserData.name = newUsername.toStdString();
     }
 
-    // Reconnect the signal-slot connection after the slot has finished executing
     QObject::connect(ui->editButton, &QPushButton::clicked, this, &MyProfileGui::on_editButton_clicked);
 }

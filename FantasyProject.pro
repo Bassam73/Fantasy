@@ -13,7 +13,6 @@ SOURCES += \
     adminhomegui.cpp \
     controlusersgui.cpp \
     dataentrygui.cpp \
-    league.cpp \
     loginui.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -36,7 +35,6 @@ HEADERS += \
     adminhomegui.h \
     controlusersgui.h \
     dataentrygui.h \
-    league.h \
     loginui.h \
     mainwindow.h \
     match.h \
