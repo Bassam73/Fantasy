@@ -9,10 +9,13 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addteamsdatagui.cpp \
     admin.cpp \
     adminhomegui.cpp \
     controlusersgui.cpp \
     dataentrygui.cpp \
+    deleteteamsdatagui.cpp \
+    editteamsdatagui.cpp \
     loginui.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -24,6 +27,7 @@ SOURCES += \
     standingsgui.cpp \
     stats.cpp \
     team.cpp \
+    teamdata.cpp \
     updateplayers.cpp \
     updateteamsgui.cpp \
     user.cpp \
@@ -31,10 +35,13 @@ SOURCES += \
     utils.cpp
 
 HEADERS += \
+    addteamsdatagui.h \
     admin.h \
     adminhomegui.h \
     controlusersgui.h \
     dataentrygui.h \
+    deleteteamsdatagui.h \
+    editteamsdatagui.h \
     loginui.h \
     mainwindow.h \
     match.h \
@@ -45,6 +52,7 @@ HEADERS += \
     standingsgui.h \
     stats.h \
     team.h \
+    teamdata.h \
     updateplayers.h \
     updateteamsgui.h \
     user.h \
@@ -52,9 +60,12 @@ HEADERS += \
     utils.h
 
 FORMS += \
+    addteamsdatagui.ui \
     adminhomegui.ui \
     controlusersgui.ui \
     dataentrygui.ui \
+    deleteteamsdatagui.ui \
+    editteamsdatagui.ui \
     loginui.ui \
     mainwindow.ui \
     myprofilegui.ui \

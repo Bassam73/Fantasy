@@ -5,7 +5,7 @@ Admin::Admin() {}
 
 
 
-void Admin::addTeams( string name ){
+void Admin::addTeams( string name , string league ){
 
     int id ;
     if(teamsList.empty()){
@@ -15,6 +15,7 @@ void Admin::addTeams( string name ){
         id = teamsList[x-1].id +1;
     }
 
-    Team newTeam(id , name);
+    Team newTeam(id , name ,league);
     teamsList.push_back(newTeam);
 }
+

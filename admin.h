@@ -12,7 +12,7 @@ public:
     static vector<Team> teamsList;
 
     Admin();
-   void addTeams(string);
+   void addTeams(string,string);
 };
 
 

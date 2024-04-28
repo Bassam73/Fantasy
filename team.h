@@ -8,10 +8,11 @@ public:
     string name;
     int id ;
     int position;
+    string league;
     int points;
     unordered_map<int,Player> teamPlayers;
     Team();
-    Team(int , string);
+    Team(int , string,string);
 };
 
 #endif // TEAM_H

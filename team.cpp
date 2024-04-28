@@ -3,7 +3,8 @@
 Team::Team() {}
 
 
-Team::Team(int tId, string na){
+Team::Team(int tId, string na , string leg){
     id = tId ;
     name = na;
+    league = leg;
 }
