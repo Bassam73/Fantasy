@@ -17,6 +17,7 @@ public:
 
     Admin();
    bool addTeams(string,string);
+    bool deleteTeam(string , string);
 };
 
 

@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
 
 
     int returnValue = a.exec();
+    teams.storeData();
     data.storeData();
     return returnValue;
 }

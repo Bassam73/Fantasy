@@ -18,6 +18,10 @@ public:
 private slots:
     void on_commandLinkButton_clicked();
 
+    void on_teamLeague_activated(int index);
+
+    void on_pushButton_clicked();
+
 private:
     Ui::DeleteTeamsDataGui *ui;
 };

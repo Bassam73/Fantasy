@@ -65,3 +65,24 @@ bool Admin::addTeams(string name, string league) {
 }
 
 
+bool Admin::deleteTeam(string name ,string league){
+    vector<Team>::iterator it ;
+    if(league == "Premier League"){
+        for(it= plTeamsList.begin() ; it!= plTeamsList.end() ; it++ ){
+            if(name == it->name){
+                plTeamsList.erase(it);
+                return true;
+            }
+        }
+    }
+    else     if(league == "LaLiga"){
+        for(it= ligaTeamsList.begin() ; it!= ligaTeamsList.end() ; it++ ){
+            if(name == it->name){
+                ligaTeamsList.erase(it);
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
