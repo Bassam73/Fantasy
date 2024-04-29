@@ -32,7 +32,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>340</x>
      <y>50</y>
      <width>221</width>
      <height>61</height>
@@ -44,7 +44,7 @@ font-weight:bold;
 color:black;</string>
    </property>
    <property name="text">
-    <string>Update Players</string>
+    <string>Players Data</string>
    </property>
   </widget>
   <widget class="QCommandLinkButton" name="commandLinkButton">
