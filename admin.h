@@ -9,10 +9,14 @@ class Admin
 {
 public:
     static vector<User> usersList;
-    static vector<Team> teamsList;
+
+    static vector<Team> plTeamsList;
+
+    static vector<Team> ligaTeamsList;
+
 
     Admin();
-   void addTeams(string,string);
+   bool addTeams(string,string);
 };
 
 

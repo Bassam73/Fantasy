@@ -6,7 +6,7 @@
 Admin adder;
 TeamData::TeamData() {}
 void TeamData::loadData(){
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfTeams.json");
+    QFile file("C:/Users/Dell/Fantasy/dataOfTeams.json");
     if(file.open(QIODevice::ReadOnly)){
         QByteArray Bytes = file.readAll();
         file.close();
@@ -46,8 +46,11 @@ void TeamData::loadData(){
                 leag = league.toStdString();
 
                 Team teamData(id , name, leag);
+                if(leag == "LaLiga")
+                adder.ligaTeamsList.push_back(teamData);
+                else if (leag == "Premier League")
+                adder.plTeamsList.push_back(teamData);
 
-                adder.teamsList.push_back(teamData);
             }
         }
     }
@@ -56,13 +59,29 @@ void TeamData::loadData(){
 void TeamData::storeData(){
 
     QJsonArray teams;
-    for(int i = 0; i < adder.teamsList.size(); i++){
+    for(int i = 0; i < adder.ligaTeamsList.size(); i++){
 
         QJsonObject team;
 
-        int sid = adder.teamsList[i].id;
-        string sname = adder.teamsList[i].name;
-        string slea = adder.teamsList[i].league;
+        int sid = adder.ligaTeamsList[i].id;
+        string sname = adder.ligaTeamsList[i].name;
+        string slea = adder.ligaTeamsList[i].league;
+
+
+        team["id"] =  sid;
+        team["name"] =  sname.data();
+        team["league"] =  slea.data();
+
+        teams.append(team);
+
+    }
+    for(int i = 0; i < adder.plTeamsList.size(); i++){
+
+        QJsonObject team;
+
+        int sid = adder.plTeamsList[i].id;
+        string sname = adder.plTeamsList[i].name;
+        string slea = adder.plTeamsList[i].league;
 
 
         team["id"] =  sid;
@@ -74,7 +93,7 @@ void TeamData::storeData(){
     }
 
     QJsonDocument doc(teams);
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfTeams.json");
+    QFile file("C:/Users/Dell/Fantasy/dataOfTeams.json");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();

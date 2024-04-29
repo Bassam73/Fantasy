@@ -7,6 +7,8 @@
 #include "user.h"
 #include "registergui.h"
 #include "usersdata.h"
+#include "teamdata.h"
+
 vector<User> Admin::usersList;
 User User::currentUserData;
 
@@ -27,6 +29,9 @@ int main(int argc, char *argv[])
 
     UsersData data;
     data.loadData();
+
+    TeamData teams;
+    teams.loadData();
 
 
     RegisterGui w;
