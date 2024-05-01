@@ -16,5 +16,6 @@ Player::Player(int pId, int kit , int ag  , string nam ,  string nation ,string 
     position = pos;
     team = te;
     id = pId;
+    points=0;
 }
 

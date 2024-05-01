@@ -16,5 +16,50 @@
         "nationality": "egyptian",
         "position": "RW",
         "team": "Man"
+    },
+    {
+        "age": 28,
+        "id": 3,
+        "kitnumber": 33,
+        "name": "ederson",
+        "nationality": "brazil",
+        "position": "GK",
+        "team": "ManCity"
+    },
+    {
+        "age": 19,
+        "id": 5,
+        "kitnumber": 74,
+        "name": "a4f",
+        "nationality": "egypt",
+        "position": "GK",
+        "team": "v"
+    },
+    {
+        "age": 18,
+        "id": 6,
+        "kitnumber": 22,
+        "name": "Ahmed",
+        "nationality": "egypt",
+        "position": "DEF",
+        "team": "ManCity"
+    },
+    {
+        "age": 19,
+        "id": 7,
+        "kitnumber": 32,
+        "name": "ashraf",
+        "nationality": "egypt",
+        "position": "MID",
+        "team": "ManCity"
+    },
+    {
+        "age": 23,
+        "id": 8,
+        "kitnumber": 9,
+        "name": "Haaland",
+        "nationality": "norway",
+        "position": "ATT",
+        "team": "ManCity"
     }
 ]

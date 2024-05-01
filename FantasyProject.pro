@@ -10,10 +10,10 @@ CONFIG += c++17
 
 SOURCES += \
     addplayersdata.cpp \
+    addpoints.cpp \
     addteamsdatagui.cpp \
     admin.cpp \
     adminhomegui.cpp \
-    controlusersgui.cpp \
     dataentrygui.cpp \
     deleteplayersgui.cpp \
     deleteteamsdatagui.cpp \
@@ -40,10 +40,10 @@ SOURCES += \
 
 HEADERS += \
     addplayersdata.h \
+    addpoints.h \
     addteamsdatagui.h \
     admin.h \
     adminhomegui.h \
-    controlusersgui.h \
     dataentrygui.h \
     deleteplayersgui.h \
     deleteteamsdatagui.h \
@@ -69,9 +69,9 @@ HEADERS += \
 
 FORMS += \
     addplayersdata.ui \
+    addpoints.ui \
     addteamsdatagui.ui \
     adminhomegui.ui \
-    controlusersgui.ui \
     dataentrygui.ui \
     deleteplayersgui.ui \
     deleteteamsdatagui.ui \

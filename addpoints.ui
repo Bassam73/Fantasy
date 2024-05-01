@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddPlayersData</class>
- <widget class="QDialog" name="AddPlayersData">
+ <class>addpoints</class>
+ <widget class="QDialog" name="addpoints">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>859</width>
-    <height>690</height>
+    <width>843</width>
+    <height>593</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>-380</x>
-     <y>-70</y>
-     <width>1341</width>
-     <height>851</height>
+     <x>-940</x>
+     <y>-190</y>
+     <width>2201</width>
+     <height>821</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -32,25 +32,26 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>50</y>
-     <width>241</width>
-     <height>51</height>
+     <x>340</x>
+     <y>20</y>
+     <width>161</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font-size:30px;
-font-weight:bold;
-color:black;</string>
+    <string notr="true">font-weight:bold;
+font-size:30px;
+color:black;
+</string>
    </property>
    <property name="text">
-    <string>Add Players Data</string>
+    <string>Add Points</string>
    </property>
   </widget>
   <widget class="QCommandLinkButton" name="commandLinkButton">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>20</y>
      <width>81</width>
      <height>41</height>
@@ -74,11 +75,74 @@ color:black;</string>
     </size>
    </property>
   </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>100</y>
+     <width>63</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-weight:bold;
+font-size:20px;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string>GW 1</string>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="commandLinkButton_2">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>510</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Next GW</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>50</width>
+     <height>20</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>160</y>
+     <width>120</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>League</string>
+   </property>
+  </widget>
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>150</y>
+     <x>140</x>
+     <y>170</y>
      <width>151</width>
      <height>31</height>
     </rect>
@@ -94,39 +158,11 @@ color:black;</string>
     </property>
    </item>
   </widget>
-  <widget class="QComboBox" name="comboBox_2">
+  <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>220</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>140</y>
-     <width>120</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>League</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>210</y>
+     <x>20</x>
+     <y>230</y>
      <width>120</width>
      <height>41</height>
     </rect>
@@ -140,66 +176,22 @@ color:black;</string>
     <string>Team</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QComboBox" name="comboBox_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>270</y>
+     <x>140</x>
+     <y>240</y>
      <width>151</width>
-     <height>41</height>
+     <height>31</height>
     </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Position</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>540</y>
-     <width>181</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Add Player</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_6">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>330</y>
-     <width>141</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Name</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>390</y>
-     <width>141</width>
+     <x>20</x>
+     <y>290</y>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
@@ -209,16 +201,26 @@ color:black;</string>
     </font>
    </property>
    <property name="text">
-    <string>Age</string>
+    <string>Player</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_4">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>300</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
    </property>
   </widget>
   <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>460</y>
+     <x>20</x>
+     <y>350</y>
      <width>151</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -227,94 +229,51 @@ color:black;</string>
     </font>
    </property>
    <property name="text">
-    <string>Kit Number</string>
+    <string>Action</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QComboBox" name="comboBox_5">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>340</y>
-     <width>181</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>400</y>
-     <width>181</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>460</y>
-     <width>181</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>520</y>
-     <width>181</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_9">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>520</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Nationality</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_3">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>280</y>
+     <x>140</x>
+     <y>360</y>
      <width>151</width>
      <height>31</height>
     </rect>
    </property>
    <item>
     <property name="text">
-     <string>GK</string>
+     <string>Goal</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>DEF</string>
+     <string>60+ min</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>MID</string>
+     <string>Assist</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>ATT</string>
+     <string>Clean Sheet</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Yellow Card</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Red Card</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string/>
     </property>
    </item>
   </widget>

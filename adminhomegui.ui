@@ -130,7 +130,7 @@ alternate-background-color: rgb(94, 94, 94);
 color: rgb(0, 0, 0);</string>
    </property>
    <property name="text">
-    <string>Control Users</string>
+    <string>Add Points</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">

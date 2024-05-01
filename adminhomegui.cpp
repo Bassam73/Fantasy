@@ -3,7 +3,7 @@
 #include "dataentrygui.h"
 #include "updateteamsgui.h"
 #include "updateplayers.h"
-#include"controlusersgui.h"
+#include "addpoints.h"
 AdminHomeGui::AdminHomeGui(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::AdminHomeGui)
@@ -43,8 +43,8 @@ void AdminHomeGui::on_pushButton_3_clicked()
 
 void AdminHomeGui::on_pushButton_4_clicked()
 {
-    ControlUsersGui * c = new ControlUsersGui();
+    addpoints * a = new addpoints();
     close();
-    c->show();
+    a->show();
 }
 
