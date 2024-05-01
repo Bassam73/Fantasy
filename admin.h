@@ -27,6 +27,7 @@ public:
     bool deleteTeam(string , string);
     int addPlayer( string, string, string, string, int, int);
     int deletePlayer(vector<Player>&,int,int,int);
+    int updatePlayers(vector<Player>&,int,int,int,int,int,string);
     int addPoints(string ,QString);
     void nextGameWeek();
 };

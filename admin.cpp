@@ -169,6 +169,54 @@ int Admin::deletePlayer(vector<Player>& playersList,int low,int high,int PlayerI
 }
 
 
+int Admin::updatePlayers(vector<Player>& playersList,int low,int high,int PlayerID,int age,int kitNumber,string position){
+
+    if (high >= low) {
+        int mid = low + (high - low) / 2;
+
+        if (playersList[mid].id == PlayerID){
+
+             string squad = playersList[mid].team;
+
+            if(age==0||kitNumber==0||position.empty()){
+                playersList[mid].age=playersList[mid].age;
+                playersList[mid].kitNumber=playersList[mid].kitNumber;
+                playersList[mid].position=playersList[mid].position;
+
+            }
+            else{
+                playersList[mid].age=age;
+                playersList[mid].kitNumber=kitNumber;
+                playersList[mid].position=position;
+
+
+                for(auto it = teamPlayers[squad].begin(); it < teamPlayers[squad].end(); it++){
+                    if((*it).id == PlayerID){
+                        teamPlayers[squad].data()->age=age;
+                        teamPlayers[squad].data()->kitNumber=kitNumber;
+                        teamPlayers[squad].data()->position=position;
+
+                        qDebug() << teamPlayers[squad].data()->position;
+                        break;
+                    }
+                }
+            }
+
+
+
+
+            return 1;
+        }
+
+        if (playersList[mid].id > PlayerID)
+            return updatePlayers(playersList, low, mid - 1, PlayerID, age, kitNumber, position);
+
+        return updatePlayers(playersList, mid + 1, high, PlayerID, age, kitNumber, position);
+    }
+
+    return -1;
+}
+
 int Admin::addPoints(string playerName  , QString action){
     auto playerIt = std::find_if(playersList.begin(), playersList.end(),
                                  [&](const Player& player) { return player.name == playerName; });

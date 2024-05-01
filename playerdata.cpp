@@ -12,7 +12,7 @@ PlayerData::PlayerData() {}
 
 void PlayerData::loadData(){
 
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfPlayers.json");
+    QFile file("C:/Users/GEORGE/Fantasy/dataOfPlayers.json");
 
     if(file.open(QIODevice::ReadOnly)){
 
@@ -123,7 +123,7 @@ void PlayerData::storeData(){
     }
 
     QJsonDocument doc(players);
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfPlayers.json");
+    QFile file("C:/Users/GEORGE/Fantasy/dataOfPlayers.json");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();
