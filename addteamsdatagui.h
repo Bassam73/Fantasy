@@ -20,7 +20,7 @@ private slots:
 
     void on_pushButton_clicked();
 
-    void on_teamLeague_activated(int index);
+   // void on_teamLeague_activated(int index);
 
 private:
     Ui::AddTeamsDataGui *ui;

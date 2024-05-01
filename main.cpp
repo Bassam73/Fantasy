@@ -47,15 +47,15 @@ int main(int argc, char *argv[])
     w.show();
 
     qDebug() << add.teamPlayers.size();
-    for(auto i = add.teamPlayers.begin(); i != add.teamPlayers.end(); i++){
-        qDebug() << i->first << "\n";
-        // for(int j = 0; j < i->second.size(); i++){
-        //     qDebug() << i->second[i];
-        // }
-        for(auto &j:i->second){
-            qDebug() << j.name;
-        }
-    }
+    // for(auto i = add.teamPlayers.begin(); i != add.teamPlayers.end(); i++){
+    //     qDebug() << i->first << "\n";
+    //     // for(int j = 0; j < i->second.size(); i++){
+    //     //     qDebug() << i->second[i];
+    //     // }
+    //     for(auto &j:i->second){
+    //         qDebug() << j.name;
+    //     }
+    // }
 
     int returnValue = a.exec();
     teams.storeData();

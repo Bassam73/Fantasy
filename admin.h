@@ -25,8 +25,8 @@ public:
     Admin();
     bool addTeams(string,string);
     bool deleteTeam(string , string);
-
     int addPlayer( string, string, string, string, int, int);
+    int deletePlayer(vector<Player>&,int,int,int);
 };
 
 

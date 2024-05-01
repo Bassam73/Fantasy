@@ -15,7 +15,7 @@ void PlayerData::loadData(){
 
     // player.initializeMap();
 
-    QFile file("C:/Users/besho/Fantasy/dataOfPlayers.json");
+    QFile file("C:/Users/GEORGE/Fantasy/dataOfPlayers.json");
 
     if(file.open(QIODevice::ReadOnly)){
 
@@ -116,7 +116,7 @@ void PlayerData::storeData(){
     }
 
     QJsonDocument doc(players);
-    QFile file("C:/Users/besho/Fantasy/dataOfPlayers.json");
+    QFile file("C:/Users/GEORGE/Fantasy/dataOfPlayers.json");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();

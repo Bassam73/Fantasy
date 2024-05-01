@@ -1,4 +1,5 @@
 #include "admin.h"
+#include "qdebug.h"
 
 vector<Team> Admin::plTeamsList;
 vector<Team> Admin::ligaTeamsList;
@@ -122,6 +123,26 @@ int Admin::addPlayer(string name, string position, string team, string nation, i
 
     playersList.push_back(newPlayer);
     teamPlayers[team].push_back(newPlayer);
-
     return 0;
+}
+
+int Admin::deletePlayer(vector<Player>& playersList,int low,int high,int PlayerID){
+
+    if (high >= low) {
+        int mid = low + (high - low) / 2;
+
+        if (playersList[mid].id == PlayerID){
+            playersList.erase(playersList.begin() + mid );
+
+
+            return 1;
+        }
+
+        if (playersList[mid].id > PlayerID)
+            return deletePlayer(playersList, low, mid - 1, PlayerID);
+
+        return deletePlayer(playersList, mid + 1, high, PlayerID);
+    }
+
+    return -1;
 }
