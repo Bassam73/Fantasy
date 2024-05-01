@@ -7,5 +7,14 @@
         "nationality": "egyptian",
         "position": "RW",
         "team": "liverpool"
+    },
+    {
+        "age": 31,
+        "id": 2,
+        "kitnumber": 12,
+        "name": "Mo",
+        "nationality": "egyptian",
+        "position": "RW",
+        "team": "Man"
     }
 ]

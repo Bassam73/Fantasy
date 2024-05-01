@@ -132,7 +132,18 @@ int Admin::deletePlayer(vector<Player>& playersList,int low,int high,int PlayerI
         int mid = low + (high - low) / 2;
 
         if (playersList[mid].id == PlayerID){
+            string squad = playersList[mid].team;
+
             playersList.erase(playersList.begin() + mid );
+            qDebug() << mid;
+            for(auto it = teamPlayers[squad].begin(); it < teamPlayers[squad].end(); it++){
+                if((*it).id == PlayerID){
+                    teamPlayers[squad].erase(it);
+                    qDebug() << "hola";
+                    qDebug() << (*it).name;
+                    break;
+                }
+            }
 
 
             return 1;
