@@ -49,9 +49,6 @@ void MyProfileGui::on_editButton_clicked(bool ok)
                 break;
             }
         }
-        // Update the JSON file with the modified data
-        UsersData usersData;
-        usersData.storeData();
 
         // Update the username in the text label
         ui->label_3->setText(newUsername);

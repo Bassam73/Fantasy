@@ -1,10 +1,14 @@
 #ifndef ADMIN_H
 #define ADMIN_H
 #include <iostream>
+#include <unordered_map>
 #include <vector>
 #include "user.h"
 #include "team.h"
+#include "player.h"
+
 using namespace std;
+
 class Admin
 {
 public:
@@ -14,10 +18,15 @@ public:
 
     static vector<Team> ligaTeamsList;
 
+    static vector <Player> playersList;
+
+    static unordered_map<string, vector<Player>> teamPlayers;
 
     Admin();
-   bool addTeams(string,string);
+    bool addTeams(string,string);
     bool deleteTeam(string , string);
+
+    int addPlayer( string, string, string, string, int, int);
 };
 
 

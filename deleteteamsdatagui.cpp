@@ -51,15 +51,14 @@ void DeleteTeamsDataGui::on_teamLeague_activated(int index)
 
 void DeleteTeamsDataGui::on_pushButton_clicked()
 {
-     Admin x ;
-   QString name = ui->listWidget->currentItem()->text();
+    Admin x ;
+    QString name = ui->listWidget->currentItem()->text();
     QString league = ui->teamLeague->currentText();
     string nameX = name.toStdString();
     string leagueX = league.toStdString();
     bool check = x.deleteTeam(nameX , leagueX);
 
     if(check){
-
         DeleteTeamsDataGui::on_teamLeague_activated(10);
     }
 }

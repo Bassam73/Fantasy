@@ -12,9 +12,11 @@ public:
     int age;
     string position;
     int points;
-    string id;
+    int id;
+    string team;
     Player();
-    Player(int , int , string , string ,string ,string);
+    Player(string);
+    Player(int, int, int, string, string, string, string);
 
 };
 

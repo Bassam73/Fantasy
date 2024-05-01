@@ -2,6 +2,8 @@
 
 vector<Team> Admin::plTeamsList;
 vector<Team> Admin::ligaTeamsList;
+// unordered_map<string, vector<Player>> Admin::teamPlayers;
+
 
 Admin::Admin() {}
 
@@ -75,7 +77,7 @@ bool Admin::deleteTeam(string name ,string league){
             }
         }
     }
-    else     if(league == "LaLiga"){
+    else if(league == "LaLiga"){
         for(it= ligaTeamsList.begin() ; it!= ligaTeamsList.end() ; it++ ){
             if(name == it->name){
                 ligaTeamsList.erase(it);
@@ -85,4 +87,41 @@ bool Admin::deleteTeam(string name ,string league){
     }
 
     return false;
+}
+
+int Admin::addPlayer(string name, string position, string team, string nation, int age, int kitnum) {
+
+    int id;
+    Player newPlayer;
+
+    for(auto &it:teamPlayers[team]){
+        if(kitnum > 99){
+            return 1;
+        }
+        if(kitnum == it.kitNumber){
+            return 2;
+        }
+    }
+
+
+
+    if (playersList.empty()) {
+        id = 1;
+    } else {
+        int x = playersList.size();
+        id = playersList[x - 1].id + 1;
+    }
+
+    newPlayer.id = id;
+    newPlayer.age = age;
+    newPlayer.name = name;
+    newPlayer.nationality = nation;
+    newPlayer.team = team;
+    newPlayer.kitNumber = kitnum;
+    newPlayer.position = position;
+
+    playersList.push_back(newPlayer);
+    teamPlayers[team].push_back(newPlayer);
+
+    return 0;
 }

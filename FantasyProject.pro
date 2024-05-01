@@ -25,6 +25,7 @@ SOURCES += \
     myprofilegui.cpp \
     myteam.cpp \
     player.cpp \
+    playerdata.cpp \
     registergui.cpp \
     standingsgui.cpp \
     stats.cpp \
@@ -53,6 +54,7 @@ HEADERS += \
     myprofilegui.h \
     myteam.h \
     player.h \
+    playerdata.h \
     registergui.h \
     standingsgui.h \
     stats.h \

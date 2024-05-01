@@ -8,5 +8,4 @@ Team::Team(int tId, string na , string leg){
     name = na;
     league = leg;
     unordered_map<int,Player> players;
-
 }
