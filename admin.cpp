@@ -3,7 +3,17 @@
 
 vector<Team> Admin::plTeamsList;
 vector<Team> Admin::ligaTeamsList;
+int Admin::GAME_WEEK=1;
+
 // unordered_map<string, vector<Player>> Admin::teamPlayers;
+ string playerRedCarded;
+vector<string> redCardPlayers;
+ vector<string> mins60PlusPlayers;
+ vector<string> cleanCheatPlayers;
+  vector<string> yellowCardsPlayers;
+ bool mins = true;
+ bool cs = true;
+ bool redCard = true;
 
 
 Admin::Admin() {}
@@ -157,3 +167,104 @@ int Admin::deletePlayer(vector<Player>& playersList,int low,int high,int PlayerI
 
     return -1;
 }
+
+
+int Admin::addPoints(string playerName  , QString action){
+    auto playerIt = std::find_if(playersList.begin(), playersList.end(),
+                                 [&](const Player& player) { return player.name == playerName; });
+
+
+    if (playerIt != playersList.end()) {
+        // Initialize flags and variables outside the function
+
+
+        for(int i= 0 ; i < redCardPlayers.size();i++){
+            if(redCardPlayers[i]==playerIt->name){
+                return 1;
+            }
+        }
+
+        for(int i = 0 ; i< mins60PlusPlayers.size() ; i++){
+            if(mins60PlusPlayers[i]==playerIt->name && action == "60+ min"){
+                return 2;
+            }
+        }
+        for(int i = 0 ; i< cleanCheatPlayers.size() ; i++){
+            if(cleanCheatPlayers[i]==playerIt->name && action == "Clean Sheet"){
+                return 3;
+            }
+        }
+        for(int i = 0 ; i< yellowCardsPlayers.size() ; i++){
+            if(yellowCardsPlayers[i]==playerIt->name && action == "Yellow Card"){
+                playerIt->gwPoints[GAME_WEEK] -= 1;
+                action = "Red Card";
+            }
+        }
+
+
+
+        // if (redCard && playerIt->name == playerRedCarded) {
+        //     cout << "Player " << playerIt->name << " has a red card. No further actions allowed." << endl;
+        //     return;
+        // }
+        if (action == "60+ min") {
+
+            playerIt->gwPoints[GAME_WEEK] += 2;
+            mins60PlusPlayers.push_back(playerIt->name);
+        } else if (action == "Assist") {
+            playerIt->gwPoints[GAME_WEEK] += 3;
+        } else if (action == "Red Card") {
+            redCard = true;
+            playerRedCarded = playerIt->name;
+            playerIt->gwPoints[GAME_WEEK] -= 3;
+            redCardPlayers.push_back(playerRedCarded);
+        } else if (action == "Yellow Card") {
+            yellowCardsPlayers.push_back(playerIt->name);
+            playerIt->gwPoints[GAME_WEEK] -= 1;
+        } else if ((playerIt->position == "GK" || playerIt->position == "DEF") ) {
+
+            if(action == "Goal"){
+                 playerIt->gwPoints[GAME_WEEK] += 6;
+            }
+            else if (action == "Clean Sheet"){
+                 cleanCheatPlayers.push_back(playerIt->name);
+                 playerIt->gwPoints[GAME_WEEK] += 4;
+            }
+
+        }
+
+        else if ((playerIt->position == "MID") ) {
+
+            if(action == "Goal"){
+                playerIt->gwPoints[GAME_WEEK] += 5;
+            }
+            else if (action == "Clean Sheet"){
+                cleanCheatPlayers.push_back(playerIt->name);
+                playerIt->gwPoints[GAME_WEEK] += 1;
+            }
+
+        }
+
+        else if ((playerIt->position == "ATT" && action == "Goal") ) {
+                playerIt->gwPoints[GAME_WEEK] += 4;
+        }
+
+
+        }
+        cout << playerIt->name << " " << playerIt->gwPoints[GAME_WEEK]<< endl;
+        return 0;
+    }
+
+
+void Admin::nextGameWeek(){
+
+  GAME_WEEK++;
+
+    redCardPlayers.clear();
+    mins60PlusPlayers.clear();
+    cleanCheatPlayers.clear();
+    yellowCardsPlayers.clear();
+     mins = true;
+     cs = true;
+     redCard = true;
+ }

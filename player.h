@@ -1,6 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <iostream>
+#include <map>
+
 using namespace std;
 class Player
 {
@@ -12,11 +14,13 @@ public:
     int age;
     string position;
     int points;
+    map<int,int>gwPoints;
     int id;
     string team;
     Player();
     Player(string);
     Player(int, int, int, string, string, string, string);
+    Player(int, int, int, string, string, string, string,map<int,int>);
 
 };
 

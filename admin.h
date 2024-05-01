@@ -19,7 +19,7 @@ public:
     static vector<Team> ligaTeamsList;
 
     static vector <Player> playersList;
-
+    static int GAME_WEEK;
     static unordered_map<string, vector<Player>> teamPlayers;
 
     Admin();
@@ -27,6 +27,8 @@ public:
     bool deleteTeam(string , string);
     int addPlayer( string, string, string, string, int, int);
     int deletePlayer(vector<Player>&,int,int,int);
+    int addPoints(string ,QString);
+    void nextGameWeek();
 };
 
 

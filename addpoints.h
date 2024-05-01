@@ -26,6 +26,10 @@ private slots:
 
     void on_comboBox_5_activated(int index);
 
+    void on_pushButton_clicked();
+
+    void on_commandLinkButton_2_clicked();
+
 private:
     Ui::addpoints *ui;
 };

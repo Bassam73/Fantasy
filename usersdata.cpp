@@ -13,7 +13,7 @@ UsersData::UsersData()
 }
 
 void UsersData::loadData(){
-    QFile file("C:/Users/besho/Fantasy/dataOfUser.json");
+    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfUser.json");
     if(file.open(QIODevice::ReadOnly)){
         QByteArray Bytes = file.readAll();
         file.close();

@@ -12,6 +12,8 @@
 #include "teamdata.h"
 #include "playerdata.h"
 #include "player.h"
+#include "gameweeksdata.h"
+
 
 vector<User> Admin::usersList;
 User User::currentUserData;
@@ -33,6 +35,8 @@ int main(int argc, char *argv[])
             break;
         }
     }
+    GameWeeksData gw ;
+    gw.loadData();
 
     UsersData data;
     data.loadData();
@@ -42,7 +46,9 @@ int main(int argc, char *argv[])
 
     PlayerData playerData;
     playerData.loadData();
-
+    Admin x ;
+        cout << x.playersList[2].name<<endl;
+    cout << x.playersList[2].gwPoints[1]<<endl;
     RegisterGui w;
     w.show();
 
@@ -60,6 +66,7 @@ int main(int argc, char *argv[])
     int returnValue = a.exec();
     teams.storeData();
     data.storeData();
+    gw.storeData();
     playerData.storeData();
     return returnValue;
 }

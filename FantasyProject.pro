@@ -18,6 +18,7 @@ SOURCES += \
     deleteplayersgui.cpp \
     deleteteamsdatagui.cpp \
     editteamsdatagui.cpp \
+    gameweeksdata.cpp \
     loginui.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -48,6 +49,7 @@ HEADERS += \
     deleteplayersgui.h \
     deleteteamsdatagui.h \
     editteamsdatagui.h \
+    gameweeksdata.h \
     loginui.h \
     mainwindow.h \
     match.h \

@@ -6,7 +6,7 @@
 Admin adder;
 TeamData::TeamData() {}
 void TeamData::loadData(){
-    QFile file("C:/Users/Dell/Fantasy/dataOfTeams.json");
+    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfTeams.json");
     if(file.open(QIODevice::ReadOnly)){
         QByteArray Bytes = file.readAll();
         file.close();
