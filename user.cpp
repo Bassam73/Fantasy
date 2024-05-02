@@ -65,7 +65,33 @@ bool User::checkRegisteredUser(string name ,string password){
     }
     return false;
 }
+int User::forgetPassword(string username,string newPassword,string reNewPassword){
+    bool isFound=false;
+    bool passCheck;
+    int i;
+    for(i=0;i<Admin::usersList.size();i++){
+        if(Admin::usersList[i].name==username){
+            isFound=true;
+            break;
+        }
+    }
+    if(!isFound){
+        return 1;
+    }
+    else{
+        const regex passPattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+        passCheck = regex_match(newPassword, passPattern);
+        if(!passCheck){
+            return 2;
+        }
+    }
+    if(reNewPassword!=newPassword){
+        return 3;
+    }
+    Admin::usersList[i].password=newPassword;
+    return 4;
 
+}
 
 
 

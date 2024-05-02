@@ -18,6 +18,7 @@ public:
     bool isValidPassword(string);
     static bool checkRegisteredUser(string, string);
     static User currentUserData;
+    int forgetPassword (string,string,string);
 
 
 };

@@ -4,6 +4,7 @@
 #include "myteam.h"
 #include "user.h"
 #include <QMessageBox>
+#include <forgetPasswordgui.h>
 #include "mainwindow.h"
 #include "adminhomegui.h"
 
@@ -52,4 +53,11 @@ void LoginUI::on_pushButton_clicked()
     }
 
 
+}
+
+void LoginUI::on_commandLinkButton_clicked()
+{
+    close();
+    forgetPasswordgui* foretPassowrdWidget=new forgetPasswordgui;
+    foretPassowrdWidget->show();
 }

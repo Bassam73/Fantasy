@@ -142,6 +142,25 @@
     </property>
    </widget>
   </widget>
+  <widget class="QCommandLinkButton" name="commandLinkButton">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>520</y>
+     <width>331</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Can't Remember Your Password</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

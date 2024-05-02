@@ -22,6 +22,8 @@ private slots:
     void on_pushButton_clicked();
 
 
+    void on_commandLinkButton_clicked();
+
 private:
     Ui::LoginUI *ui;
 };

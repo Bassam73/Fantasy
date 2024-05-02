@@ -18,6 +18,7 @@ SOURCES += \
     deleteplayersgui.cpp \
     deleteteamsdatagui.cpp \
     editteamsdatagui.cpp \
+    forgetpasswordgui.cpp \
     gameweeksdata.cpp \
     loginui.cpp \
     main.cpp \
@@ -49,6 +50,7 @@ HEADERS += \
     deleteplayersgui.h \
     deleteteamsdatagui.h \
     editteamsdatagui.h \
+    forgetpasswordgui.h \
     gameweeksdata.h \
     loginui.h \
     mainwindow.h \
@@ -78,6 +80,7 @@ FORMS += \
     deleteplayersgui.ui \
     deleteteamsdatagui.ui \
     editteamsdatagui.ui \
+    forgetpasswordgui.ui \
     loginui.ui \
     mainwindow.ui \
     myprofilegui.ui \

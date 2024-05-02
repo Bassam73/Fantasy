@@ -44,7 +44,6 @@ void TeamData::loadData(){
                 name = teamName.toStdString();
 
                 leag = league.toStdString();
-
                 Team teamData(id , name, leag);
                 if(leag == "LaLiga")
                 adder.ligaTeamsList.push_back(teamData);
