@@ -14,7 +14,7 @@ PlayerData::PlayerData() {}
 
 void PlayerData::loadData(){
 
-    QFile file("C:/Users/Dell/Fantasy/Plplayers.json");
+    QFile file("C:/Users/GEORGE/Fantasy/Plplayers.json");
 
     if(file.open(QIODevice::ReadOnly)){
 
@@ -61,6 +61,7 @@ void PlayerData::loadData(){
                 id = play.value("id").toInt();
                 kit = play.value("kitnumber").toInt();
                 age = play.value("age").toInt();
+                co=play.value("cost").toDouble();
 
                 for (int i = 1; i < 19; ++i) {
                     std::string week = "GameWeek" + std::to_string(i);
@@ -71,13 +72,11 @@ void PlayerData::loadData(){
                 playerName = play.value("name").toString();
                 position = play.value("position").toString();
                 team = play.value("team").toString();
-                cost = play.value("cost").toString();
 
 
                 name = playerName.toStdString();
                 pos = position.toStdString();
                 te = team.toStdString();
-                co = cost.toFloat();
 
                 Player player1(id , kit, age, name, pos, te,gw,co);
 
@@ -134,7 +133,7 @@ void PlayerData::storeData() {
     }
 
     QJsonDocument doc(players);
-    QFile file("C:/Users/Dell/Fantasy/Plplayers.json");
+    QFile file("C:/Users/GEORGE/Fantasy/Plplayers.json");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();
