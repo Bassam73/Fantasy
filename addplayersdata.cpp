@@ -51,14 +51,16 @@ void AddPlayersData::on_pushButton_clicked()
 
     QString team = ui->comboBox_2->currentText();
     QString position = ui->comboBox_3->currentText();
-    QString nation = ui->lineEdit_5->text();
     QString name = ui->lineEdit_2->text();
     QString age = ui->lineEdit_3->text();
     QString kitnum = ui->lineEdit_4->text();
+    QString cost = ui->lineEdit_5->text();
+    // float playerCost = sCost.toFloat();
+
 
     if(team.isEmpty() ||
         position.isEmpty() ||
-        nation.isEmpty() ||
+        cost.isEmpty() ||
         name.isEmpty()||
         age.isEmpty()||
         kitnum.isEmpty()){
@@ -70,9 +72,10 @@ void AddPlayersData::on_pushButton_clicked()
         int code = adPlayers.addPlayer(name.toStdString(),
                                        position.toStdString(),
                                        team.toStdString(),
-                                       nation.toStdString(),
                                        age.toInt(),
-                                       kitnum.toInt());
+                                       kitnum.toInt(),
+                                       cost.toFloat()
+                                       );
 
         if(code == 1){
             incorrectPlayerData.warning(this, "Add Data Failed", "The Kit Number must be less than 100.");

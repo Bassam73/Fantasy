@@ -1,2 +1,52 @@
 [
+    {
+        "id": 1,
+        "league": "Premier League",
+        "name": "Liverpool"
+    },
+    {
+        "id": 2,
+        "league": "Premier League",
+        "name": "Man City"
+    },
+    {
+        "id": 3,
+        "league": "Premier League",
+        "name": "Aston Villa"
+    },
+    {
+        "id": 4,
+        "league": "Premier League",
+        "name": "Newcastle"
+    },
+    {
+        "id": 5,
+        "league": "Premier League",
+        "name": "Spurs"
+    },
+    {
+        "id": 6,
+        "league": "Premier League",
+        "name": "Arsenal"
+    },
+    {
+        "id": 7,
+        "league": "Premier League",
+        "name": "Chelsea"
+    },
+    {
+        "id": 8,
+        "league": "Premier League",
+        "name": "Man Utd"
+    },
+    {
+        "id": 9,
+        "league": "Premier League",
+        "name": "Everton"
+    },
+    {
+        "id": 10,
+        "league": "Premier League",
+        "name": "Bournemouth"
+    }
 ]

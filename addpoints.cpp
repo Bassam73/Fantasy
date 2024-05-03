@@ -68,7 +68,6 @@ void addpoints::on_comboBox_4_activated(int index)
 {
 
 }
-// Declare redCardPlayerName outside the function (at the class level)
 void addpoints::on_comboBox_5_activated(int index) {
 
 
@@ -96,7 +95,7 @@ void addpoints::on_pushButton_clicked()
         QMessageBox::warning(this , "Action Failed", "Points Of Clean Cheat Have Already been Added For This Player");
         break;
     default:
-         QMessageBox::about(this , "Action Succeed", "Done💚😘");
+         QMessageBox::about(this , "Action Succeed", "Done");
         break;
     }
 }

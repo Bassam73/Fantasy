@@ -4,7 +4,9 @@
 #include "player.h"
 #include <vector>
 #include <map>
-
+#include <unordered_map>
+#include <unordered_set>
+#include "string"
 using namespace std;
 Admin adplayer;
 
@@ -12,7 +14,7 @@ PlayerData::PlayerData() {}
 
 void PlayerData::loadData(){
 
-    QFile file("C:/Users/GEORGE/Fantasy/dataOfPlayers.json");
+    QFile file("C:/Users/Dell/Fantasy/Plplayers.json");
 
     if(file.open(QIODevice::ReadOnly)){
 
@@ -40,13 +42,13 @@ void PlayerData::loadData(){
 
             QString playerName;
             QString position;
-            QString nationality;
             QString team;
+            QString cost;
 
             string name;
             string pos;
-            string nation;
             string te;
+            float co;
             map <int  , int> gw;
 
             qDebug() << arr.size();
@@ -61,22 +63,23 @@ void PlayerData::loadData(){
                 age = play.value("age").toInt();
 
                 for (int i = 1; i < 19; ++i) {
-                    std::string week = "Game Week " + std::to_string(i);
+                    std::string week = "GameWeek" + std::to_string(i);
                     gw[i] = play.value(QString::fromStdString(week)).toInt();
                     cout<<gw[i];
                 }
 
                 playerName = play.value("name").toString();
                 position = play.value("position").toString();
-                nationality = play.value("nationality").toString();
                 team = play.value("team").toString();
+                cost = play.value("cost").toString();
+
 
                 name = playerName.toStdString();
                 pos = position.toStdString();
-                nation = nationality.toStdString();
                 te = team.toStdString();
+                co = cost.toFloat();
 
-                Player player1(id , kit, age, name, nation, pos, te, gw);
+                Player player1(id , kit, age, name, pos, te,gw,co);
 
                 adplayer.teamPlayers[te].push_back(player1);
 
@@ -88,47 +91,57 @@ void PlayerData::loadData(){
 
 }
 
-void PlayerData::storeData(){
-
+void PlayerData::storeData() {
     QJsonArray players;
-    for(int i = 0; i < adplayer.playersList.size(); i++){
+    unordered_map<string, unordered_set<int>> teamKitNumbers;
 
+    for (int i = 0; i < adplayer.playersList.size(); i++) {
         QJsonObject player;
 
         int pId = adplayer.playersList[i].id;
+        // int kitNum = adplayer.playersList[i].kitNumber;
         int pAge = adplayer.playersList[i].age;
-        int kitNum = adplayer.playersList[i].kitNumber;
-        int points =adplayer.playersList[i].points;
+        int points = adplayer.playersList[i].points;
+        float cost = adplayer.playersList[i].cost;
         string pName = adplayer.playersList[i].name;
-        string pNation = adplayer.playersList[i].nationality;
         string pTeam = adplayer.playersList[i].team;
         string pPosition = adplayer.playersList[i].position;
 
-        player["id"] =  pId;
-        player["age"] =  pAge;
-        player["kitnumber"] =  kitNum;
+        int kitNum;
+        if (teamKitNumbers.find(pTeam) == teamKitNumbers.end()) {
+            teamKitNumbers[pTeam] = {};
+        }
+        do {
+            kitNum = std::rand() % 100 + 1;
+        } while (teamKitNumbers[pTeam].count(kitNum) > 0);
+        teamKitNumbers[pTeam].insert(kitNum);
+
+        player["id"] = pId;
+        player["age"] = pAge;
+        player["kitnumber"] = kitNum;
         player["points"] = points;
-        player["name"] =  pName.data();
+        player["cost"] = cost;
+        player["name"] = QString::fromStdString(pName);
         for (int j = 1; j < 19; j++) {
-            QString weekKey = "Game Week " + QString::fromStdString(std::to_string(j));
-            player[QStringView(weekKey)] = adplayer.playersList[i].gwPoints[j];
+            QString weekKey = "GameWeek" + QString::number(j);
+            player[weekKey] = adplayer.playersList[i].gwPoints[j];
         }
 
-        player["position"] =  pPosition.data();
-        player["team"] =  pTeam.data();
-        player["nationality"] = pNation.data();
+        player["position"] = QString::fromStdString(pPosition);
+        player["team"] = QString::fromStdString(pTeam);
 
         players.append(player);
-
     }
 
     QJsonDocument doc(players);
-    QFile file("C:/Users/GEORGE/Fantasy/dataOfPlayers.json");
+    QFile file("C:/Users/Dell/Fantasy/Plplayers.json");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();
     }
 }
+
+
 
 
 

@@ -10,17 +10,17 @@ public:
 
     string name;
     int kitNumber;
-    string nationality;
     int age;
     string position;
     int points;
     map<int,int>gwPoints;
     int id;
+    float cost;
     string team;
     Player();
     Player(string);
-    Player(int, int, int, string, string, string, string);
-    Player(int, int, int, string, string, string, string,map<int,int>);
+    Player(int, int, int,  string, string, string ,float);
+    Player(int, int, int, string, string, string,map<int,int> , float);
 
 };
 

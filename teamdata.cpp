@@ -6,7 +6,7 @@
 Admin adder;
 TeamData::TeamData() {}
 void TeamData::loadData(){
-    QFile file("C:/Users/GEORGE/Fantasy/Fantasy/dataOfTeams.json");
+    QFile file("C:/Users/Dell/Fantasy/dataOfTeams.json");
     if(file.open(QIODevice::ReadOnly)){
         QByteArray Bytes = file.readAll();
         file.close();
@@ -92,7 +92,7 @@ void TeamData::storeData(){
     }
 
     QJsonDocument doc(teams);
-    QFile file("C:/Users/GEORGE/Fantasy/dataOfTeams.json");
+    QFile file("C:/Users/Dell/Fantasy/dataOfTeams.json");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();

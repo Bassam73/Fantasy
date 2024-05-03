@@ -6,14 +6,16 @@ vector<Team> Admin::ligaTeamsList;
 int Admin::GAME_WEEK=1;
 
 // unordered_map<string, vector<Player>> Admin::teamPlayers;
- string playerRedCarded;
+
+string playerRedCarded;
 vector<string> redCardPlayers;
- vector<string> mins60PlusPlayers;
- vector<string> cleanCheatPlayers;
-  vector<string> yellowCardsPlayers;
- bool mins = true;
- bool cs = true;
- bool redCard = true;
+vector<string> mins60PlusPlayers;
+vector<string> cleanCheatPlayers;
+vector<string> yellowCardsPlayers;
+
+bool mins = true;
+bool cs = true;
+bool redCard = true;
 
 
 Admin::Admin() {}
@@ -100,7 +102,7 @@ bool Admin::deleteTeam(string name ,string league){
     return false;
 }
 
-int Admin::addPlayer(string name, string position, string team, string nation, int age, int kitnum) {
+int Admin::addPlayer(string name, string position, string team, int age, int kitnum , float playerCost) {
 
     int id;
     Player newPlayer;
@@ -126,10 +128,11 @@ int Admin::addPlayer(string name, string position, string team, string nation, i
     newPlayer.id = id;
     newPlayer.age = age;
     newPlayer.name = name;
-    newPlayer.nationality = nation;
     newPlayer.team = team;
     newPlayer.kitNumber = kitnum;
     newPlayer.position = position;
+    newPlayer.cost = playerCost;
+    newPlayer.points= 0;
 
     playersList.push_back(newPlayer);
     teamPlayers[team].push_back(newPlayer);
@@ -223,7 +226,6 @@ int Admin::addPoints(string playerName  , QString action){
 
 
     if (playerIt != playersList.end()) {
-        // Initialize flags and variables outside the function
 
 
         for(int i= 0 ; i < redCardPlayers.size();i++){
