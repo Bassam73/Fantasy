@@ -107,14 +107,14 @@ int Admin::addPlayer(string name, string position, string team, int age, int kit
     int id;
     Player newPlayer;
 
-    for(auto &it:teamPlayers[team]){
-        if(kitnum > 99){
-            return 1;
-        }
-        if(kitnum == it.kitNumber){
-            return 2;
-        }
-    }
+    // for(auto &it:teamPlayers[team]){
+    //     if(kitnum > 99){
+    //         return 0;
+    //     }
+    //     if(kitnum == it.kitNumber){
+    //         return 0;
+    //     }
+    // }
 
 
 

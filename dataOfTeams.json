@@ -1,5 +1,55 @@
 [
     {
+        "id": 11,
+        "league": "LaLiga",
+        "name": "Real Madrid"
+    },
+    {
+        "id": 12,
+        "league": "LaLiga",
+        "name": "Barcelona"
+    },
+    {
+        "id": 13,
+        "league": "LaLiga",
+        "name": "Girona"
+    },
+    {
+        "id": 14,
+        "league": "LaLiga",
+        "name": "Atlético Madrid"
+    },
+    {
+        "id": 15,
+        "league": "LaLiga",
+        "name": "Athletic Club"
+    },
+    {
+        "id": 16,
+        "league": "LaLiga",
+        "name": "Real Sociedad"
+    },
+    {
+        "id": 17,
+        "league": "LaLiga",
+        "name": "Real Betis"
+    },
+    {
+        "id": 18,
+        "league": "LaLiga",
+        "name": "Valencia"
+    },
+    {
+        "id": 19,
+        "league": "LaLiga",
+        "name": "Sevilla"
+    },
+    {
+        "id": 20,
+        "league": "LaLiga",
+        "name": "Villarreal"
+    },
+    {
         "id": 1,
         "league": "Premier League",
         "name": "Liverpool"

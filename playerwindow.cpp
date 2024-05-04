@@ -40,7 +40,7 @@ PlayerWindow::~PlayerWindow()
 }
 void PlayerWindow::loadPlayersFromJson() {
     ui->listWidget->clear();
-    QFile file("D:/Fantasy/Plplayers.json");
+    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/PLplayers.json");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Failed to open JSON file";
         return;
@@ -83,7 +83,7 @@ void PlayerWindow::loadPlayersFromJson() {
 void PlayerWindow::filterPlayersByTeam(const QString &teamName) {
     ui->listWidget->clear();
 
-    QFile file("D:/New folder/Fantasy1/Plplayers.json");
+    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/PLplayers.json");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         qDebug() << "Failed to open JSON file";
         return;
