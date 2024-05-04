@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <iostream>
+#include "player.h"
 using namespace std;
 class User
 {
@@ -13,14 +14,19 @@ public:
     string league;
     User(int , string , string , string );
     User();
+
+    static map <int, vector<int>> userPlayers;
+    static bool checkRegisteredUser(string, string);
+    static User currentUserData;
+    static int currentUserId;
+
     bool registerUser();
     bool checkUsername(string );
     bool isValidPassword(string);
-    static bool checkRegisteredUser(string, string);
-    static User currentUserData;
+
     int forgetPassword (string,string,string);
 
-
+    int getPlayerData(int id, float &cost, string &team, string &position, string &name, int high, int low, vector<Player> &playersList);
 };
 
 

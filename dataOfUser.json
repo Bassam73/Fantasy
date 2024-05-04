@@ -1,68 +1,14 @@
 [
     {
         "id": 0,
-        "league": "premier",
-        "name": "Mina",
-        "password": "156151"
+        "league": "",
+        "name": "",
+        "password": ""
     },
     {
-        "id": 1,
-        "league": "Premier League",
-        "name": "George",
-        "password": "George@1598"
-    },
-    {
-        "id": 2,
-        "league": "Premier League",
-        "name": "Fady",
-        "password": "George@1598"
-    },
-    {
-        "id": 3,
-        "league": "Premier League",
-        "name": "Kerolos",
-        "password": "George@1598"
-    },
-    {
-        "id": 4,
-        "league": "Premier League",
-        "name": "Mosalah",
-        "password": "George@1598"
-    },
-    {
-        "id": 5,
-        "league": "Premier League",
-        "name": "Messi",
-        "password": "George@1598"
-    },
-    {
-        "id": 6,
-        "league": "Premier League",
-        "name": "Thomas",
-        "password": "Thomas@159"
-    },
-    {
-        "id": 7,
-        "league": "LaLiga",
-        "name": "Volcode",
-        "password": "George@15"
-    },
-    {
-        "id": 8,
-        "league": "Premier League",
-        "name": "Baramoda",
-        "password": "George@1598"
-    },
-    {
-        "id": 9,
-        "league": "Premier League",
-        "name": "Roamdy",
-        "password": "George@1598"
-    },
-    {
-        "id": 10,
-        "league": "Premier League",
-        "name": "sameh",
-        "password": "Ahmed@12543"
+        "id": 0,
+        "league": "",
+        "name": "",
+        "password": ""
     }
 ]

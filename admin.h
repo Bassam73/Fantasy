@@ -2,6 +2,7 @@
 #define ADMIN_H
 #include <iostream>
 #include <unordered_map>
+#include <map>
 #include <vector>
 #include "user.h"
 #include "team.h"
@@ -19,7 +20,11 @@ public:
     static vector<Team> ligaTeamsList;
 
     static vector <Player> playersList;
+
+
+
     static int GAME_WEEK;
+
     static unordered_map<string, vector<Player>> teamPlayers;
 
     Admin();

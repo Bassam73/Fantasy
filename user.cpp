@@ -28,6 +28,8 @@ bool User::registerUser(){
 
     User registeredUser(id ,name , password , league);
     registerAdmin.usersList.push_back(registeredUser);
+    currentUserData = registeredUser;
+    qDebug() << currentUserData.name;
     return true;
 }
 
@@ -93,7 +95,24 @@ int User::forgetPassword(string username,string newPassword,string reNewPassword
 
 }
 
+int User::getPlayerData(int id, float &cost, string &team, string &position, string &name, int high, int low, vector<Player>& playersList){
 
+    if (high >= low) {
+        int mid = low + (high - low) / 2;
+
+        if (playersList[mid].id == id){
+            // code
+
+
+        }
+
+        if (playersList[mid].id > id)
+            return getPlayerData(id, cost, team, position, name,low, mid - 1, playersList);
+
+        return getPlayerData(id, cost, team, position, name, mid + 1, high, playersList);
+    }
+
+}
 
 
 

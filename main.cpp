@@ -4,7 +4,9 @@
 #include <QLocale>
 #include <QTranslator>
 #include <vector>
+#include <map>
 #include <unordered_map>
+#include "player.h"
 #include "admin.h"
 #include "user.h"
 #include "registergui.h"
@@ -13,14 +15,17 @@
 #include "playerdata.h"
 #include "player.h"
 #include "gameweeksdata.h"
-
+#include "userdataingame.h"
+#include "user.h"
 
 vector<User> Admin::usersList;
 User User::currentUserData;
 unordered_map<string, vector<Player>> Admin::teamPlayers;
 vector<Player> Admin::playersList;
+map <int, vector<int>> User::userPlayers;
 
 Admin add;
+User use;
 
 int main(int argc, char *argv[])
 {
@@ -46,27 +51,27 @@ int main(int argc, char *argv[])
 
     PlayerData playerData;
     playerData.loadData();
-    Admin x ;
-        cout << x.playersList[2].name<<endl;
-    cout << x.playersList[2].gwPoints[1]<<endl;
+
+    userDataInGame gameData;
+    gameData.loadData();
+
+
+    User::userPlayers[5].push_back(7);
+
+    for(auto i = User::userPlayers.begin(); i != User::userPlayers.end(); i++){
+        qDebug() << i->first;
+        for(auto j:i->second){
+            qDebug() << j;
+        }
+    }
     RegisterGui w;
     w.show();
-
-    qDebug() << add.teamPlayers.size();
-    // for(auto i = add.teamPlayers.begin(); i != add.teamPlayers.end(); i++){
-    //     qDebug() << i->first << "\n";
-    //     // for(int j = 0; j < i->second.size(); i++){
-    //     //     qDebug() << i->second[i];
-    //     // }
-    //     for(auto &j:i->second){
-    //         qDebug() << j.name;
-    //     }
-    // }
 
     int returnValue = a.exec();
     teams.storeData();
     data.storeData();
     gw.storeData();
     playerData.storeData();
+    gameData.storeData();
     return returnValue;
 }

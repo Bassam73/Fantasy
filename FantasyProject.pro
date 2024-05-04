@@ -37,6 +37,7 @@ SOURCES += \
     updateplayersgui.cpp \
     updateteamsgui.cpp \
     user.cpp \
+    userdataingame.cpp \
     usersdata.cpp \
     utils.cpp
 
@@ -68,6 +69,7 @@ HEADERS += \
     updateplayersgui.h \
     updateteamsgui.h \
     user.h \
+    userdataingame.h \
     usersdata.h \
     utils.h
 
