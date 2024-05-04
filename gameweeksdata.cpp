@@ -7,7 +7,7 @@ Admin admin;
 GameWeeksData::GameWeeksData() {}
 
 void GameWeeksData::loadData(){
-    QFile file("C:/Users/besho/Fantasy/dataOfGameWeeks.json");
+    QFile file("D:/New folder/Fantasy1/dataOfGameWeeks.json");
     if(file.open(QIODevice::ReadOnly)){
         QByteArray Bytes = file.readAll();
         file.close();
@@ -42,7 +42,7 @@ void GameWeeksData::storeData(){
 
 
     QJsonDocument doc(GWDATA);
-    QFile file("C:/Users/besho/Fantasy/dataOfGameWeeks.json");
+    QFile file("D:/New folder/Fantasy1/dataOfGameWeeks.json");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();

@@ -13,7 +13,7 @@ UsersData::UsersData()
 }
 
 void UsersData::loadData(){
-    QFile file("C:/Users/besho/Fantasy/dataOfUser.json");
+    QFile file("D:/New folder/Fantasy1/dataOfUser.json");
     if(file.open(QIODevice::ReadOnly)){
         QByteArray Bytes = file.readAll();
         file.close();
@@ -84,7 +84,7 @@ void UsersData::storeData(){
     }
 
     QJsonDocument doc(users);
-    QFile file("C:/Users/besho/Fantasy/dataOfUser.json");
+    QFile file("D:/New folder/Fantasy1/dataOfUser.json");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();

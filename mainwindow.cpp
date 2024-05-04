@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "user.h"
-
+#include"transfergui.h"
 #include <LoginUI.h>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -56,5 +56,13 @@ void MainWindow::on_pushButton_4_clicked()
     qDebug()<<"2";
     MyProfileGui myprofileguiDialog;
     myprofileguiDialog.exec();
+}
+
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    close();
+    TransferGui transferguiDialog;
+    transferguiDialog.exec();
 }
 

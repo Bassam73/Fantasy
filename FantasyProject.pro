@@ -28,11 +28,13 @@ SOURCES += \
     myteam.cpp \
     player.cpp \
     playerdata.cpp \
+    playerwindow.cpp \
     registergui.cpp \
     standingsgui.cpp \
     stats.cpp \
     team.cpp \
     teamdata.cpp \
+    transfergui.cpp \
     updateplayers.cpp \
     updateplayersgui.cpp \
     updateteamsgui.cpp \
@@ -60,11 +62,13 @@ HEADERS += \
     myteam.h \
     player.h \
     playerdata.h \
+    playerwindow.h \
     registergui.h \
     standingsgui.h \
     stats.h \
     team.h \
     teamdata.h \
+    transfergui.h \
     updateplayers.h \
     updateplayersgui.h \
     updateteamsgui.h \
@@ -87,9 +91,11 @@ FORMS += \
     mainwindow.ui \
     myprofilegui.ui \
     myteam.ui \
+    playerwindow.ui \
     registergui.ui \
     standingsgui.ui \
     stats.ui \
+    transfergui.ui \
     updateplayers.ui \
     updateplayersgui.ui \
     updateteamsgui.ui
