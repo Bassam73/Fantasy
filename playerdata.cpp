@@ -65,7 +65,7 @@ void PlayerData::loadData(){
                 for (int i = 1; i < 19; ++i) {
                     std::string week = "GameWeek" + std::to_string(i);
                     gw[i] = play.value(QString::fromStdString(week)).toInt();
-                    cout<<gw[i];
+                    // cout<<gw[i];
                 }
 
                 playerName = play.value("name").toString();

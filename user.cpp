@@ -38,7 +38,7 @@ bool User::registerUser(){
 
 
 bool User::checkUsername(string username){
-    cout <<"WeARE IN CHECK USER"<<endl;
+    cout <<"We ARE IN CHECK USER"<<endl;
     Admin mainAdmin ;
 
     if (mainAdmin.usersList.empty()) {
@@ -153,7 +153,9 @@ QStringList User::getPlayers(){
             QString playerName=  QString::fromStdString(player.name);
             double playerCost=  player.cost;
             QString playerTeam=  QString::fromStdString(player.team);
-            QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+            double playerPoints=  player.points;
+            QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + " Points : " + QString::number(playerPoints, 'f', 0)+ ")";
+
             teams<<playerInfo;
         }
 
@@ -174,7 +176,9 @@ QStringList User::getPlayers(){
                 QString playerName=  QString::fromStdString(player.name);
                 double playerCost=  player.cost;
                 QString playerTeam=  QString::fromStdString(player.team);
-                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+                double playerPoints=  player.points;
+                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + " Points : " + QString::number(playerPoints, 'f', 0)+ ")";
+
                 teams<<playerInfo;
             }
 
@@ -200,7 +204,10 @@ QStringList User::filterPlayersByTeam(QString teamName){
                 QString playerName=  QString::fromStdString(player.name);
                 double playerCost=  player.cost;
                 QString playerTeam=  QString::fromStdString(player.team);
-                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+
+                double playerPoints=  player.points;
+                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + " Points : " + QString::number(playerPoints, 'f', 0)+ ")";
+
                 teams<<playerInfo;
             }
 
@@ -221,7 +228,9 @@ QStringList User::filterPlayersByTeam(QString teamName){
                 QString playerName=  QString::fromStdString(player.name);
                 double playerCost=  player.cost;
                 QString playerTeam=  QString::fromStdString(player.team);
-                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+                double playerPoints=  player.points;
+                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + " Points : " + QString::number(playerPoints, 'f', 0)+ ")";
+
                 teams<<playerInfo;
             }
 
@@ -253,7 +262,8 @@ QStringList User::filterPlayersByCost(QString costFilter,QString selectedTeam){
                 QString playerName=  QString::fromStdString(player.name);
                 double playerCost=  player.cost;
                 QString playerTeam=  QString::fromStdString(player.team);
-                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+                double playerPoints=  player.points;
+                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + " Points : " + QString::number(playerPoints, 'f', 0)+ ")";
                 teams<<playerInfo;
             }
 
@@ -274,7 +284,8 @@ QStringList User::filterPlayersByCost(QString costFilter,QString selectedTeam){
                 QString playerName=  QString::fromStdString(player.name);
                 double playerCost=  player.cost;
                 QString playerTeam=  QString::fromStdString(player.team);
-                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+                double playerPoints = player.points;
+                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + " Points : " + QString::number(playerPoints, 'f', 0)+ ")";
                 teams<<playerInfo;
             }
 

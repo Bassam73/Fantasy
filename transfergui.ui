@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>-770</x>
-     <y>-40</y>
+     <x>-850</x>
+     <y>0</y>
      <width>1921</width>
      <height>911</height>
     </rect>
@@ -69,9 +69,9 @@ color:black;</string>
   <widget class="QLabel" name="updateLabel">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>340</x>
      <y>160</y>
-     <width>231</width>
+     <width>241</width>
      <height>21</height>
     </rect>
    </property>
@@ -171,8 +171,8 @@ color:black;</string>
     <rect>
      <x>260</x>
      <y>280</y>
-     <width>151</width>
-     <height>21</height>
+     <width>181</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -189,7 +189,7 @@ color:black;</string>
     <rect>
      <x>30</x>
      <y>280</y>
-     <width>161</width>
+     <width>181</width>
      <height>21</height>
     </rect>
    </property>
@@ -207,7 +207,7 @@ color:black;</string>
     <rect>
      <x>490</x>
      <y>280</y>
-     <width>161</width>
+     <width>181</width>
      <height>21</height>
     </rect>
    </property>
@@ -282,8 +282,8 @@ color:black;</string>
     <rect>
      <x>100</x>
      <y>400</y>
-     <width>181</width>
-     <height>21</height>
+     <width>211</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -300,8 +300,8 @@ color:black;</string>
     <rect>
      <x>330</x>
      <y>400</y>
-     <width>201</width>
-     <height>21</height>
+     <width>231</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -318,8 +318,8 @@ color:black;</string>
     <rect>
      <x>590</x>
      <y>400</y>
-     <width>221</width>
-     <height>21</height>
+     <width>231</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -375,8 +375,8 @@ color:black;</string>
     <rect>
      <x>90</x>
      <y>530</y>
-     <width>191</width>
-     <height>21</height>
+     <width>201</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -393,8 +393,8 @@ color:black;</string>
     <rect>
      <x>350</x>
      <y>530</y>
-     <width>171</width>
-     <height>21</height>
+     <width>181</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -411,8 +411,8 @@ color:black;</string>
     <rect>
      <x>610</x>
      <y>530</y>
-     <width>191</width>
-     <height>21</height>
+     <width>201</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -424,30 +424,51 @@ color:black;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_12">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>670</y>
-     <width>83</width>
-     <height>29</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>SAVE</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
      <x>710</x>
-     <y>30</y>
-     <width>131</width>
+     <y>0</y>
+     <width>141</width>
      <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:25px;
+font-weight:bold;
+color:black;</string>
+   </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>Bank</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>60</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>money in bank</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_12">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>610</y>
+     <width>83</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>SAVE</string>
    </property>
   </widget>
  </widget>

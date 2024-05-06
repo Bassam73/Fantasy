@@ -16,6 +16,8 @@ public:
     explicit PlayerWindow(QWidget *parent = nullptr);
     ~PlayerWindow();
     static std::string currentPosition;
+    static int playersCounter;
+
 
 signals:
     void playerSelected(const QString &playerName);

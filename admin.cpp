@@ -12,11 +12,11 @@ vector<string> redCardPlayers;
 vector<string> mins60PlusPlayers;
 vector<string> cleanCheatPlayers;
 vector<string> yellowCardsPlayers;
-string Admin::playersDataPath = "D:/Fantasy/dataOfPlayers.json";
-string Admin::teamsDataPath = "D:/Fantasy/dataOfTeams.json";
-string Admin::usersDataPath = "D:/Fantasy/dataOfUser.json";
-string Admin::plPlayersDataPath = "D:/Fantasy/PLplayers.json";
-string Admin::gameWeeksDataPath = "D:/Fantasy/dataOfGameWeeks.json";
+string Admin::playersDataPath = "C:/Users/DELL/Fantasy/dataOfPlayers.json";
+string Admin::teamsDataPath = "C:/Users/DELL/Fantasy/dataOfTeams.json";
+string Admin::usersDataPath = "C:/Users/DELL/Fantasy/dataOfUser.json";
+string Admin::plPlayersDataPath = "C:/Users/DELL/Fantasy/PLplayers.json";
+string Admin::gameWeeksDataPath = "C:/Users/DELL/Fantasy/dataOfGameWeeks.json";
 bool mins = true;
 bool cs = true;
 bool redCard = true;
@@ -302,10 +302,17 @@ int Admin::addPoints(string playerName  , QString action){
         else if ((playerIt->position == "ATT" && action == "Goal") ) {
                 playerIt->gwPoints[GAME_WEEK] += 4;
         }
+        cout<<"%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
+        cout<<playerIt->gwPoints[GAME_WEEK]<<endl;
 
+        playerIt->points+= playerIt->gwPoints[GAME_WEEK];
+        playerIt->gwPoints[GAME_WEEK]=0;
+        cout<<"@@@@@@@@@@@@@@"<<endl;
+        cout<< playerIt->points<<endl;
 
         }
-        cout << playerIt->name << " " << playerIt->gwPoints[GAME_WEEK]<< endl;
+
+        // cout << playerIt->name << " " << playerIt->gwPoints[GAME_WEEK]<< endl;
         return 0;
     }
 

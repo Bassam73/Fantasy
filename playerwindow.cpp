@@ -6,11 +6,14 @@
 #include <QJsonObject>
 #include <qdebug.h>
 #include <limits>
+#include <QMessageBox>
 #include "admin.h"
 Admin admi;
 User user;
+vector<QString> playersInSquad;
 string User::CURRENTPOS;
 string PlayerWindow::currentPosition;
+int PlayerWindow::playersCounter = 0;
 PlayerWindow::PlayerWindow(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::PlayerWindow)
@@ -34,7 +37,7 @@ PlayerWindow::PlayerWindow(QWidget *parent)
 
     loadPlayersFromJson();
 
-    connect(ui->okButton, &QPushButton::clicked, this, &PlayerWindow::on_okButton_clicked);
+    // connect(ui->okButton, &QPushButton::clicked, this /*&PlayerWindow::on_okButton_clicked*/);
 }
 
 PlayerWindow::~PlayerWindow()
@@ -93,9 +96,24 @@ void PlayerWindow::filterPlayersByCostFilter(const QString &costFilter) {
 
 void PlayerWindow::on_okButton_clicked() {
     QListWidgetItem *currentItem = ui->listWidget->currentItem();
+
     if (currentItem) {
+
         QString playerName = currentItem->text().split("(").at(0).trimmed();
+        for(int i = 0; i < playersInSquad.size();i++){
+            qDebug()<<playersInSquad[i];
+            if(playerName==playersInSquad[i]){
+                QMessageBox addPlayerFailed;
+                addPlayerFailed.warning(this ,"Add player Failed" , "Player already in your team");
+                return;
+            }
+
+        }
+
+
         emit playerSelected(playerName);
+        playersInSquad.push_back(playerName);
+        playersCounter++;
     }
     close();
 }

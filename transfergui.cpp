@@ -2,6 +2,7 @@
 #include "ui_transfergui.h"
 #include "playerwindow.h"
 #include "user.h"
+#include <QMessageBox>
 #include "mainwindow.h"
 
 TransferGui::TransferGui(QWidget *parent) :
@@ -143,4 +144,19 @@ void TransferGui::on_pushButton_11_clicked()
     User::CURRENTPOS= "ATT";
 
 }
+
+void TransferGui::on_pushButton_12_clicked()
+{
+    int count = PlayerWindow::playersCounter;
+    cout<<"hi niggaaaaaaaaa"<<endl;
+    if(count<3){
+        QMessageBox saveTransfersFailed;
+        saveTransfersFailed.warning(this ,"Save Failed" , "You must have at least 3 players in your team");
+
+    }
+    else{
+
+    }
+}
+
 

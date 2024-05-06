@@ -46,6 +46,9 @@ private slots:
 
     void on_pushButton_11_clicked();
 
+
+    void on_pushButton_12_clicked();
+
 private:
     Ui::TransferGui *ui;
     QString currentPos;
