@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>-770</x>
-     <y>-30</y>
+     <y>-40</y>
      <width>1921</width>
      <height>911</height>
     </rect>
@@ -69,9 +69,9 @@ color:black;</string>
   <widget class="QLabel" name="updateLabel">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>320</x>
      <y>160</y>
-     <width>101</width>
+     <width>231</width>
      <height>21</height>
     </rect>
    </property>
@@ -82,6 +82,372 @@ color:black;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="commandLinkButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>50</width>
+     <height>20</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>230</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>DEF</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>230</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>DEF</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>230</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>DEF</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>230</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>DEF</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>280</y>
+     <width>151</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>280</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_4">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>280</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_5">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>280</y>
+     <width>151</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>350</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>MID</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_7">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>350</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>MID</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_8">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>350</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>MID</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_6">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>400</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_7">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>400</y>
+     <width>201</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_8">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>400</y>
+     <width>221</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_9">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>480</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ATT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_10">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>480</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ATT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_11">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>480</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ATT</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_9">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>530</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_10">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>530</y>
+     <width>171</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_11">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>530</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_12">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>670</y>
+     <width>83</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SAVE</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>30</y>
+     <width>131</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
    </property>
   </widget>
  </widget>

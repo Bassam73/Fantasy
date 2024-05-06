@@ -94,9 +94,8 @@ void PlayerWindow::filterPlayersByCostFilter(const QString &costFilter) {
 void PlayerWindow::on_okButton_clicked() {
     QListWidgetItem *currentItem = ui->listWidget->currentItem();
     if (currentItem) {
-        QString playerName = currentItem->text().split(" ").at(0);
+        QString playerName = currentItem->text().split("(").at(0).trimmed();
         emit playerSelected(playerName);
     }
-
     close();
 }
