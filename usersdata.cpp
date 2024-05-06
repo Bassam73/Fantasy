@@ -13,7 +13,9 @@ UsersData::UsersData()
 }
 
 void UsersData::loadData(){
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfUser.json");
+
+    QString path = QString::fromStdString(addData.usersDataPath);
+    QFile file(path);
     if(file.open(QIODevice::ReadOnly)){
         QByteArray Bytes = file.readAll();
         file.close();
@@ -62,7 +64,7 @@ void UsersData::loadData(){
 }
 
 void UsersData::storeData(){
-
+     QString path = QString::fromStdString(addData.usersDataPath);
     QJsonArray users;
     for(int i = 0; i < addData.usersList.size(); i++){
 
@@ -84,7 +86,7 @@ void UsersData::storeData(){
     }
 
     QJsonDocument doc(users);
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfUser.json");
+    QFile file(path);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();

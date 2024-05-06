@@ -19,8 +19,12 @@ private slots:
     void openPlayerWindow();
     void updateLabel(const QString &playerName);
 
+
+    void on_pushButton_clicked();
+
 private:
     Ui::TransferGui *ui;
+    QString currentPos;
 };
 
 #endif // TRANSFERGUI_H

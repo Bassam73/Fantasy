@@ -12,6 +12,7 @@ User::User(int i , string u , string p , string l)
     league = l;
 }
 User::User(){}
+    Admin adminn;
 
 
 bool User::registerUser(){
@@ -116,3 +117,169 @@ int User::getPlayerData(int id, float &cost, string &team, string &position, str
 
 
 
+QStringList User::getTeams(){
+
+    QStringList teamNames;
+    teamNames<<"All Teams";
+    if(currentUserData.league == "Premier League"){
+
+        for(auto team : adminn.plTeamsList){
+            teamNames << team.name.data() ;
+        }
+    }else{
+        for(auto team : adminn.ligaTeamsList){
+            teamNames << team.name.data() ;
+        }
+    }
+    return teamNames;
+}
+
+
+
+QStringList User::getPlayers(){
+    QStringList teams;
+    if(currentUserData.league =="Premier League"){
+    for(auto player : adminn.playersList){
+
+            bool check = false ;
+            for(auto team : adminn.plTeamsList){
+                if(team.name == player.team){
+                    check = true;
+                    break;
+                }
+            }
+            if(player.position.data() == User::CURRENTPOS && check){
+
+            QString playerName=  QString::fromStdString(player.name);
+            double playerCost=  player.cost;
+            QString playerTeam=  QString::fromStdString(player.team);
+            QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+            teams<<playerInfo;
+        }
+
+        }
+    }
+    else{
+        for(auto player : adminn.playersList){
+
+            bool check = false ;
+            for(auto team : adminn.ligaTeamsList){
+                if(team.name == player.team){
+                    check = true;
+                    break;
+                }
+            }
+            if(player.position.data() == User::CURRENTPOS && check){
+
+                QString playerName=  QString::fromStdString(player.name);
+                double playerCost=  player.cost;
+                QString playerTeam=  QString::fromStdString(player.team);
+                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+                teams<<playerInfo;
+            }
+
+        }
+
+    }
+            return teams;
+    }
+QStringList User::filterPlayersByTeam(QString teamName){
+    QStringList teams;
+    if(currentUserData.league =="Premier League"){
+        for(auto player : adminn.playersList){
+
+            bool check = false ;
+            for(auto team : adminn.plTeamsList){
+                if(team.name == player.team){
+                    check = true;
+                    break;
+                }
+            }
+            if(player.position.data() == User::CURRENTPOS && check && player.team.data() == teamName){
+
+                QString playerName=  QString::fromStdString(player.name);
+                double playerCost=  player.cost;
+                QString playerTeam=  QString::fromStdString(player.team);
+                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+                teams<<playerInfo;
+            }
+
+        }
+    }
+    else{
+        for(auto player : adminn.playersList){
+
+            bool check = false ;
+            for(auto team : adminn.ligaTeamsList){
+                if(team.name == player.team){
+                    check = true;
+                    break;
+                }
+            }
+            if(player.position.data() == User::CURRENTPOS && check&& player.team.data() == teamName){
+
+                QString playerName=  QString::fromStdString(player.name);
+                double playerCost=  player.cost;
+                QString playerTeam=  QString::fromStdString(player.team);
+                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+                teams<<playerInfo;
+            }
+
+        }
+
+    }
+    return teams;
+}
+
+
+QStringList User::filterPlayersByCost(QString costFilter,QString selectedTeam){
+    double maxCost = numeric_limits<double>::infinity();
+    if (costFilter != "Unlimited") {
+        maxCost = costFilter.toDouble();
+    }
+    QStringList teams;
+    if(currentUserData.league =="Premier League"){
+        for(auto player : adminn.playersList){
+
+            bool check = false ;
+            for(auto team : adminn.plTeamsList){
+                if(team.name == player.team){
+                    check = true;
+                    break;
+                }
+            }
+            if(player.position == User::CURRENTPOS && (player.team.data() == selectedTeam ||selectedTeam == "All Teams") && player.cost<=maxCost&&check){
+
+                QString playerName=  QString::fromStdString(player.name);
+                double playerCost=  player.cost;
+                QString playerTeam=  QString::fromStdString(player.team);
+                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+                teams<<playerInfo;
+            }
+
+        }
+    }
+    else{
+        for(auto player : adminn.playersList){
+
+            bool check = false ;
+            for(auto team : adminn.ligaTeamsList){
+                if(team.name == player.team){
+                    check = true;
+                    break;
+                }
+            }
+            if(player.position == User::CURRENTPOS && (player.team.data() == selectedTeam ||selectedTeam == "All Teams") && player.cost<=maxCost&&check){
+
+                QString playerName=  QString::fromStdString(player.name);
+                double playerCost=  player.cost;
+                QString playerTeam=  QString::fromStdString(player.team);
+                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
+                teams<<playerInfo;
+            }
+
+        }
+
+    }
+    return teams;
+};

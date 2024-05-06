@@ -14,7 +14,7 @@ public:
     string league;
     User(int , string , string , string );
     User();
-
+    static string CURRENTPOS;
     static map <int, vector<int>> userPlayers;
     static bool checkRegisteredUser(string, string);
     static User currentUserData;
@@ -27,6 +27,13 @@ public:
     int forgetPassword (string,string,string);
 
     int getPlayerData(int id, float &cost, string &team, string &position, string &name, int high, int low, vector<Player> &playersList);
+
+    string posFilter(QString, QString);
+    QStringList getTeams();
+    QStringList getPlayers();
+    QStringList filterPlayersByTeam(QString);
+    QStringList filterPlayersByCost(QString,QString);
+
 };
 
 

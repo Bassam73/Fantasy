@@ -7,7 +7,8 @@ Admin admin;
 GameWeeksData::GameWeeksData() {}
 
 void GameWeeksData::loadData(){
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfGameWeeks.json");
+    QString path = QString::fromStdString(admin.gameWeeksDataPath);
+    QFile file(path);
     if(file.open(QIODevice::ReadOnly)){
         QByteArray Bytes = file.readAll();
         file.close();
@@ -35,6 +36,7 @@ void GameWeeksData::loadData(){
 }
 
 void GameWeeksData::storeData(){
+        QString path = QString::fromStdString(admin.gameWeeksDataPath);
     QJsonArray GWDATA;
     QJsonObject GameWeek ;
     GameWeek["GameWeek"]=admin.GAME_WEEK;
@@ -42,7 +44,7 @@ void GameWeeksData::storeData(){
 
 
     QJsonDocument doc(GWDATA);
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfGameWeeks.json");
+    QFile file(path);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();

@@ -4,9 +4,13 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
-#include <QDebug>
+#include <qdebug.h>
 #include <limits>
-
+#include "admin.h"
+Admin admi;
+User user;
+string User::CURRENTPOS;
+string PlayerWindow::currentPosition;
 PlayerWindow::PlayerWindow(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::PlayerWindow)
@@ -30,7 +34,6 @@ PlayerWindow::PlayerWindow(QWidget *parent)
 
     loadPlayersFromJson();
 
-    //connect(ui->listWidget, &QListWidget::itemDoubleClicked, this, &PlayerWindow::on_listWidget_itemDoubleClicked);
     connect(ui->okButton, &QPushButton::clicked, this, &PlayerWindow::on_okButton_clicked);
 }
 
@@ -40,84 +43,38 @@ PlayerWindow::~PlayerWindow()
 }
 void PlayerWindow::loadPlayersFromJson() {
     ui->listWidget->clear();
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/PLplayers.json");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "Failed to open JSON file";
-        return;
-    }
 
-    QByteArray jsonData = file.readAll();
-    QJsonDocument doc = QJsonDocument::fromJson(jsonData);
-    QJsonArray players = doc.array();
+    QStringList teamNames = user.getTeams();
 
-    // Populate team names in combo box
-    QStringList teamNames;
-    foreach (const QJsonValue &playerValue, players) {
-        QJsonObject player = playerValue.toObject();
-        QString teamName = player["team"].toString();
-        if (!teamNames.contains(teamName)) {
-            teamNames << teamName;
-        }
-    }
+
+    ui->teamComboBox->clear();
     ui->teamComboBox->addItems(teamNames);
 
+    ui->costComboBox->clear();
     QStringList costFilters = {"Unlimited", "14.0", "13.5", "13.0", "12.5", "12.0", "11.5", "11.0",
                                "10.5", "10.0", "9.5", "9.0", "8.5", "8.0", "7.5", "7.0", "6.5",
                                "6.0", "5.5", "5.0", "4.5", "4.0", "3.5", "3.0"};
     ui->costComboBox->addItems(costFilters);
 
-    foreach (const QJsonValue &playerValue, players) {
-        QJsonObject player = playerValue.toObject();
-        QString playerName = player["name"].toString();
-        double playerCost = player["cost"].toDouble();
-        QString playerTeam = player["team"].toString();
-        QString playerPosition = player["position"].toString();
+    qDebug()<<User::CURRENTPOS;
+     QStringList players = user.getPlayers();
 
-        if (playerPosition == "GK") {
-            QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
-            ui->listWidget->addItem(playerInfo);
-        }
+    for(auto player : players){
+         ui->listWidget->addItem(player);
     }
 }
 
+
+
 void PlayerWindow::filterPlayersByTeam(const QString &teamName) {
     ui->listWidget->clear();
-
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/PLplayers.json");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "Failed to open JSON file";
-        return;
-    }
-
-    QByteArray jsonData = file.readAll();
-    QJsonDocument doc = QJsonDocument::fromJson(jsonData);
-    QJsonArray players = doc.array();
-
     if (teamName == "All Teams") {
-        foreach (const QJsonValue &playerValue, players) {
-            QJsonObject player = playerValue.toObject();
-            QString playerName = player["name"].toString();
-            double playerCost = player["cost"].toDouble();
-            QString playerTeam = player["team"].toString();
-            QString playerPosition = player["position"].toString();
-
-            if (playerPosition == "GK") {
-                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
-                ui->listWidget->addItem(playerInfo);
-            }
-        }
+        loadPlayersFromJson();
     } else {
-        foreach (const QJsonValue &playerValue, players) {
-            QJsonObject player = playerValue.toObject();
-            QString playerName = player["name"].toString();
-            QString playerTeam = player["team"].toString();
-            double playerCost = player["cost"].toDouble();
-            QString playerPosition = player["position"].toString();
 
-            if (playerTeam == teamName && playerPosition == "GK") {
-                QString playerInfo = playerName + " (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
-                ui->listWidget->addItem(playerInfo);
-            }
+        QStringList players = user.filterPlayersByTeam(teamName);
+        for(auto player : players){
+            ui->listWidget->addItem(player);
         }
     }
 }
@@ -125,45 +82,14 @@ void PlayerWindow::filterPlayersByTeam(const QString &teamName) {
 void PlayerWindow::filterPlayersByCostFilter(const QString &costFilter) {
     ui->listWidget->clear();
 
-    QFile file("D:/New folder/Fantasy1/Plplayers.json");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "Failed to open JSON file";
-        return;
-    }
-
-    QByteArray jsonData = file.readAll();
-    QJsonDocument doc = QJsonDocument::fromJson(jsonData);
-    QJsonArray players = doc.array();
-
-    double maxCost = std::numeric_limits<double>::infinity();
-    if (costFilter != "Unlimited") {
-        maxCost = costFilter.toDouble();
-    }
-
     QString selectedTeam = ui->teamComboBox->currentText();
-    foreach (const QJsonValue &playerValue, players) {
-        QJsonObject player = playerValue.toObject();
-        QString playerName = player["name"].toString();
-        QString playerTeam = player["team"].toString();
-        double playerCost = player["cost"].toDouble();
-        QString playerPosition = player["position"].toString();
 
-        if (playerPosition == "GK" && (selectedTeam == "All Teams" || playerTeam == selectedTeam) &&
-            playerCost <= maxCost) {
-            if(selectedTeam == "All Teams") {
-                QString playerInfo = playerName + " (" + playerTeam + ") (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
-                ui->listWidget->addItem(playerInfo);
-            } else {
-                QString playerInfo = playerName + " (Cost: $" + QString::number(playerCost, 'f', 2) + ")";
-                ui->listWidget->addItem(playerInfo);
-            }
-        }
+    QStringList players = user.filterPlayersByCost(costFilter , selectedTeam);
+
+    for(auto player : players){
+               ui->listWidget->addItem(player);
     }
 }
-
-//void PlayerWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item) {
-// emit playerSelected(item->text());
-//}
 
 void PlayerWindow::on_okButton_clicked() {
     QListWidgetItem *currentItem = ui->listWidget->currentItem();

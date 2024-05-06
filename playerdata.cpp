@@ -13,8 +13,8 @@ Admin adplayer;
 PlayerData::PlayerData() {}
 
 void PlayerData::loadData(){
-
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/PLplayers.json");
+    QString path = QString::fromStdString(adplayer.plPlayersDataPath);
+    QFile file(path);
 
     if(file.open(QIODevice::ReadOnly)){
 
@@ -92,6 +92,7 @@ void PlayerData::loadData(){
 void PlayerData::storeData() {
     QJsonArray players;
     unordered_map<string, unordered_set<int>> teamKitNumbers;
+    QString path = QString::fromStdString(adplayer.plPlayersDataPath);
 
     for (int i = 0; i < adplayer.playersList.size(); i++) {
         QJsonObject player;
@@ -132,7 +133,7 @@ void PlayerData::storeData() {
     }
 
     QJsonDocument doc(players);
-    QFile file("C:/Users/pc/Documents/FantasyProject/Fantasy/PLplayers.json");
+    QFile file(path);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();

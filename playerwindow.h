@@ -15,6 +15,7 @@ class PlayerWindow : public QDialog
 public:
     explicit PlayerWindow(QWidget *parent = nullptr);
     ~PlayerWindow();
+    static std::string currentPosition;
 
 signals:
     void playerSelected(const QString &playerName);
@@ -25,7 +26,6 @@ public slots:
     void filterPlayersByCostFilter(const QString &costFilter);
     //  void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
     void on_okButton_clicked();
-    void showDefenders(); // New slot to show defenders
 
 
 private:

@@ -12,7 +12,11 @@ vector<string> redCardPlayers;
 vector<string> mins60PlusPlayers;
 vector<string> cleanCheatPlayers;
 vector<string> yellowCardsPlayers;
-
+string Admin::playersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfPlayers.json";
+string Admin::teamsDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfTeams.json";
+string Admin::usersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfUser.json";
+string Admin::plPlayersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/PLplayers.json";
+string Admin::gameWeeksDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfGameWeeks.json";
 bool mins = true;
 bool cs = true;
 bool redCard = true;
