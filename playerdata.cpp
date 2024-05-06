@@ -48,6 +48,8 @@ void PlayerData::loadData(){
             string pos;
             string te;
             float co;
+            int points;
+
             map <int  , int> gw;
 
             qDebug() << arr.size();
@@ -76,8 +78,9 @@ void PlayerData::loadData(){
                 name = playerName.toStdString();
                 pos = position.toStdString();
                 te = team.toStdString();
+                points=play.value("points").toInt();
 
-                Player player1(id , kit, age, name, pos, te,gw,co);
+                Player player1(id , kit, age, name, pos, te,gw,co,points);
 
                 adplayer.teamPlayers[te].push_back(player1);
 

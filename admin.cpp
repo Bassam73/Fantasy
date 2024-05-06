@@ -12,11 +12,11 @@ vector<string> redCardPlayers;
 vector<string> mins60PlusPlayers;
 vector<string> cleanCheatPlayers;
 vector<string> yellowCardsPlayers;
-string Admin::playersDataPath = "C:/Users/DELL/Fantasy/dataOfPlayers.json";
-string Admin::teamsDataPath = "C:/Users/DELL/Fantasy/dataOfTeams.json";
-string Admin::usersDataPath = "C:/Users/DELL/Fantasy/dataOfUser.json";
-string Admin::plPlayersDataPath = "C:/Users/DELL/Fantasy/PLplayers.json";
-string Admin::gameWeeksDataPath = "C:/Users/DELL/Fantasy/dataOfGameWeeks.json";
+string Admin::playersDataPath = "C:/Users/GEORGE/Fantasy/dataOfPlayers.json";
+string Admin::teamsDataPath = "C:/Users/GEORGE/Fantasy/dataOfTeams.json";
+string Admin::usersDataPath = "C:/Users/GEORGE/Fantasy/dataOfUser.json";
+string Admin::plPlayersDataPath = "C:/Users/GEORGE/Fantasy/PLplayers.json";
+string Admin::gameWeeksDataPath = "C:/Users/GEORGE/Fantasy/dataOfGameWeeks.json";
 bool mins = true;
 bool cs = true;
 bool redCard = true;
@@ -255,12 +255,6 @@ int Admin::addPoints(string playerName  , QString action){
             }
         }
 
-
-
-        // if (redCard && playerIt->name == playerRedCarded) {
-        //     cout << "Player " << playerIt->name << " has a red card. No further actions allowed." << endl;
-        //     return;
-        // }
         if (action == "60+ min") {
 
             playerIt->gwPoints[GAME_WEEK] += 2;
@@ -302,6 +296,8 @@ int Admin::addPoints(string playerName  , QString action){
         else if ((playerIt->position == "ATT" && action == "Goal") ) {
                 playerIt->gwPoints[GAME_WEEK] += 4;
         }
+        cout<<playersList[216].points<<playersList[216].name;
+         cout<< playerIt->points<<endl;
         cout<<"%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
         cout<<playerIt->gwPoints[GAME_WEEK]<<endl;
 

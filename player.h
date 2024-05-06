@@ -19,8 +19,8 @@ public:
     string team;
     Player();
     Player(string);
-    Player(int, int, int,  string, string, string ,float);
-    Player(int, int, int, string, string, string,map<int,int> , float);
+    Player(int, int, int,  string, string, string ,float,int point);
+    Player(int, int, int, string, string, string,map<int,int> , float,int point);
 
 };
 

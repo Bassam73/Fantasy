@@ -9,6 +9,7 @@ public:
     PlayerData();
     void loadData();
     void storeData();
+private:
 };
 
 #endif // PLAYERDATA_H
