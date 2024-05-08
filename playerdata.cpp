@@ -104,7 +104,7 @@ void PlayerData::storeData() {
         // int kitNum = adplayer.playersList[i].kitNumber;
         int pAge = adplayer.playersList[i].age;
         int points = adplayer.playersList[i].points;
-        float cost = adplayer.playersList[i].cost;
+        double cost = roundf(adplayer.playersList[i].cost * 10.0)/10.0;
         string pName = adplayer.playersList[i].name;
         string pTeam = adplayer.playersList[i].team;
         string pPosition = adplayer.playersList[i].position;

@@ -47,10 +47,14 @@
    <property name="font">
     <font>
      <pointsize>24</pointsize>
+     <bold>true</bold>
     </font>
    </property>
    <property name="contextMenuPolicy">
     <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:black</string>
    </property>
    <property name="text">
     <string>Standings</string>

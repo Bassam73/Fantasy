@@ -25,6 +25,7 @@ public:
     static string usersDataPath;
     static string plPlayersDataPath;
     static string gameWeeksDataPath;
+    static string UsersDataInGamePath;
 
 
     static int GAME_WEEK;

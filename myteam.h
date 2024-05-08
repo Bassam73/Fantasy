@@ -14,6 +14,7 @@ public:
     explicit MyTeam(QWidget *parent = nullptr);
     ~MyTeam();
 
+    void setPlayers();
 private slots:
     void on_commandLinkButton_clicked();
 

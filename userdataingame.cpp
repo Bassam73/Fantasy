@@ -10,7 +10,8 @@ User gamePlay;
 userDataInGame::userDataInGame() {}
 
 void userDataInGame::loadData(){
-    QFile file("C:/Users/besho/Fantasy/dataOfuserAccount.json");
+    QString path = QString::fromStdString(Admin::UsersDataInGamePath);
+    QFile file(path);
     if(file.open(QIODevice::ReadOnly)){
         QByteArray Bytes = file.readAll();
         file.close();
@@ -83,7 +84,8 @@ void userDataInGame::storeData(){
     }
 
     QJsonDocument doc(users);
-    QFile file("C:/Users/besho/Fantasy/dataOfuserAccount.json");
+    QString path = QString::fromStdString(Admin::UsersDataInGamePath);
+    QFile file(path);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         file.write(doc.toJson(QJsonDocument::Indented));
         file.close();

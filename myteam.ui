@@ -39,10 +39,14 @@
    <property name="font">
     <font>
      <pointsize>24</pointsize>
+     <bold>true</bold>
     </font>
    </property>
    <property name="contextMenuPolicy">
     <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:black</string>
    </property>
    <property name="text">
     <string>My Team</string>
@@ -94,9 +98,484 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="updateLabel_6">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>380</y>
+     <width>211</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_13">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>210</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:rgb(251, 203, 255)</string>
+   </property>
+   <property name="text">
+    <string>DEF</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_16">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>210</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:rgb(251, 203, 255)</string>
+   </property>
+   <property name="text">
+    <string>DEF</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_4">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>260</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_18">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>330</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:rgb(251, 203, 255)</string>
+   </property>
+   <property name="text">
+    <string>MID</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_15">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>210</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:rgb(251, 203, 255)</string>
+   </property>
+   <property name="text">
+    <string>DEF</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>140</y>
+     <width>241</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_7">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>380</y>
+     <width>231</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_12">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>110</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+     <italic>false</italic>
+     <bold>true</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:rgb(251, 203, 255);</string>
+   </property>
+   <property name="text">
+    <string>GK</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_5">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>260</y>
+     <width>151</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_8">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>380</y>
+     <width>231</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_21">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>470</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:rgb(251, 203, 255)</string>
+   </property>
+   <property name="text">
+    <string>ATT</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>260</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_3">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>260</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_9">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>510</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_14">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>210</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:rgb(251, 203, 255)</string>
+   </property>
+   <property name="text">
+    <string>DEF</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_19">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>330</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:rgb(251, 203, 255)</string>
+   </property>
+   <property name="text">
+    <string>MID</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_20">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>470</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:rgb(251, 203, 255)</string>
+   </property>
+   <property name="text">
+    <string>ATT</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_22">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>470</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:rgb(251, 203, 255)</string>
+   </property>
+   <property name="text">
+    <string>ATT</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_11">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>510</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_17">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>330</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:rgb(251, 203, 255)
+</string>
+   </property>
+   <property name="text">
+    <string>MID</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updateLabel_10">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>510</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:20px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>10</y>
+     <width>151</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:black
+</string>
+   </property>
+   <property name="text">
+    <string>POINTS :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>10</y>
+     <width>151</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:black</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>label_2</zorder>
   <zorder>label</zorder>
   <zorder>commandLinkButton</zorder>
+  <zorder>updateLabel_6</zorder>
+  <zorder>updateLabel_13</zorder>
+  <zorder>updateLabel_16</zorder>
+  <zorder>updateLabel_4</zorder>
+  <zorder>updateLabel_18</zorder>
+  <zorder>updateLabel_15</zorder>
+  <zorder>updateLabel</zorder>
+  <zorder>updateLabel_7</zorder>
+  <zorder>updateLabel_12</zorder>
+  <zorder>updateLabel_5</zorder>
+  <zorder>updateLabel_8</zorder>
+  <zorder>updateLabel_21</zorder>
+  <zorder>updateLabel_2</zorder>
+  <zorder>updateLabel_3</zorder>
+  <zorder>updateLabel_9</zorder>
+  <zorder>updateLabel_14</zorder>
+  <zorder>updateLabel_19</zorder>
+  <zorder>updateLabel_20</zorder>
+  <zorder>updateLabel_22</zorder>
+  <zorder>updateLabel_11</zorder>
+  <zorder>updateLabel_17</zorder>
+  <zorder>updateLabel_10</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
  </widget>
  <resources/>
  <connections/>

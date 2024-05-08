@@ -47,6 +47,7 @@
    <property name="font">
     <font>
      <pointsize>24</pointsize>
+     <bold>true</bold>
     </font>
    </property>
    <property name="contextMenuPolicy">
