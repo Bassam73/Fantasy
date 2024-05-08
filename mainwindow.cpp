@@ -61,7 +61,9 @@ void MainWindow::on_pushButton_4_clicked()
 
 void MainWindow::on_pushButton_5_clicked()
 {
+
     close();
+    qDebug() << User::currentUserData.bank;
     TransferGui transferguiDialog;
     transferguiDialog.exec();
 }

@@ -7,13 +7,14 @@
 #include <qdebug.h>
 #include <limits>
 #include <QMessageBox>
+#include "transfergui.h"
 #include "admin.h"
 Admin admi;
 User user;
-vector<QString> playersInSquad;
+QVector<QString> PlayerWindow::playersInSquad;
 string User::CURRENTPOS;
 string PlayerWindow::currentPosition;
-int PlayerWindow::playersCounter = 0;
+// int PlayerWindow::playersCounter = User::usersTeam.size();
 PlayerWindow::PlayerWindow(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::PlayerWindow)
@@ -96,24 +97,50 @@ void PlayerWindow::filterPlayersByCostFilter(const QString &costFilter) {
 
 void PlayerWindow::on_okButton_clicked() {
     QListWidgetItem *currentItem = ui->listWidget->currentItem();
-
+    QMessageBox addPlayerFailed;
     if (currentItem) {
 
+
         QString playerName = currentItem->text().split("(").at(0).trimmed();
-        for(int i = 0; i < playersInSquad.size();i++){
-            qDebug()<<playersInSquad[i];
-            if(playerName==playersInSquad[i]){
-                QMessageBox addPlayerFailed;
+        double playerCost  = currentItem->text().split("$").at(1).split(" ").at(0).toDouble();
+        double &userBank = user.currentUserData.bank;
+        // qDebug() << playerCost;
+
+        // for(auto i = User::usersTeam.begin(); i != User::usersTeam.end(); i++){
+
+        //     // qDebug()<<playersInSquad[i];
+        //     if(i->first == playerName.toStdString()){
+
+        //         addPlayerFailed.warning(this ,"Add player Failed" , "Player already in your team");
+        //         return;
+        //     }
+        // }
+        qDebug() << "2abl";
+        for(int i = 0; i < TransferGui::labels.size();i++){
+            qDebug()<<TransferGui::labels[i];
+            if(playerName==TransferGui::labels[i]){
+
                 addPlayerFailed.warning(this ,"Add player Failed" , "Player already in your team");
                 return;
             }
-
         }
 
+        if(playerCost > user.currentUserData.bank){
+            addPlayerFailed.warning(this ,"Add player Failed" , "Player Cost is greater than your money");
+            return;
+        }
 
-        emit playerSelected(playerName);
-        playersInSquad.push_back(playerName);
-        playersCounter++;
+        userBank -= playerCost;
+
+        emit playerSelected(playerName, userBank);
+
+
+
+        // playersInSquad.push_back(playerName);
+
+
+        qDebug() << admi.usersList[user.userIndex].bank << user.userIndex;
     }
     close();
 }
+

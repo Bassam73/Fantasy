@@ -8,7 +8,7 @@ Player::Player(string nam){
     name = nam;
 }
 
-Player::Player(int pId, int kit , int ag  , string nam  ,string pos, string te , float co,int point){
+Player::Player(int pId, int kit , int ag  , string nam  ,string pos, string te , double co,int point){
     kitNumber = kit ;
     age = ag ;
     name = nam ;
@@ -22,7 +22,7 @@ Player::Player(int pId, int kit , int ag  , string nam  ,string pos, string te ,
     }
 }
 
-Player::Player(int pId, int kit , int ag  , string nam ,  string pos, string te,map<int,int>gw , float co,int point){
+Player::Player(int pId, int kit , int ag  , string nam ,  string pos, string te,map<int,int>gw , double co,int point){
     kitNumber = kit ;
     age = ag ;
     name = nam ;

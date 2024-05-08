@@ -15,12 +15,12 @@ public:
     int points;
     map<int,int>gwPoints;
     int id;
-    float cost;
+    double cost;
     string team;
     Player();
     Player(string);
-    Player(int, int, int,  string, string, string ,float,int point);
-    Player(int, int, int, string, string, string,map<int,int> , float,int point);
+    Player(int, int, int,  string, string, string ,double,int point);
+    Player(int, int, int, string, string, string,map<int,int> , double,int point);
 
 };
 

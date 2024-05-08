@@ -4,12 +4,13 @@
 #include <QString>
 #include <regex>
 
-User::User(int i , string u , string p , string l)
+User::User(int i , string u , string p , string l, double ban)
 {
     id = i;
     name = u ;
     password = p;
     league = l;
+    bank = ban;
 }
 User::User(){}
     Admin adminn;
@@ -27,9 +28,25 @@ bool User::registerUser(){
 
     if  (nameCheck == false || passCheck==false) return false;
 
-    User registeredUser(id ,name , password , league);
+    User registeredUser(id ,name , password , league, bank);
     registerAdmin.usersList.push_back(registeredUser);
+
+    userIndex = registerAdmin.usersList.size() - 1;
+
+    qDebug()<<userIndex;
+
     currentUserData = registeredUser;
+    for(int i = 0; i < User::userPlayers[User::currentUserData.id].size(); i++){
+
+        for(auto j:Admin::playersList){
+            string name = User::userPlayers[User::currentUserData.id][i];
+            if(name == j.name){
+                User::usersTeam[name] = j;
+            }
+        }
+    }
+
+
     qDebug() << currentUserData.name;
     return true;
 }
@@ -62,9 +79,25 @@ bool User::checkRegisteredUser(string name ,string password){
             currentUserData.name=login.usersList[i].name;
             currentUserData.password=login.usersList[i].password;
             currentUserData.league=login.usersList[i].league;
-            qDebug()<<currentUserData.name;
+            currentUserData.bank = login.usersList[i].bank;
+
+            userIndex = i;
+
+            for(int i = 0; i < User::userPlayers[User::currentUserData.id].size(); i++){
+
+                for(auto j:Admin::playersList){
+                    string name = User::userPlayers[User::currentUserData.id][i];
+                    if(name == j.name){
+                        User::usersTeam[name] = j;
+                    }
+                }
+            }
+
+            qDebug()<<currentUserData.bank;
+            qDebug() << usersTeam.size();
             return true;
         }
+
     }
     return false;
 }
@@ -96,7 +129,7 @@ int User::forgetPassword(string username,string newPassword,string reNewPassword
 
 }
 
-int User::getPlayerData(int id, float &cost, string &team, string &position, string &name, int high, int low, vector<Player>& playersList){
+int User::getPlayerData(int id, double &cost, string &team, string &position, string &name, int high, int low, vector<Player>& playersList){
 
     if (high >= low) {
         int mid = low + (high - low) / 2;
@@ -293,4 +326,12 @@ QStringList User::filterPlayersByCost(QString costFilter,QString selectedTeam){
 
     }
     return teams;
-};
+}
+
+void User::bankHandling(QString playerName){
+    for(auto i = Admin::playersList.begin(); i != Admin::playersList.end(); i++){
+        if(i->name == playerName.toStdString()){
+            User::currentUserData.bank += i->cost;
+        }
+    }
+}

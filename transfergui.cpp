@@ -2,8 +2,17 @@
 #include "ui_transfergui.h"
 #include "playerwindow.h"
 #include "user.h"
+#include "team.h"
+#include "admin.h"
+#include <vector>
 #include <QMessageBox>
 #include "mainwindow.h"
+
+User userd;
+// Admin admi;
+Team team;
+QVector<QString> TransferGui::labels;
+
 
 TransferGui::TransferGui(QWidget *parent) :
     QDialog(parent),
@@ -23,6 +32,10 @@ TransferGui::TransferGui(QWidget *parent) :
     connect(ui->pushButton_10, &QPushButton::clicked, this, &TransferGui::openPlayerWindow);
     connect(ui->pushButton_11, &QPushButton::clicked, this, &TransferGui::openPlayerWindow);
 
+    this->setPlayers();
+    User::currentUserData.bank = Admin::usersList[User::userIndex].bank;
+    ui->label_3->setText("Bank: " + QString::number(User::currentUserData.bank, 'f', 1) + "$");
+
 }
 
 TransferGui::~TransferGui()
@@ -36,7 +49,7 @@ void TransferGui::openPlayerWindow() {
 
     PlayerWindow playerWindow;
 
-    connect(&playerWindow, &PlayerWindow::playerSelected, this, [=](const QString &playerName){
+    connect(&playerWindow, &PlayerWindow::playerSelected, this, [=](const QString &playerName, double userBank){
         if (clickedButton == ui->pushButton) {
             ui->updateLabel->setText(playerName);
         } else if (clickedButton == ui->pushButton_2) {
@@ -60,15 +73,24 @@ void TransferGui::openPlayerWindow() {
         }else if (clickedButton == ui->pushButton_11) {
             ui->updateLabel_11->setText(playerName);
         }
+        labels.clear();
+        qDebug()<<"itmasa7";
+        labels.push_back(ui->updateLabel->text());
+        labels.push_back(ui->updateLabel_2->text());
+        labels.push_back(ui->updateLabel_3->text());
+        labels.push_back(ui->updateLabel_4->text());
+        labels.push_back(ui->updateLabel_5->text());
+        labels.push_back(ui->updateLabel_6->text());
+        labels.push_back(ui->updateLabel_7->text());
+        labels.push_back(ui->updateLabel_8->text());
+        labels.push_back(ui->updateLabel_9->text());
+        labels.push_back(ui->updateLabel_10->text());
+        labels.push_back(ui->updateLabel_11->text());
+ui->label_3->setText("Bank: " + QString::number(userBank, 'f', 1) + "$");
+
     });
     playerWindow.exec();
 }
-
-void TransferGui::on_pushButton_clicked()
-{
-    User::CURRENTPOS= "GK";
-}
-
 
 void TransferGui::on_commandLinkButton_clicked()
 {
@@ -77,29 +99,36 @@ void TransferGui::on_commandLinkButton_clicked()
     mainwindowDialog->show();
 }
 
+void TransferGui::on_pushButton_clicked()
+{
+    User::CURRENTPOS= "GK";
+    userd.bankHandling(ui->updateLabel->text());
+}
 
 void TransferGui::on_pushButton_2_clicked()
 {
     User::CURRENTPOS= "DEF";
+    userd.bankHandling(ui->updateLabel_2->text());
 }
 
 void TransferGui::on_pushButton_3_clicked()
 {
     User::CURRENTPOS= "DEF";
-
+    userd.bankHandling(ui->updateLabel_3->text());
 }
 
 
 void TransferGui::on_pushButton_4_clicked()
 {
     User::CURRENTPOS= "DEF";
-
+    userd.bankHandling(ui->updateLabel_4->text());
 }
 
 
 void TransferGui::on_pushButton_5_clicked()
 {
     User::CURRENTPOS= "DEF";
+    userd.bankHandling(ui->updateLabel_5->text());
 
 }
 
@@ -107,48 +136,58 @@ void TransferGui::on_pushButton_5_clicked()
 void TransferGui::on_pushButton_6_clicked()
 {
     User::CURRENTPOS= "MID";
-
+    userd.bankHandling(ui->updateLabel_6->text());
 }
 
 
 void TransferGui::on_pushButton_7_clicked()
 {
     User::CURRENTPOS= "MID";
-
+    userd.bankHandling(ui->updateLabel_7->text());
 }
 
 
 void TransferGui::on_pushButton_8_clicked()
 {
     User::CURRENTPOS= "MID";
-
+    userd.bankHandling(ui->updateLabel_8->text());
 }
 
 
 void TransferGui::on_pushButton_9_clicked()
 {
     User::CURRENTPOS= "ATT";
-
+    userd.bankHandling(ui->updateLabel_9->text());
 }
 
 
 void TransferGui::on_pushButton_10_clicked()
 {
     User::CURRENTPOS= "ATT";
-
+    userd.bankHandling(ui->updateLabel_10->text());
 }
 
 
 void TransferGui::on_pushButton_11_clicked()
 {
     User::CURRENTPOS= "ATT";
-
+    userd.bankHandling(ui->updateLabel_11->text());
 }
 
 void TransferGui::on_pushButton_12_clicked()
 {
-    int count = PlayerWindow::playersCounter;
+    int count = 0 /*PlayerWindow::playersCounter*/;
+
+    qDebug() << labels.size();
+    for(auto i:labels){
+        if(i.toStdString() != "")
+            count++;
+        else
+            PlayerWindow::playersInSquad.push_back(i);
+    }
+    qDebug() << count;
     cout<<"hi niggaaaaaaaaa"<<endl;
+
     if(count<3){
         QMessageBox saveTransfersFailed;
         saveTransfersFailed.warning(this ,"Save Failed" , "You must have at least 3 players in your team");
@@ -156,7 +195,67 @@ void TransferGui::on_pushButton_12_clicked()
     }
     else{
 
+
+        // labels =
+        User::userPlayers[User::currentUserData.id].clear();
+        User::usersTeam.clear();
+
+        QVector<QString> qVectorLabels = labels.toVector();
+        std::vector<QString> stdVectorLabels(qVectorLabels.begin(), qVectorLabels.end());
+
+        team.savePlayers(stdVectorLabels);
+        qDebug() << User::usersTeam.size();
+        // User::usersTeam[ui->updateLabel->text()] =
+        Admin::usersList[User::userIndex].bank = User::currentUserData.bank;
+
     }
 }
+void TransferGui::setPlayers(){
+    TransferGui::labels.clear();
+    for(auto i = User::usersTeam.begin(); i != User::usersTeam.end(); i++){
+        QString playerName = QString::fromStdString(i->first);
+        if(i->second.position == "ATT"){
+            if(ui->updateLabel_9->text() == ""){
+                ui->updateLabel_9->setText(playerName);
+            }
+            else if(ui->updateLabel_10->text() == ""){
+                ui->updateLabel_10->setText(playerName);
+            }
+            else{
+                ui->updateLabel_11->setText(playerName);
+            }
 
+        }
+        else if(i->second.position == "MID"){
+            if(ui->updateLabel_6->text() == ""){
+                ui->updateLabel_6->setText(playerName);
+            }
+            else if(ui->updateLabel_7->text() == ""){
+                ui->updateLabel_7->setText(playerName);
+            }
+            else{
+                ui->updateLabel_8->setText(playerName);
+            }
+        }
+        else if(i->second.position == "DEF"){
+            if(ui->updateLabel_2->text() == ""){
+                ui->updateLabel_2->setText(playerName);
+            }
+            else if(ui->updateLabel_3->text() == ""){
+                ui->updateLabel_3->setText(playerName);
+            }
+            else if(ui->updateLabel_4->text() == ""){
+                ui->updateLabel_4->setText(playerName);
+            }
+            else{
+                ui->updateLabel_5->setText(playerName);
+            }
 
+        }
+        else if(i->second.position == "GK"){
+            ui->updateLabel->setText(playerName);
+
+        }
+        TransferGui::labels.push_back(playerName);
+    }
+}

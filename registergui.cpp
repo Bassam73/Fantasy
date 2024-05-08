@@ -48,14 +48,15 @@ void RegisterGui::on_pushButton_clicked()
         string username= name.toStdString();
         string userPassword= password.toStdString();
         string userLeague= league.toStdString();
+        float userBank = 80;
         qDebug() << "here";
 
         User::currentUserData.id=id;
         User::currentUserData.name=username;
         User::currentUserData.password=userPassword;
         User::currentUserData.league=userLeague;
-
-        User * userPtr= new User(id , username , userPassword , userLeague);
+        User::currentUserData.bank=userBank;
+        User * userPtr= new User(id , username , userPassword , userLeague, userBank);
 
         bool check = userPtr->registerUser();
 

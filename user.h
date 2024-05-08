@@ -9,13 +9,16 @@ class User
 {
 public:
     int id;
+    double bank;
     string name ;
     string password;
     string league;
-    User(int , string , string , string );
+    User(int , string , string , string , double );
     User();
     static string CURRENTPOS;
-    static map <int, vector<int>> userPlayers;
+    static map <int, vector<string>> userPlayers;
+    static map <string, Player> usersTeam;
+    static int userIndex;
     static bool checkRegisteredUser(string, string);
     static User currentUserData;
     static int currentUserId;
@@ -26,7 +29,7 @@ public:
 
     int forgetPassword (string,string,string);
 
-    int getPlayerData(int id, float &cost, string &team, string &position, string &name, int high, int low, vector<Player> &playersList);
+    int getPlayerData(int id, double &cost, string &team, string &position, string &name, int high, int low, vector<Player> &playersList);
 
     string posFilter(QString, QString);
     QStringList getTeams();
@@ -34,6 +37,8 @@ public:
     QStringList filterPlayersByTeam(QString);
     QStringList filterPlayersByCost(QString,QString);
 
+
+    void bankHandling(QString playerName);
 };
 
 

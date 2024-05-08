@@ -1,4 +1,6 @@
 #include "team.h"
+#include "user.h"
+#include "admin.h"
 #include <unordered_map>
 Team::Team() {}
 
@@ -8,4 +10,14 @@ Team::Team(int tId, string na , string leg){
     name = na;
     league = leg;
     unordered_map<int,Player> players;
+}
+void Team::savePlayers(vector<QString> players){
+    for(auto i:players){
+        for(auto j:Admin::playersList){
+            if(i.toStdString() == j.name){
+                User::usersTeam[i.toStdString()] = j;
+                User::userPlayers[User::currentUserData.id].push_back(i.toStdString());
+            }
+        }
+    }
 }

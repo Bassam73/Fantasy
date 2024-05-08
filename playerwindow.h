@@ -1,6 +1,6 @@
 #ifndef PLAYERWINDOW_H
 #define PLAYERWINDOW_H
-
+#include <vector>
 #include <QDialog>
 #include <QListWidgetItem>
 
@@ -17,10 +17,10 @@ public:
     ~PlayerWindow();
     static std::string currentPosition;
     static int playersCounter;
-
+    static QVector<QString> playersInSquad;
 
 signals:
-    void playerSelected(const QString &playerName);
+    void playerSelected(const QString &playerName, double &userBank);
 
 public slots:
     void loadPlayersFromJson();

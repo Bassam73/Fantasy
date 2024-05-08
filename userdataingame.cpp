@@ -33,18 +33,10 @@ void userDataInGame::loadData(){
 
             int id;
 
-            int pId;
-            int kit;
-            int age;
-
             QString playerName;
-            QString position;
-            QString team;
-
             string name;
-            string pos;
-            string te;
-            float co;
+            int pId;
+            int bank;
 
             for(auto i:arr){
                 user = i.toObject();
@@ -55,26 +47,12 @@ void userDataInGame::loadData(){
 
                 for(auto j:players){
 
-
                     play = j.toObject();
-
+                    playerName = play.value("name").toString();
+                    name = playerName.toStdString();
                     pId = play.value("id").toInt();
-                    // kit = play.value("kitnumber").toInt();
-                    // age = play.value("age").toInt();
-                    // co=play.value("cost").toDouble();
 
-                    // playerName = play.value("name").toString();
-                    // position = play.value("position").toString();
-                    // team = play.value("team").toString();
-
-
-                    // name = playerName.toStdString();
-                    // pos = position.toStdString();
-                    // te = team.toStdString();
-
-                    // Player player(id , kit, age, name, pos, te,co);
-
-                    gamePlay.userPlayers[id].push_back(pId);
+                    gamePlay.userPlayers[id].push_back(name);
                 }
             }
         }
@@ -90,29 +68,16 @@ void userDataInGame::storeData(){
         QJsonArray players;
         int sid = i->first;
 
-        for(auto pId:i->second){
+        for(auto pName:i->second){
             QJsonObject play;
 
-            // int pId = j;
-            // int kit = j.kitNumber;
-            // int age = j.age;
-            // float co = j.cost;
-
-            // string name = j.name;
-            // string pos = j.position;
-            // string te = j.team;
-            play["id"] = pId;
-            // play["name"] = name.data();
-            // play["age"] = age;
-            // play["kit number"] = kit;
-            // play["cost"] = co;
-            // play["position"] = pos.data();
-            // play["team"] = te.data();
+            play["name"] = pName.data();
             players.append(play);
         }
 
         user["userid"] =  sid;
         user["team"] = players;
+        // user["bank"] =
         users.append(user);
 
     }

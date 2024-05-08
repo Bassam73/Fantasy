@@ -2,6 +2,8 @@
 #define TEAM_H
 #include "player.h"
 #include <unordered_map>
+#include <vector>
+#include <QString>
 class Team
 {
 public:
@@ -10,9 +12,11 @@ public:
     int position;
     string league;
     int points;
-    unordered_map<int,Player> teamPlayers;
+    // unordered_map<int,Player> teamPlayers;
+
     Team();
     Team(int , string,string);
+    void savePlayers(vector<QString> players);
 };
 
 #endif // TEAM_H

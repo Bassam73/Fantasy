@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 Admin addData;
-
+User userData;
 
 UsersData::UsersData()
 {
@@ -33,6 +33,7 @@ void UsersData::loadData(){
             QJsonArray arr = Document.array();
 
             int id;
+            double bank;
 
             QJsonObject user;
             QString userName;
@@ -50,12 +51,16 @@ void UsersData::loadData(){
                 userName = user.value("name").toString();
                 password = user.value("password").toString();
                 league = user.value("league").toString();
+                bank = user.value("bank").toDouble();
+                // if (bank == NULL){
+                //     bank = 100;
+                // }
 
                 name = userName.toStdString();
                 pass = password.toStdString();
                 leag = league.toStdString();
 
-                User userData(id , name, pass, leag);
+                User userData(id , name, pass, leag, bank);
 
                 addData.usersList.push_back(userData);
             }
@@ -67,19 +72,45 @@ void UsersData::storeData(){
      QString path = QString::fromStdString(addData.usersDataPath);
     QJsonArray users;
     for(int i = 0; i < addData.usersList.size(); i++){
+        int sid;
+        double bank;
+        string sname;
+        string spass;
+        string slea ;
 
+        // if(i == userData.userIndex){
+        //     QJsonObject user;
+
+        //     sid = userData.currentUserData.id;
+        //     bank = userData.currentUserData.bank;
+        //     sname = userData.currentUserData.name;
+        //     spass = userData.currentUserData.password;
+        //     slea = userData.currentUserData.league;
+
+        //     user["id"] =  sid;
+        //     user["name"] =  sname.data();
+        //     user["password"] =  spass.data();
+        //     user["league"] =  slea.data();
+        //     user["bank"] = bank;
+
+        //     users.append(user);
+        //     continue;
+        // }
         QJsonObject user;
 
-        int sid = addData.usersList[i].id;
-        string sname = addData.usersList[i].name;
-        string spass = addData.usersList[i].password;
-        string slea = addData.usersList[i].league;
+        sid = addData.usersList[i].id;
+        bank = addData.usersList[i].bank;
+        sname = addData.usersList[i].name;
+        spass = addData.usersList[i].password;
+        slea = addData.usersList[i].league;
+
 
 
         user["id"] =  sid;
         user["name"] =  sname.data();
         user["password"] =  spass.data();
         user["league"] =  slea.data();
+        user["bank"] = bank;
 
         users.append(user);
 

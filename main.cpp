@@ -20,9 +20,12 @@
 
 vector<User> Admin::usersList;
 User User::currentUserData;
+int User::userIndex;
+int User::currentUserId;
 unordered_map<string, vector<Player>> Admin::teamPlayers;
 vector<Player> Admin::playersList;
-map <int, vector<int>> User::userPlayers;
+map <int, vector<string>> User::userPlayers;
+map <string, Player> User::usersTeam;
 
 Admin add;
 User use;
@@ -56,18 +59,11 @@ int main(int argc, char *argv[])
     gameData.loadData();
 
 
-    User::userPlayers[5].push_back(7);
-
-    for(auto i = User::userPlayers.begin(); i != User::userPlayers.end(); i++){
-        qDebug() << i->first;
-        for(auto j:i->second){
-            qDebug() << j;
-        }
-    }
     RegisterGui w;
     w.show();
 
     int returnValue = a.exec();
+    qDebug() << User::currentUserData.bank << "----";
     teams.storeData();
     data.storeData();
     gw.storeData();

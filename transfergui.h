@@ -15,11 +15,12 @@ public:
     explicit TransferGui(QWidget *parent = nullptr);
     ~TransferGui();
 
+    static QVector<QString> labels;
+    void setPlayers();
 private slots:
     void openPlayerWindow();
     void updateLabel(const QString &playerName);
     void updateLabel_3(const QString &playerName);
-
 
 
     void on_pushButton_clicked();
