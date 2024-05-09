@@ -3,10 +3,12 @@
 #include <MyProfileGui.h>
 #include <QString>
 #include <regex>
+#include <set>
 
-User::User(int i , string u , string p , string l, double ban)
+User::User(int i ,int point, string u , string p , string l, double ban)
 {
     id = i;
+    points=point;
     name = u ;
     password = p;
     league = l;
@@ -28,7 +30,7 @@ bool User::registerUser(){
 
     if  (nameCheck == false || passCheck==false) return false;
 
-    User registeredUser(id ,name , password , league, bank);
+    User registeredUser(id ,points ,name , password , league, bank);
     registerAdmin.usersList.push_back(registeredUser);
 
     userIndex = registerAdmin.usersList.size() - 1;
@@ -48,6 +50,7 @@ bool User::registerUser(){
 
 
     qDebug() << currentUserData.name;
+
     return true;
 }
 
@@ -80,6 +83,7 @@ bool User::checkRegisteredUser(string name ,string password){
             currentUserData.password=login.usersList[i].password;
             currentUserData.league=login.usersList[i].league;
             currentUserData.bank = login.usersList[i].bank;
+            currentUserData.points=login.usersList[i].points;
 
             userIndex = i;
 
@@ -95,6 +99,10 @@ bool User::checkRegisteredUser(string name ,string password){
 
             qDebug()<<currentUserData.bank;
             qDebug() << usersTeam.size();
+            Team playersPoints;
+            playersPoints.calculatePoints();
+            User players;
+            players.standings();
             return true;
         }
 
@@ -335,3 +343,13 @@ void User::bankHandling(QString playerName){
         }
     }
 }
+
+void User::standings(){
+    for(auto i:Admin::usersList){
+        playersStandings.insert(make_pair(i.points,i.name));
+    }
+    for(auto i=playersStandings.begin();i!=playersStandings.end();i++){
+        qDebug()<<i->first<<" "<<i->second;
+    }
+}
+

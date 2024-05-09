@@ -4,16 +4,20 @@
 #include <QString>
 #include <iostream>
 #include "player.h"
+#include <set>
+
 using namespace std;
 class User
 {
 public:
     int id;
     double bank;
+    int points;
     string name ;
     string password;
     string league;
-    User(int , string , string , string , double );
+    multiset<pair<int,string>> playersStandings;
+    User(int ,int, string , string , string , double );
     User();
     static string CURRENTPOS;
     static map <int, vector<string>> userPlayers;
@@ -39,6 +43,7 @@ public:
 
 
     void bankHandling(QString playerName);
+    void standings();
 };
 
 

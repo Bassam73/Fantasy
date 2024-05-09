@@ -17,6 +17,7 @@ public:
     Team();
     Team(int , string,string);
     void savePlayers(vector<QString> players);
+    void calculatePoints();
 };
 
 #endif // TEAM_H

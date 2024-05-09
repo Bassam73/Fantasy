@@ -21,3 +21,10 @@ void Team::savePlayers(vector<QString> players){
         }
     }
 }
+void Team::calculatePoints(){
+    User::currentUserData.points=0;
+    for(auto i=User::usersTeam.begin();i!=User::usersTeam.end();i++){
+        User::currentUserData.points +=i->second.points;
+    }
+    Admin::usersList[User::userIndex].points=User::currentUserData.points;
+}

@@ -33,7 +33,9 @@ void UsersData::loadData(){
             QJsonArray arr = Document.array();
 
             int id;
+            int points;
             double bank;
+
 
             QJsonObject user;
             QString userName;
@@ -52,6 +54,7 @@ void UsersData::loadData(){
                 password = user.value("password").toString();
                 league = user.value("league").toString();
                 bank = user.value("bank").toDouble();
+                points=user.value("points").toInt();
                 // if (bank == NULL){
                 //     bank = 100;
                 // }
@@ -60,7 +63,7 @@ void UsersData::loadData(){
                 pass = password.toStdString();
                 leag = league.toStdString();
 
-                User userData(id , name, pass, leag, bank);
+                User userData(id ,points, name, pass, leag, bank);
 
                 addData.usersList.push_back(userData);
             }
@@ -73,6 +76,7 @@ void UsersData::storeData(){
     QJsonArray users;
     for(int i = 0; i < addData.usersList.size(); i++){
         int sid;
+        int points;
         double bank;
         string sname;
         string spass;
@@ -103,6 +107,7 @@ void UsersData::storeData(){
         sname = addData.usersList[i].name;
         spass = addData.usersList[i].password;
         slea = addData.usersList[i].league;
+        points=addData.usersList[i].points;
 
 
 
@@ -111,6 +116,7 @@ void UsersData::storeData(){
         user["password"] =  spass.data();
         user["league"] =  slea.data();
         user["bank"] = bank;
+        user["points"]=points;
 
         users.append(user);
 

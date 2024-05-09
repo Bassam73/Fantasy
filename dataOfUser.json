@@ -4,83 +4,95 @@
         "id": 0,
         "league": "",
         "name": "",
-        "password": ""
+        "password": "",
+        "points": 0
     },
     {
         "bank": 11.600000190734871,
         "id": 1,
         "league": "Premier League",
         "name": "z",
-        "password": "z"
+        "password": "z",
+        "points": 19
     },
     {
         "bank": 2.79999952316284,
         "id": 3,
         "league": "Premier League",
         "name": "l",
-        "password": "l"
+        "password": "l",
+        "points": 0
     },
     {
         "bank": 35.09999990463257,
         "id": 4,
         "league": "Premier League",
         "name": "George",
-        "password": "George14@"
+        "password": "George14@",
+        "points": 0
     },
     {
         "bank": 57.9,
         "id": 5,
         "league": "Premier League",
         "name": "Bishoy",
-        "password": "Bishoy14@"
+        "password": "Bishoy14@",
+        "points": 0
     },
     {
         "bank": 54.599999999999994,
         "id": 6,
         "league": "Premier League",
         "name": "Mina",
-        "password": "Mina145@"
+        "password": "Mina145@",
+        "points": 0
     },
     {
         "bank": 59.60000019073487,
         "id": 7,
         "league": "Premier League",
         "name": "Kerolos",
-        "password": "Kerolos14@"
+        "password": "Kerolos14@",
+        "points": 0
     },
     {
         "bank": 62.60000000000001,
         "id": 8,
         "league": "Premier League",
         "name": "Martin",
-        "password": "Martin14@"
+        "password": "Martin14@",
+        "points": 0
     },
     {
         "bank": 58.2,
         "id": 9,
         "league": "Premier League",
         "name": "Thomas",
-        "password": "Thomas14@"
+        "password": "Thomas14@",
+        "points": 0
     },
     {
         "bank": 73.2,
         "id": 10,
         "league": "Premier League",
         "name": "Tony",
-        "password": "Tony7714@"
+        "password": "Tony7714@",
+        "points": 0
     },
     {
         "bank": 73.2,
         "id": 11,
         "league": "Premier League",
         "name": "Besho",
-        "password": "Besho14@"
+        "password": "Besho14@",
+        "points": 0
     },
     {
         "bank": 60.10000000000001,
         "id": 12,
         "league": "Premier League",
         "name": "Soka",
-        "password": "Soka1234@"
+        "password": "Soka1234@",
+        "points": 0
     }
 ]
