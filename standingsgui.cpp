@@ -10,9 +10,9 @@ StandingsGui::StandingsGui(QWidget *parent)
     this->setFixedSize(this->width(), this->height());
     User user;
     ui->textBrowser->setText(user.standings());
-   // ui->textBrowser->selectAll();
-    //ui->textBrowser->setAlignment(Qt::AlignCenter);
-    ui->textBrowser->setStyleSheet("text-align:center;");
+    ui->textBrowser->selectAll();
+    ui->textBrowser->setAlignment(Qt::AlignCenter);
+
 }
 
 StandingsGui::~StandingsGui()
