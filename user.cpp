@@ -348,8 +348,9 @@ void User::standings(){
     for(auto i:Admin::usersList){
         playersStandings.insert(make_pair(i.points,i.name));
     }
-    for(auto i=playersStandings.begin();i!=playersStandings.end();i++){
-        qDebug()<<i->first<<" "<<i->second;
+    multiset<pair<int,string>>::reverse_iterator j;
+    for(j=playersStandings.rbegin();j!=playersStandings.rend();j++){
+        qDebug()<<j->first<<" "<<j->second;
     }
 }
 
