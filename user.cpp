@@ -50,7 +50,12 @@ bool User::registerUser(){
 
 
     qDebug() << currentUserData.name;
-
+    qDebug()<<currentUserData.bank;
+    qDebug() << usersTeam.size();
+    Team playersPoints;
+    playersPoints.calculatePoints();
+    User players;
+    players.standings();
     return true;
 }
 
@@ -344,13 +349,15 @@ void User::bankHandling(QString playerName){
     }
 }
 
-void User::standings(){
-    for(auto i:Admin::usersList){
-        playersStandings.insert(make_pair(i.points,i.name));
+QString User::standings() {
+    QString standingsText;
+    for (auto i : Admin::usersList) {
+        playersStandings.insert(make_pair(i.points, i.name));
     }
-    multiset<pair<int,string>>::reverse_iterator j;
-    for(j=playersStandings.rbegin();j!=playersStandings.rend();j++){
-        qDebug()<<j->first<<" "<<j->second;
+    multiset<pair<int, string>>::reverse_iterator j;
+    for (j = playersStandings.rbegin(); j != playersStandings.rend(); j++) {
+        standingsText.append(QString::number(j->first) + " " + QString::fromStdString(j->second) + "\n");
     }
+    return standingsText;
 }
 

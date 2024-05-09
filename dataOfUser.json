@@ -8,7 +8,7 @@
         "points": 0
     },
     {
-        "bank": 11.600000190734871,
+        "bank": 6.0000001907348715,
         "id": 1,
         "league": "Premier League",
         "name": "z",
@@ -93,6 +93,14 @@
         "league": "Premier League",
         "name": "Soka",
         "password": "Soka1234@",
+        "points": 0
+    },
+    {
+        "bank": 80,
+        "id": 13,
+        "league": "Premier League",
+        "name": "Mohamed",
+        "password": "Ahmed@12543",
         "points": 0
     }
 ]

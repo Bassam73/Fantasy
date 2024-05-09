@@ -43,7 +43,7 @@ public:
 
 
     void bankHandling(QString playerName);
-    void standings();
+    QString  standings();
 };
 
 
