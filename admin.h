@@ -20,6 +20,10 @@ public:
     static vector<Team> ligaTeamsList;
 
     static vector <Player> playersList;
+
+
+
+
     static string playersDataPath;
     static string teamsDataPath;
     static string usersDataPath;

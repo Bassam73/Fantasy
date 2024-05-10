@@ -352,12 +352,92 @@ void User::bankHandling(QString playerName){
 QString User::standings() {
     QString standingsText;
     for (auto i : Admin::usersList) {
-        playersStandings.insert(make_pair(i.points, i.name));
+        if(i.league == "Premier League")
+        plPlayersStandings.insert(make_pair(i.points, i.name));
+        else {
+            laLigaPlayersStandings.insert(make_pair(i.points , i.name));
+        }
     }
     multiset<pair<int, string>>::reverse_iterator j;
-    for (j = playersStandings.rbegin(); j != playersStandings.rend(); j++) {
-        standingsText.append(QString::number(j->first) + " " + QString::fromStdString(j->second) + "\n");
+    if(User::currentUserData.league == "Premier League"){
+        for (j = plPlayersStandings.rbegin(); j != plPlayersStandings.rend(); j++) {
+            standingsText.append(QString::number(j->first) + " " + QString::fromStdString(j->second) + "\n");
+        }
+    }
+
+    else{
+        for (j = laLigaPlayersStandings.rbegin(); j != laLigaPlayersStandings.rend(); j++) {
+            standingsText.append(QString::number(j->first) + " " + QString::fromStdString(j->second) + "\n");
+        }
     }
     return standingsText;
 }
 
+
+
+
+
+QString User::stats(string stat) {
+    QString statsText;
+
+    if (User::currentUserData.league == "Premier League") {
+        for (auto player : Admin::playersList) {
+            for (int i = 0; i < Admin::plTeamsList.size(); i++) {
+                if (player.team == Admin::plTeamsList[i].name) {
+                    if (stat == "Goals" && player.goals != 0) {
+                        goalsStats.insert(make_pair(player.goals, player.name));
+                    } else if (stat == "Assists" && player.assists != 0) {
+                        assistsStats.insert(make_pair(player.assists, player.name));
+                    } else if (stat == "Yellow Cards" && player.yellowCards != 0) {
+                        yellowCardStats.insert(make_pair(player.yellowCards, player.name));
+                    } else if (stat == "Clean Sheets" && player.cleanSheets != 0) {
+                        cleanSheetsStats.insert(make_pair(player.cleanSheets, player.name));
+                    }
+                }
+            }
+        }
+    } else {
+        for (auto player : Admin::playersList) {
+            for (int i = 0; i < Admin::ligaTeamsList.size(); i++) {
+                if (player.team == Admin::ligaTeamsList[i].name) {
+                    if (stat == "Goals" && player.goals != 0) {
+                        goalsStats.insert(make_pair(player.goals, player.name));
+                    } else if (stat == "Assists" && player.assists != 0) {
+                        assistsStats.insert(make_pair(player.assists, player.name));
+                    } else if (stat == "Yellow Cards" && player.yellowCards != 0) {
+                        yellowCardStats.insert(make_pair(player.yellowCards, player.name));
+                    } else if (stat == "Clean Sheets" && player.cleanSheets != 0) {
+                        cleanSheetsStats.insert(make_pair(player.cleanSheets, player.name));
+                    }
+                }
+            }
+        }
+    }
+
+    multiset<pair<int, string>>::reverse_iterator j;
+
+    if (stat == "Goals") {
+        for (j = goalsStats.rbegin(); j != goalsStats.rend(); j++) {
+            statsText.append(QString::number(j->first) + " " + QString::fromStdString(j->second) + "\n");
+        }
+    } else if (stat == "Assists") {
+        for (j = assistsStats.rbegin(); j != assistsStats.rend(); j++) {
+            statsText.append(QString::number(j->first) + " " + QString::fromStdString(j->second) + "\n");
+        }
+    } else if (stat == "Clean Sheets") {
+        for (j = cleanSheetsStats.rbegin(); j != cleanSheetsStats.rend(); j++) {
+            statsText.append(QString::number(j->first) + " " + QString::fromStdString(j->second) + "\n");
+        }
+    } else if (stat == "Yellow Cards") {
+        for (j = yellowCardStats.rbegin(); j != yellowCardStats.rend(); j++) {
+            statsText.append(QString::number(j->first) + " " + QString::fromStdString(j->second) + "\n");
+        }
+    }
+
+    goalsStats.clear();
+    assistsStats.clear();
+    cleanSheetsStats.clear();
+    yellowCardStats.clear();
+
+    return statsText;
+}

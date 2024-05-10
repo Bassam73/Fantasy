@@ -16,7 +16,15 @@ public:
     string name ;
     string password;
     string league;
-    multiset<pair<int,string>> playersStandings;
+    multiset<pair<int,string>> plPlayersStandings;
+    multiset<pair<int,string>> laLigaPlayersStandings;
+
+    multiset<pair<int,string>> goalsStats;
+    multiset<pair<int,string>> assistsStats;
+    multiset<pair<int,string>> yellowCardStats;
+    multiset<pair<int,string>> cleanSheetsStats;
+
+
     User(int ,int, string , string , string , double );
     User();
     static string CURRENTPOS;
@@ -44,6 +52,9 @@ public:
 
     void bankHandling(QString playerName);
     QString  standings();
+
+    QString  stats(string);
+
 };
 
 

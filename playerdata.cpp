@@ -40,6 +40,11 @@ void PlayerData::loadData(){
             int kit;
             int age;
 
+            int goals;
+            int assists;
+            int cleanSheets;
+            int yellowCards;
+
             QString playerName;
             QString position;
             QString team;
@@ -61,7 +66,12 @@ void PlayerData::loadData(){
 
                 id = play.value("id").toInt();
                 kit = play.value("kitnumber").toInt();
-                age = play.value("age").toInt();
+                goals = play.value("Goals").toInt();
+                assists = play.value("Assists").toInt();
+                cleanSheets = play.value("cleanSheets").toInt();
+                yellowCards = play.value("yellowCards").toInt();
+
+
                 co=play.value("cost").toDouble();
 
                 for (int i = 1; i < 19; ++i) {
@@ -80,7 +90,7 @@ void PlayerData::loadData(){
                 te = team.toStdString();
                 points=play.value("points").toInt();
 
-                Player player1(id , kit, age, name, pos, te,gw,co,points);
+                Player player1(id , kit, age, name, pos, te,gw,co,points , goals , assists , cleanSheets , yellowCards);
 
                 adplayer.teamPlayers[te].push_back(player1);
 
@@ -103,6 +113,12 @@ void PlayerData::storeData() {
         int pId = adplayer.playersList[i].id;
         // int kitNum = adplayer.playersList[i].kitNumber;
         int pAge = adplayer.playersList[i].age;
+
+        int pGoals = adplayer.playersList[i].goals;
+        int pAssists = adplayer.playersList[i].assists;
+        int pCleanSheets = adplayer.playersList[i].cleanSheets;
+        int pYellowCards = adplayer.playersList[i].yellowCards;
+
         int points = adplayer.playersList[i].points;
         double cost = roundf(adplayer.playersList[i].cost * 10.0)/10.0;
         string pName = adplayer.playersList[i].name;
@@ -120,6 +136,12 @@ void PlayerData::storeData() {
 
         player["id"] = pId;
         player["age"] = pAge;
+
+        player["Goals"] = pGoals;
+        player["Assists"] = pAssists;
+        player["cleanSheets"] = pCleanSheets;
+        player["yellowCards"] = pYellowCards;
+
         player["kitnumber"] = kitNum;
         player["points"] = points;
         player["cost"] = cost;

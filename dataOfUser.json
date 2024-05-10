@@ -1,19 +1,11 @@
 [
     {
-        "bank": 0,
-        "id": 0,
-        "league": "",
-        "name": "",
-        "password": "",
-        "points": 0
-    },
-    {
         "bank": 6.0000001907348715,
         "id": 1,
         "league": "Premier League",
         "name": "z",
         "password": "z",
-        "points": 19
+        "points": 43
     },
     {
         "bank": 2.79999952316284,

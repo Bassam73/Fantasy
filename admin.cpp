@@ -14,6 +14,8 @@ vector<string> mins60PlusPlayers;
 vector<string> cleanCheatPlayers;
 vector<string> yellowCardsPlayers;
 vector<string> raisedPricePlayers;
+vector<string> reducedPricePlayers;
+
 
 string Admin::playersDataPath = "C:/Users/Dell/Fantasy/dataOfPlayers.json";
 string Admin::teamsDataPath = "C:/Users/Dell/Fantasy/dataOfTeams.json";
@@ -227,7 +229,6 @@ int Admin::updatePlayers(vector<Player>& playersList,int low,int high,int Player
 
     return -1;
 }
-
 int Admin::addPoints(string playerName, QString action) {
     auto playerIt = std::find_if(playersList.begin(), playersList.end(),
                                  [&](const Player& player) { return player.name == playerName; });
@@ -254,6 +255,7 @@ int Admin::addPoints(string playerName, QString action) {
         for (int i = 0; i < yellowCardsPlayers.size(); i++) {
             if (yellowCardsPlayers[i] == playerIt->name && action == "Yellow Card") {
                 playerIt->gwPoints[GAME_WEEK] -= 1;
+                playerIt->yellowCards++;
                 action = "Red Card";
             }
         }
@@ -263,6 +265,7 @@ int Admin::addPoints(string playerName, QString action) {
             mins60PlusPlayers.push_back(playerIt->name);
         } else if (action == "Assist") {
             playerIt->gwPoints[GAME_WEEK] += 3;
+            playerIt->assists++;
         } else if (action == "Red Card") {
             redCard = true;
             playerRedCarded = playerIt->name;
@@ -271,47 +274,63 @@ int Admin::addPoints(string playerName, QString action) {
         } else if (action == "Yellow Card") {
             yellowCardsPlayers.push_back(playerIt->name);
             playerIt->gwPoints[GAME_WEEK] -= 1;
+            playerIt->yellowCards++;
         } else if (playerIt->position == "GK" || playerIt->position == "DEF") {
             if (action == "Goal") {
                 playerIt->gwPoints[GAME_WEEK] += 6;
+                playerIt->goals++;
             } else if (action == "Clean Sheet") {
                 cleanCheatPlayers.push_back(playerIt->name);
                 playerIt->gwPoints[GAME_WEEK] += 4;
+
+                if(playerIt->position == "GK"){
+                 playerIt->cleanSheets++;
+                }
+
             }
         } else if (playerIt->position == "MID") {
             if (action == "Goal") {
                 playerIt->gwPoints[GAME_WEEK] += 5;
+                 playerIt->goals++;
             } else if (action == "Clean Sheet") {
                 cleanCheatPlayers.push_back(playerIt->name);
                 playerIt->gwPoints[GAME_WEEK] += 1;
             }
         } else if (playerIt->position == "ATT" && action == "Goal") {
             playerIt->gwPoints[GAME_WEEK] += 4;
+             playerIt->goals++;
         }
 
         int totalPoints = 0;
-        for (int i = 0; i < GAME_WEEK; i++) {
+        for (int i = 0; i < 18; ++i) {
             totalPoints += playerIt->gwPoints[i];
         }
         playerIt->points = totalPoints;
 
-
-
-        if (playerIt->gwPoints[GAME_WEEK] >= 10) {
-            // Check if the player's cost has already been raised
+        if (playerIt->points >= 10) {
             bool costRaised = std::find(raisedPricePlayers.begin(), raisedPricePlayers.end(), playerIt->name) != raisedPricePlayers.end();
 
             if (!costRaised) {
-                // If the player's cost hasn't been raised yet
                 raisedPricePlayers.push_back(playerIt->name);
                 playerIt->cost += 0.1;
             }
         }
+        if (playerIt->points <=0) {
+            bool costReduced = std::find(reducedPricePlayers.begin(), reducedPricePlayers.end(), playerIt->name) != reducedPricePlayers.end();
 
+            if (!costReduced) {
+                reducedPricePlayers.push_back(playerIt->name);
+                playerIt->cost -= 0.1;
+            }
         }
-
-        return 0;
     }
+    cout <<playerIt->goals<<endl;
+    cout <<playerIt->assists<<endl;
+    cout <<playerIt->yellowCards<<endl;
+    cout <<playerIt->cleanSheets<<endl;
+
+    return 0;
+}
 
 
 
@@ -324,6 +343,9 @@ void Admin::nextGameWeek(){
     mins60PlusPlayers.clear();
     cleanCheatPlayers.clear();
     yellowCardsPlayers.clear();
+    reducedPricePlayers.clear();
+    raisedPricePlayers.clear();
+
      mins = true;
      cs = true;
      redCard = true;
