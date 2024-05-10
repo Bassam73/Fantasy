@@ -12,6 +12,8 @@ AddPlayersData::AddPlayersData(QWidget *parent)
     , ui(new Ui::AddPlayersData)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 AddPlayersData::~AddPlayersData()

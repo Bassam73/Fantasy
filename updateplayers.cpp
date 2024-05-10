@@ -10,6 +10,8 @@ UpdatePlayers::UpdatePlayers(QWidget *parent)
     , ui(new Ui::UpdatePlayers)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 UpdatePlayers::~UpdatePlayers()

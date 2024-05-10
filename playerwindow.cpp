@@ -20,6 +20,7 @@ PlayerWindow::PlayerWindow(QWidget *parent)
     , ui(new Ui::PlayerWindow)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
     connect(ui->teamComboBox, QOverload<int>::of(&QComboBox::activated),
             [this](int index){
                 QString teamName = ui->teamComboBox->itemText(index);

@@ -19,9 +19,6 @@ public:
     void setPlayers();
 private slots:
     void openPlayerWindow();
-    void updateLabel(const QString &playerName);
-    void updateLabel_3(const QString &playerName);
-
 
     void on_pushButton_clicked();
 
@@ -46,7 +43,6 @@ private slots:
     void on_pushButton_10_clicked();
 
     void on_pushButton_11_clicked();
-
 
     void on_pushButton_12_clicked();
 

@@ -13,6 +13,8 @@ LoginUI::LoginUI(QWidget *parent)
     , ui(new Ui::LoginUI)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 LoginUI::~LoginUI()

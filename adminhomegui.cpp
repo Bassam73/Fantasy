@@ -9,6 +9,8 @@ AdminHomeGui::AdminHomeGui(QWidget *parent)
     , ui(new Ui::AdminHomeGui)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 AdminHomeGui::~AdminHomeGui()

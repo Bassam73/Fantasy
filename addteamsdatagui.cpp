@@ -12,6 +12,8 @@ AddTeamsDataGui::AddTeamsDataGui(QWidget *parent)
     , ui(new Ui::AddTeamsDataGui)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 AddTeamsDataGui::~AddTeamsDataGui()

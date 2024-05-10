@@ -6,6 +6,8 @@ EditTeamsDataGui::EditTeamsDataGui(QWidget *parent)
     , ui(new Ui::EditTeamsDataGui)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 EditTeamsDataGui::~EditTeamsDataGui()

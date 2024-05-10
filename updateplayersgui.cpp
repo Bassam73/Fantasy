@@ -9,6 +9,8 @@ UpdatePLayersGui::UpdatePLayersGui(QWidget *parent)
     , ui(new Ui::UpdatePLayersGui)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 UpdatePLayersGui::~UpdatePLayersGui()

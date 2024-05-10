@@ -8,6 +8,8 @@ DataEntryGui::DataEntryGui(QWidget *parent)
     , ui(new Ui::DataEntryGui)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 DataEntryGui::~DataEntryGui()

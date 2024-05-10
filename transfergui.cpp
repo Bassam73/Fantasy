@@ -19,6 +19,7 @@ TransferGui::TransferGui(QWidget *parent) :
     ui(new Ui::TransferGui)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
 
     connect(ui->pushButton, &QPushButton::clicked, this, &TransferGui::openPlayerWindow);
     connect(ui->pushButton_2, &QPushButton::clicked, this, &TransferGui::openPlayerWindow);
@@ -259,3 +260,4 @@ void TransferGui::setPlayers(){
         TransferGui::labels.push_back(playerName);
     }
 }
+

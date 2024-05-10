@@ -17,6 +17,8 @@ addpoints::addpoints(QWidget *parent)
     , ui(new Ui::addpoints)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
     QString gw = QString::number(adm.GAME_WEEK);
     ui->label_3->setText(gw);
 }

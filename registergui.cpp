@@ -16,6 +16,8 @@ RegisterGui::RegisterGui(QWidget *parent)
 {
 
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 RegisterGui::~RegisterGui()

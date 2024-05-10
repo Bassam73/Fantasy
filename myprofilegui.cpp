@@ -10,6 +10,8 @@ MyProfileGui::MyProfileGui(QWidget *parent)
     , ui(new Ui::MyProfileGui)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
     int points =  User::currentUserData.points;
     QString pointsText = QString::number(points);
     ui->label_3->setText(User::currentUserData.name.data());

@@ -11,6 +11,8 @@ forgetPasswordgui::forgetPasswordgui(QWidget *parent)
     , ui(new Ui::forgetPasswordgui)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 forgetPasswordgui::~forgetPasswordgui()

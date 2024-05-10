@@ -6,6 +6,8 @@ UpdateTeamsGui::UpdateTeamsGui(QWidget *parent)
     , ui(new Ui::UpdateTeamsGui)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 UpdateTeamsGui::~UpdateTeamsGui()

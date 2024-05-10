@@ -10,6 +10,8 @@ DeletePlayersGui::DeletePlayersGui(QWidget *parent)
     , ui(new Ui::DeletePlayersGui)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 DeletePlayersGui::~DeletePlayersGui()

@@ -10,6 +10,8 @@ DeleteTeamsDataGui::DeleteTeamsDataGui(QWidget *parent)
     , ui(new Ui::DeleteTeamsDataGui)
 {
     ui->setupUi(this);
+    this->setFixedSize(this->width(), this->height());
+
 }
 
 DeleteTeamsDataGui::~DeleteTeamsDataGui()
