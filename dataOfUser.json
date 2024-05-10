@@ -102,5 +102,13 @@
         "name": "Mohamed",
         "password": "Ahmed@12543",
         "points": 0
+    },
+    {
+        "bank": 80,
+        "id": 14,
+        "league": "LaLiga",
+        "name": "Ashraf",
+        "password": "Thomas14@",
+        "points": 0
     }
 ]

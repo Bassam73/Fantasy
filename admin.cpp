@@ -5,6 +5,7 @@ vector<Team> Admin::plTeamsList;
 vector<Team> Admin::ligaTeamsList;
 int Admin::GAME_WEEK=1;
 
+
 // unordered_map<string, vector<Player>> Admin::teamPlayers;
 
 string playerRedCarded;
@@ -12,12 +13,14 @@ vector<string> redCardPlayers;
 vector<string> mins60PlusPlayers;
 vector<string> cleanCheatPlayers;
 vector<string> yellowCardsPlayers;
-string Admin::playersDataPath = "D:/Fantasy/dataOfPlayers.json";
-string Admin::teamsDataPath = "D:/Fantasy/dataOfTeams.json";
-string Admin::usersDataPath = "D:/Fantasy/dataOfUser.json";
-string Admin::plPlayersDataPath = "D:/Fantasy/PLplayers.json";
-string Admin::gameWeeksDataPath = "D:/Fantasy/dataOfGameWeeks.json";
-string Admin::UsersDataInGamePath = "D:/Fantasy/dataOfuserAccount.json";
+vector<string> raisedPricePlayers;
+
+string Admin::playersDataPath = "C:/Users/Dell/Fantasy/dataOfPlayers.json";
+string Admin::teamsDataPath = "C:/Users/Dell/Fantasy/dataOfTeams.json";
+string Admin::usersDataPath = "C:/Users/Dell/Fantasy/dataOfUser.json";
+string Admin::plPlayersDataPath = "C:/Users/Dell/Fantasy/PLplayers.json";
+string Admin::gameWeeksDataPath = "C:/Users/Dell/Fantasy/dataOfGameWeeks.json";
+string Admin::UsersDataInGamePath = "C:/Users/Dell/Fantasy/dataOfuserAccount.json";
 bool mins = true;
 bool cs = true;
 bool redCard = true;
@@ -225,39 +228,37 @@ int Admin::updatePlayers(vector<Player>& playersList,int low,int high,int Player
     return -1;
 }
 
-int Admin::addPoints(string playerName  , QString action){
+int Admin::addPoints(string playerName, QString action) {
     auto playerIt = std::find_if(playersList.begin(), playersList.end(),
                                  [&](const Player& player) { return player.name == playerName; });
 
-
     if (playerIt != playersList.end()) {
-
-
-        for(int i= 0 ; i < redCardPlayers.size();i++){
-            if(redCardPlayers[i]==playerIt->name){
+        for (int i = 0; i < redCardPlayers.size(); i++) {
+            if (redCardPlayers[i] == playerIt->name) {
                 return 1;
             }
         }
 
-        for(int i = 0 ; i< mins60PlusPlayers.size() ; i++){
-            if(mins60PlusPlayers[i]==playerIt->name && action == "60+ min"){
+        for (int i = 0; i < mins60PlusPlayers.size(); i++) {
+            if (mins60PlusPlayers[i] == playerIt->name && action == "60+ min") {
                 return 2;
             }
         }
-        for(int i = 0 ; i< cleanCheatPlayers.size() ; i++){
-            if(cleanCheatPlayers[i]==playerIt->name && action == "Clean Sheet"){
+
+        for (int i = 0; i < cleanCheatPlayers.size(); i++) {
+            if (cleanCheatPlayers[i] == playerIt->name && action == "Clean Sheet") {
                 return 3;
             }
         }
-        for(int i = 0 ; i< yellowCardsPlayers.size() ; i++){
-            if(yellowCardsPlayers[i]==playerIt->name && action == "Yellow Card"){
+
+        for (int i = 0; i < yellowCardsPlayers.size(); i++) {
+            if (yellowCardsPlayers[i] == playerIt->name && action == "Yellow Card") {
                 playerIt->gwPoints[GAME_WEEK] -= 1;
                 action = "Red Card";
             }
         }
 
         if (action == "60+ min") {
-
             playerIt->gwPoints[GAME_WEEK] += 2;
             mins60PlusPlayers.push_back(playerIt->name);
         } else if (action == "Assist") {
@@ -270,48 +271,49 @@ int Admin::addPoints(string playerName  , QString action){
         } else if (action == "Yellow Card") {
             yellowCardsPlayers.push_back(playerIt->name);
             playerIt->gwPoints[GAME_WEEK] -= 1;
-        } else if ((playerIt->position == "GK" || playerIt->position == "DEF") ) {
-
-            if(action == "Goal"){
-                 playerIt->gwPoints[GAME_WEEK] += 6;
+        } else if (playerIt->position == "GK" || playerIt->position == "DEF") {
+            if (action == "Goal") {
+                playerIt->gwPoints[GAME_WEEK] += 6;
+            } else if (action == "Clean Sheet") {
+                cleanCheatPlayers.push_back(playerIt->name);
+                playerIt->gwPoints[GAME_WEEK] += 4;
             }
-            else if (action == "Clean Sheet"){
-                 cleanCheatPlayers.push_back(playerIt->name);
-                 playerIt->gwPoints[GAME_WEEK] += 4;
-            }
-
-        }
-
-        else if ((playerIt->position == "MID") ) {
-
-            if(action == "Goal"){
+        } else if (playerIt->position == "MID") {
+            if (action == "Goal") {
                 playerIt->gwPoints[GAME_WEEK] += 5;
-            }
-            else if (action == "Clean Sheet"){
+            } else if (action == "Clean Sheet") {
                 cleanCheatPlayers.push_back(playerIt->name);
                 playerIt->gwPoints[GAME_WEEK] += 1;
             }
+        } else if (playerIt->position == "ATT" && action == "Goal") {
+            playerIt->gwPoints[GAME_WEEK] += 4;
+        }
+
+        int totalPoints = 0;
+        for (int i = 0; i < GAME_WEEK; i++) {
+            totalPoints += playerIt->gwPoints[i];
+        }
+        playerIt->points = totalPoints;
+
+
+
+        if (playerIt->gwPoints[GAME_WEEK] >= 10) {
+            // Check if the player's cost has already been raised
+            bool costRaised = std::find(raisedPricePlayers.begin(), raisedPricePlayers.end(), playerIt->name) != raisedPricePlayers.end();
+
+            if (!costRaised) {
+                // If the player's cost hasn't been raised yet
+                raisedPricePlayers.push_back(playerIt->name);
+                playerIt->cost += 0.1;
+            }
+        }
 
         }
 
-        else if ((playerIt->position == "ATT" && action == "Goal") ) {
-                playerIt->gwPoints[GAME_WEEK] += 4;
-        }
-        cout<<playersList[216].points<<playersList[216].name;
-         cout<< playerIt->points<<endl;
-        cout<<"%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
-        cout<<playerIt->gwPoints[GAME_WEEK]<<endl;
-
-        playerIt->points+= playerIt->gwPoints[GAME_WEEK];
-        playerIt->gwPoints[GAME_WEEK]=0;
-        cout<<"@@@@@@@@@@@@@@"<<endl;
-        cout<< playerIt->points<<endl;
-
-        }
-
-        // cout << playerIt->name << " " << playerIt->gwPoints[GAME_WEEK]<< endl;
         return 0;
     }
+
+
 
 
 void Admin::nextGameWeek(){
