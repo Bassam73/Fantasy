@@ -16,7 +16,15 @@ User::User(int i ,int point, string u , string p , string l, double ban)
 }
 User::User(){}
     Admin adminn;
-
+User::User(int i ,int point, string u , string p , string l, double ban , bool wheel){
+    id = i;
+    points=point;
+    name = u ;
+    password = p;
+    league = l;
+    bank = ban;
+    luckyWheelUsed = wheel;
+}
 
 bool User::registerUser(){
     const regex userPattern("^[A-Z][a-z]{2,}$");
@@ -89,6 +97,7 @@ bool User::checkRegisteredUser(string name ,string password){
             currentUserData.league=login.usersList[i].league;
             currentUserData.bank = login.usersList[i].bank;
             currentUserData.points=login.usersList[i].points;
+            currentUserData.luckyWheelUsed= login.usersList[i].luckyWheelUsed;
 
             userIndex = i;
 

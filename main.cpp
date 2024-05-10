@@ -62,6 +62,7 @@ int main(int argc, char *argv[])
     RegisterGui w;
     w.show();
 
+
     int returnValue = a.exec();
     qDebug() << User::currentUserData.bank << "----";
     teams.storeData();

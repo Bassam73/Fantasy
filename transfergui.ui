@@ -450,6 +450,22 @@ color:black;</string>
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_13">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>540</y>
+     <width>83</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Lucky Wheel</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>label_5</zorder>
   <zorder>pushButton</zorder>
@@ -477,6 +493,7 @@ color:black;</string>
   <zorder>updateLabel_11</zorder>
   <zorder>label_3</zorder>
   <zorder>pushButton_12</zorder>
+  <zorder>pushButton_13</zorder>
  </widget>
  <resources/>
  <connections/>

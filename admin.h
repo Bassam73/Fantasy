@@ -44,6 +44,7 @@ public:
     int updatePlayers(vector<Player>&,int,int,int,int,int,string);
     int addPoints(string ,QString);
     void nextGameWeek();
+    void luckyWheel();
 };
 
 

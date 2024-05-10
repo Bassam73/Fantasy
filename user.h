@@ -23,9 +23,11 @@ public:
     multiset<pair<int,string>> assistsStats;
     multiset<pair<int,string>> yellowCardStats;
     multiset<pair<int,string>> cleanSheetsStats;
+    bool luckyWheelUsed;
 
 
     User(int ,int, string , string , string , double );
+    User(int ,int, string , string , string , double , bool);
     User();
     static string CURRENTPOS;
     static map <int, vector<string>> userPlayers;

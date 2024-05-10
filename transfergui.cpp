@@ -39,10 +39,13 @@ TransferGui::TransferGui(QWidget *parent) :
 
 }
 
+
+
 TransferGui::~TransferGui()
 {
     delete ui;
 }
+
 
 void TransferGui::openPlayerWindow() {
     QPushButton *clickedButton = qobject_cast<QPushButton *>(sender());
@@ -259,5 +262,22 @@ void TransferGui::setPlayers(){
         }
         TransferGui::labels.push_back(playerName);
     }
+}
+
+
+void TransferGui::on_pushButton_13_clicked()
+{
+    qDebug()<<User::currentUserData.luckyWheelUsed;
+    if(User::currentUserData.luckyWheelUsed){
+        QMessageBox::about(this , "Failed", "You have already used lucky wheel");
+        return;
+    }
+    Admin a ;
+    a.luckyWheel();
+
+    TransferGui * x  = new TransferGui;
+    this->close();
+    x->show();
+
 }
 

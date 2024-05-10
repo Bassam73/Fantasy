@@ -45,6 +45,7 @@ void UsersData::loadData(){
             string name;
             string pass;
             string leag;
+            bool luckyWheel;
 
 
             for(auto i:arr){
@@ -55,6 +56,7 @@ void UsersData::loadData(){
                 league = user.value("league").toString();
                 bank = user.value("bank").toDouble();
                 points=user.value("points").toInt();
+                luckyWheel = user.value("luckyWheel").toBool();
                 // if (bank == NULL){
                 //     bank = 100;
                 // }
@@ -63,7 +65,7 @@ void UsersData::loadData(){
                 pass = password.toStdString();
                 leag = league.toStdString();
 
-                User userData(id ,points, name, pass, leag, bank);
+                User userData(id ,points, name, pass, leag, bank,luckyWheel);
 
                 addData.usersList.push_back(userData);
             }
@@ -72,35 +74,21 @@ void UsersData::loadData(){
 }
 
 void UsersData::storeData(){
+
      QString path = QString::fromStdString(addData.usersDataPath);
     QJsonArray users;
     for(int i = 0; i < addData.usersList.size(); i++){
+        if(addData.usersList[i].name == User::currentUserData.name){
+            addData.usersList[i].luckyWheelUsed = User::currentUserData.luckyWheelUsed;
+        }
         int sid;
         int points;
         double bank;
         string sname;
         string spass;
         string slea ;
-
-        // if(i == userData.userIndex){
-        //     QJsonObject user;
-
-        //     sid = userData.currentUserData.id;
-        //     bank = userData.currentUserData.bank;
-        //     sname = userData.currentUserData.name;
-        //     spass = userData.currentUserData.password;
-        //     slea = userData.currentUserData.league;
-
-        //     user["id"] =  sid;
-        //     user["name"] =  sname.data();
-        //     user["password"] =  spass.data();
-        //     user["league"] =  slea.data();
-        //     user["bank"] = bank;
-
-        //     users.append(user);
-        //     continue;
-        // }
         QJsonObject user;
+        bool sLucky;
 
         sid = addData.usersList[i].id;
         bank = addData.usersList[i].bank;
@@ -108,7 +96,7 @@ void UsersData::storeData(){
         spass = addData.usersList[i].password;
         slea = addData.usersList[i].league;
         points=addData.usersList[i].points;
-
+        sLucky = addData.usersList[i].luckyWheelUsed;
 
 
         user["id"] =  sid;
@@ -117,7 +105,7 @@ void UsersData::storeData(){
         user["league"] =  slea.data();
         user["bank"] = bank;
         user["points"]=points;
-
+        user["luckyWheel"] = sLucky;
         users.append(user);
 
     }

@@ -1,6 +1,9 @@
 #include "admin.h"
 #include "qdebug.h"
 
+#include <Math.h>
+
+
 vector<Team> Admin::plTeamsList;
 vector<Team> Admin::ligaTeamsList;
 int Admin::GAME_WEEK=1;
@@ -17,12 +20,12 @@ vector<string> raisedPricePlayers;
 vector<string> reducedPricePlayers;
 
 
-string Admin::playersDataPath = "D:/New folder/Fantasy/dataOfPlayers.json";
-string Admin::teamsDataPath = "D:/New folderFantasy/dataOfTeams.json";
-string Admin::usersDataPath = "D:/New folder/Fantasy/dataOfUser.json";
-string Admin::plPlayersDataPath = "D:/New folder/Fantasy/PLplayers.json";
-string Admin::gameWeeksDataPath = "D:/New folder/Fantasy/dataOfGameWeeks.json";
-string Admin::UsersDataInGamePath = "D:/New folder/Fantasy/dataOfuserAccount.json";
+string Admin::playersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfPlayers.json";
+string Admin::teamsDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfTeams.json";
+string Admin::usersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfUser.json";
+string Admin::plPlayersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/PLplayers.json";
+string Admin::gameWeeksDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfGameWeeks.json";
+string Admin::UsersDataInGamePath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfUserAccount.json";
 bool mins = true;
 bool cs = true;
 bool redCard = true;
@@ -350,3 +353,78 @@ void Admin::nextGameWeek(){
      cs = true;
      redCard = true;
  }
+
+
+ void Admin::luckyWheel(){
+     int DEFS =0;
+     int MIDS = 0 ;
+     int ATTS=0;
+
+     cout << "We Are Here" ;
+     if(!User::currentUserData.luckyWheelUsed){
+
+         int randomId = rand() % playersList.size();
+         cout << randomId;
+         bool leagueCheck = false;
+         if(User::currentUserData.league == "Premier League"){
+             for(auto team : plTeamsList){
+                 if(playersList[randomId].team == team.name){
+                     leagueCheck= true ;
+                     break;
+                 }
+             }
+         }
+         else {
+             for(auto team : ligaTeamsList){
+                 if(playersList[randomId].team == team.name){
+                     leagueCheck= true ;
+                     break;
+                 }
+             }}
+
+         if(leagueCheck){
+
+             auto playerIt=  User::currentUserData.usersTeam.find(playersList[randomId].name);
+            if(playerIt == User::currentUserData.usersTeam.end()){
+
+             if(playersList[randomId].cost > 0){
+
+                for(auto i :User::currentUserData.usersTeam){
+                     if(i.second.position == "DEF"){
+                        DEFS++;
+                    }
+                     else if(i.second.position == "MID"){
+                         MIDS++;
+                     }
+                     else if(i.second.position == "ATT"){
+                         ATTS++;
+                     }
+                 }
+
+                if(playersList[randomId].position=="ATT"&&ATTS>=3){
+                     Admin::luckyWheel();
+                 }
+                if(playersList[randomId].position=="DEF"&&DEFS>=4){
+                    Admin::luckyWheel();
+                }
+                if(playersList[randomId].position=="MID"&&DEFS>=3){
+                    Admin::luckyWheel();
+                }
+                User::currentUserData.usersTeam[playersList[randomId].name] = playersList[randomId];
+                User::currentUserData.luckyWheelUsed = true ;
+            }
+             else{
+                  Admin::luckyWheel();
+             }
+         }
+         }
+         else{
+              Admin::luckyWheel();
+         }
+
+     }
+
+     else {
+         return;
+     }
+ };
