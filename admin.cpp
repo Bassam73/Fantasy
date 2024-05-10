@@ -17,12 +17,12 @@ vector<string> raisedPricePlayers;
 vector<string> reducedPricePlayers;
 
 
-string Admin::playersDataPath = "D:/Fantasy/dataOfPlayers.json";
-string Admin::teamsDataPath = "D:/Fantasy/dataOfTeams.json";
-string Admin::usersDataPath = "D:/Fantasy/dataOfUser.json";
-string Admin::plPlayersDataPath = "D:/Fantasy/PLplayers.json";
-string Admin::gameWeeksDataPath = "D:/Fantasy/dataOfGameWeeks.json";
-string Admin::UsersDataInGamePath = "D:/Fantasy/dataOfuserAccount.json";
+string Admin::playersDataPath = "D:/New folder/Fantasy/dataOfPlayers.json";
+string Admin::teamsDataPath = "D:/New folderFantasy/dataOfTeams.json";
+string Admin::usersDataPath = "D:/New folder/Fantasy/dataOfUser.json";
+string Admin::plPlayersDataPath = "D:/New folder/Fantasy/PLplayers.json";
+string Admin::gameWeeksDataPath = "D:/New folder/Fantasy/dataOfGameWeeks.json";
+string Admin::UsersDataInGamePath = "D:/New folder/Fantasy/dataOfuserAccount.json";
 bool mins = true;
 bool cs = true;
 bool redCard = true;
