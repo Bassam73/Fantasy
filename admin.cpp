@@ -145,6 +145,7 @@ int Admin::addPlayer(string name, string position, string team, int age, int kit
     newPlayer.yellowCards= 0;
     newPlayer.points= 0;
 
+
     playersList.push_back(newPlayer);
     teamPlayers[team].push_back(newPlayer);
     return 0;
