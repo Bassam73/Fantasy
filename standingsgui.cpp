@@ -2,6 +2,8 @@
 #include "ui_standingsgui.h"
 #include "mainwindow.h"
 #include"user.h"
+
+#include <qmessagebox.h>
 StandingsGui::StandingsGui(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::StandingsGui)
@@ -12,6 +14,19 @@ StandingsGui::StandingsGui(QWidget *parent)
     ui->textBrowser->setText(user.standings());
     ui->textBrowser->selectAll();
     ui->textBrowser->setAlignment(Qt::AlignCenter);
+    multiset<pair<int, string>>::iterator it;
+    User u;
+    qDebug()<< user.standings().begin();
+    if(User::currentUserData.league == "Premier League"){
+        if(Admin::GAME_WEEK==18){
+            user.standings().begin();
+            }
+    }
+    else{
+        if(Admin::GAME_WEEK==18){
+        }
+
+    }
 
 }
 

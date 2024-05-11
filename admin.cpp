@@ -20,12 +20,12 @@ vector<string> raisedPricePlayers;
 vector<string> reducedPricePlayers;
 
 
-string Admin::playersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfPlayers.json";
-string Admin::teamsDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfTeams.json";
-string Admin::usersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfUser.json";
-string Admin::plPlayersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/PLplayers.json";
-string Admin::gameWeeksDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfGameWeeks.json";
-string Admin::UsersDataInGamePath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfuserAccount.json";
+string Admin::playersDataPath = "C:/Users/GEORGE/Fantasy/dataOfPlayers.json";
+string Admin::teamsDataPath = "C:/Users/GEORGE/Fantasy/dataOfTeams.json";
+string Admin::usersDataPath = "C:/Users/GEORGE/Fantasy/dataOfUser.json";
+string Admin::plPlayersDataPath = "C:/Users/GEORGE/Fantasy/PLplayers.json";
+string Admin::gameWeeksDataPath = "C:/Users/GEORGE/Fantasy/dataOfGameWeeks.json";
+string Admin::UsersDataInGamePath = "C:/Users/GEORGE/Fantasy/dataOfuserAccount.json";
 bool mins = true;
 bool cs = true;
 bool redCard = true;
@@ -335,8 +335,9 @@ int Admin::addPoints(string playerName, QString action) {
 
 
 void Admin::nextGameWeek(){
-
-  GAME_WEEK++;
+    if(GAME_WEEK < 18){
+        GAME_WEEK++;
+    }
 
     redCardPlayers.clear();
     mins60PlusPlayers.clear();
