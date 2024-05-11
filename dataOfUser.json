@@ -284,7 +284,7 @@
         "GameWeek3": 0,
         "GameWeek4": 0,
         "GameWeek5": 0,
-        "GameWeek6": 4,
+        "GameWeek6": 0,
         "GameWeek7": 0,
         "GameWeek8": 0,
         "GameWeek9": 0,
@@ -294,7 +294,7 @@
         "luckyWheel": false,
         "name": "x",
         "password": "x",
-        "points": 93
+        "points": 90
     },
     {
         "GameWeek1": 0,

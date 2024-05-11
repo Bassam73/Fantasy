@@ -266,7 +266,13 @@ int Admin::addPoints(string playerName, QString action) {
         } else if (action == "Assist") {
             playerIt->gwPoints[GAME_WEEK] += 3;
             playerIt->assists++;
-        } else if (action == "Red Card") {
+
+        }
+        else if (action == "Penality Missed") {
+            playerIt->gwPoints[GAME_WEEK] -= 3;
+        }
+
+        else if (action == "Red Card") {
             redCard = true;
             playerRedCarded = playerIt->name;
             playerIt->gwPoints[GAME_WEEK] -= 3;

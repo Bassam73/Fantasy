@@ -291,7 +291,7 @@ color:black;</string>
    </item>
    <item>
     <property name="text">
-     <string/>
+     <string>Penality Missed</string>
     </property>
    </item>
   </widget>
