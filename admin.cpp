@@ -20,12 +20,12 @@ vector<string> raisedPricePlayers;
 vector<string> reducedPricePlayers;
 
 
-string Admin::playersDataPath = "C:/Users/GEORGE/Fantasy/dataOfPlayers.json";
-string Admin::teamsDataPath = "C:/Users/GEORGE/Fantasy/dataOfTeams.json";
-string Admin::usersDataPath = "C:/Users/GEORGE/Fantasy/dataOfUser.json";
-string Admin::plPlayersDataPath = "C:/Users/GEORGE/Fantasy/PLplayers.json";
-string Admin::gameWeeksDataPath = "C:/Users/GEORGE/Fantasy/dataOfGameWeeks.json";
-string Admin::UsersDataInGamePath = "C:/Users/GEORGE/Fantasy/dataOfuserAccount.json";
+string Admin::playersDataPath = "C:/Users/Dell/Fantasy/dataOfPlayers.json";
+string Admin::teamsDataPath = "C:/Users/Dell/Fantasy/dataOfTeams.json";
+string Admin::usersDataPath = "C:/Users/Dell/Fantasy/dataOfUser.json";
+string Admin::plPlayersDataPath = "C:/Users/Dell/Fantasy/PLplayers.json";
+string Admin::gameWeeksDataPath = "C:/Users/Dell/Fantasy/dataOfGameWeeks.json";
+string Admin::UsersDataInGamePath = "C:/Users/Dell/Fantasy/dataOfuserAccount.json";
 bool mins = true;
 bool cs = true;
 bool redCard = true;
@@ -357,7 +357,6 @@ void Admin::nextGameWeek(){
      int MIDS = 0 ;
      int ATTS=0;
      int GK = 0;
-     cout << "We Are Here" ;
      if(!User::currentUserData.luckyWheelUsed){
 
          int randomId = rand() % playersList.size();
@@ -397,7 +396,7 @@ void Admin::nextGameWeek(){
                          ATTS++;
                      }
                      else if(i.second.position == "GK"){
-                         ATTS++;
+                         GK++;
                      }
                  }
 

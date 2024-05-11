@@ -18,13 +18,38 @@ StandingsGui::StandingsGui(QWidget *parent)
     User u;
     qDebug()<< user.standings().begin();
     if(User::currentUserData.league == "Premier League"){
-        if(Admin::GAME_WEEK==18){
-            user.standings().begin();
+        if (Admin::GAME_WEEK == 18) {
+            cout << "in heree" << endl;
+            QString standings = user.standings();
+            QStringList lines = standings.split('\n');
+            if (!lines.isEmpty()) {
+                QStringList parts = lines.first().split(" ");
+                QString message = "The Highest Score Is " + parts[0] + " And The Winner Is " + parts[1] + " 🏆";
+                QMessageBox *msgBox = new QMessageBox(this);
+                msgBox->setText(message);
+                msgBox->setWindowTitle("Congratulations!");
+                msgBox->show();
             }
+
+
+
+        }
+
     }
     else{
         if(Admin::GAME_WEEK==18){
+            QString standings = user.standings();
+            QStringList lines = standings.split('\n');
+            if (!lines.isEmpty()) {
+                QString x = "The Winner is " + QString::fromStdString(lines.first().toStdString());
+                QMessageBox *msgBox = new QMessageBox(this);
+                msgBox->setText(x);
+                msgBox->setWindowTitle("Congratulations!");
+                msgBox->show();
+            }
         }
+
+
 
     }
 
