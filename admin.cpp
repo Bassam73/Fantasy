@@ -138,6 +138,7 @@ int Admin::addPlayer(string name, string position, string team, int age, int kit
     newPlayer.kitNumber = kitnum;
     newPlayer.position = position;
     newPlayer.cost = playerCost;
+
     newPlayer.goals =0;
     newPlayer.assists = 0;
     newPlayer.cleanSheets = 0 ;
@@ -310,7 +311,7 @@ int Admin::addPoints(string playerName, QString action) {
         }
         playerIt->points = totalPoints;
 
-        if (playerIt->points >= 10) {
+        if (playerIt->gwPoints[GAME_WEEK] >= 10) {
             bool costRaised = std::find(raisedPricePlayers.begin(), raisedPricePlayers.end(), playerIt->name) != raisedPricePlayers.end();
 
             if (!costRaised) {
@@ -318,7 +319,7 @@ int Admin::addPoints(string playerName, QString action) {
                 playerIt->cost += 0.1;
             }
         }
-        if (playerIt->points <=0) {
+        if (playerIt->gwPoints[GAME_WEEK] <=0) {
             bool costReduced = std::find(reducedPricePlayers.begin(), reducedPricePlayers.end(), playerIt->name) != reducedPricePlayers.end();
 
             if (!costReduced) {
@@ -383,7 +384,7 @@ void Admin::nextGameWeek(){
              auto playerIt=  User::currentUserData.usersTeam.find(playersList[randomId].name);
             if(playerIt == User::currentUserData.usersTeam.end()){
 
-             if(playersList[randomId].cost > 0){
+             if(playersList[randomId].cost > 7){
 
                 for(auto i :User::currentUserData.usersTeam){
                      if(i.second.position == "DEF"){
