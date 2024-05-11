@@ -43,7 +43,7 @@ User::User(int i , int point, string u , string p , string l, double ban , bool 
     }}
 bool User::registerUser(){
     const regex userPattern("^[A-Z][a-z]{2,}$");
-    const regex passPattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+    const regex passPattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$");
     if(!regex_match(name,userPattern))return false;
     bool nameCheck= checkUsername(name);
     bool passCheck = regex_match(password, passPattern);

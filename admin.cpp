@@ -362,7 +362,7 @@ void Admin::nextGameWeek(){
      int DEFS =0;
      int MIDS = 0 ;
      int ATTS=0;
-
+     int GK = 0;
      cout << "We Are Here" ;
      if(!User::currentUserData.luckyWheelUsed){
 
@@ -402,6 +402,9 @@ void Admin::nextGameWeek(){
                      else if(i.second.position == "ATT"){
                          ATTS++;
                      }
+                     else if(i.second.position == "GK"){
+                         ATTS++;
+                     }
                  }
 
                 if(playersList[randomId].position=="ATT"&&ATTS>=3){
@@ -410,7 +413,10 @@ void Admin::nextGameWeek(){
                 if(playersList[randomId].position=="DEF"&&DEFS>=4){
                     Admin::luckyWheel();
                 }
-                if(playersList[randomId].position=="MID"&&DEFS>=3){
+                if(playersList[randomId].position=="MID"&&MIDS>=3){
+                    Admin::luckyWheel();
+                }
+                if(playersList[randomId].position=="GK"&&GK>=1){
                     Admin::luckyWheel();
                 }
                 User::currentUserData.usersTeam[playersList[randomId].name] = playersList[randomId];
