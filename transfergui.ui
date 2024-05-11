@@ -466,6 +466,24 @@ color:black;</string>
     <string>Lucky Wheel</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>40</y>
+     <width>141</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:25px;
+font-weight:bold;
+color:black;</string>
+   </property>
+   <property name="text">
+    <string>GW : </string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>label_5</zorder>
   <zorder>pushButton</zorder>
@@ -494,6 +512,7 @@ color:black;</string>
   <zorder>label_3</zorder>
   <zorder>pushButton_12</zorder>
   <zorder>pushButton_13</zorder>
+  <zorder>label_4</zorder>
  </widget>
  <resources/>
  <connections/>

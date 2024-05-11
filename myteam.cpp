@@ -27,10 +27,11 @@ void MyTeam::on_commandLinkButton_clicked()
 
 void MyTeam::setPlayers(){
     double point=0;
+    point = User::currentUserData.userGwPoints[Admin::GAME_WEEK];
     for(auto i = User::usersTeam.begin(); i != User::usersTeam.end(); i++){
-        QString playerName = QString::fromStdString(i->first);
+        QString playerName = QString::fromStdString(i->first)+" (" + QString::number(i->second.gwPoints[Admin::GAME_WEEK])+")";
 
-        point +=i->second.points;
+
 
         if(i->second.position == "ATT"){
             if(ui->updateLabel_9->text() == ""){
@@ -77,4 +78,5 @@ void MyTeam::setPlayers(){
 
     }
     ui->label_4->setText( QString::number(point));
+    ui->label_6->setText(QString::number(Admin::GAME_WEEK));
 }

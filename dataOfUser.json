@@ -18,13 +18,13 @@
         "GameWeek7": 0,
         "GameWeek8": 0,
         "GameWeek9": 0,
-        "bank": 6.200000381469735,
+        "bank": 12.100001049041754,
         "id": 1,
         "league": "Premier League",
         "luckyWheel": true,
         "name": "z",
         "password": "z",
-        "points": 54
+        "points": 393
     },
     {
         "GameWeek1": 0,
@@ -284,17 +284,17 @@
         "GameWeek3": 0,
         "GameWeek4": 0,
         "GameWeek5": 0,
-        "GameWeek6": 0,
+        "GameWeek6": 4,
         "GameWeek7": 0,
         "GameWeek8": 0,
         "GameWeek9": 0,
-        "bank": 60.10000000000001,
+        "bank": 45.3,
         "id": 12,
         "league": "Premier League",
         "luckyWheel": false,
-        "name": "Soka",
-        "password": "Soka1234@",
-        "points": 0
+        "name": "x",
+        "password": "x",
+        "points": 93
     },
     {
         "GameWeek1": 0,
@@ -315,13 +315,13 @@
         "GameWeek7": 0,
         "GameWeek8": 0,
         "GameWeek9": 0,
-        "bank": 80,
+        "bank": 40.10000038146972,
         "id": 13,
         "league": "Premier League",
         "luckyWheel": false,
-        "name": "Mohamed",
-        "password": "Ahmed@12543",
-        "points": 0
+        "name": "y",
+        "password": "y",
+        "points": 66
     },
     {
         "GameWeek1": 0,

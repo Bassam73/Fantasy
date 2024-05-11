@@ -20,12 +20,12 @@ vector<string> raisedPricePlayers;
 vector<string> reducedPricePlayers;
 
 
-string Admin::playersDataPath = "C:/Users/Dell/Fantasy/dataOfPlayers.json";
-string Admin::teamsDataPath = "C:/Users/Dell/Fantasy/dataOfTeams.json";
-string Admin::usersDataPath = "C:/Users/Dell/Fantasy/dataOfUser.json";
-string Admin::plPlayersDataPath = "C:/Users/Dell/Fantasy/PLplayers.json";
-string Admin::gameWeeksDataPath = "C:/Users/Dell/Fantasy/dataOfGameWeeks.json";
-string Admin::UsersDataInGamePath = "C:/Users/Dell/Fantasy/dataOfUserAccount.json";
+string Admin::playersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfPlayers.json";
+string Admin::teamsDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfTeams.json";
+string Admin::usersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfUser.json";
+string Admin::plPlayersDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/PLplayers.json";
+string Admin::gameWeeksDataPath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfGameWeeks.json";
+string Admin::UsersDataInGamePath = "C:/Users/pc/Documents/FantasyProject/Fantasy/dataOfuserAccount.json";
 bool mins = true;
 bool cs = true;
 bool redCard = true;
@@ -120,14 +120,7 @@ int Admin::addPlayer(string name, string position, string team, int age, int kit
     int id;
     Player newPlayer;
 
-    // for(auto &it:teamPlayers[team]){
-    //     if(kitnum > 99){
-    //         return 0;
-    //     }
-    //     if(kitnum == it.kitNumber){
-    //         return 0;
-    //     }
-    // }
+
 
 
 
@@ -145,6 +138,10 @@ int Admin::addPlayer(string name, string position, string team, int age, int kit
     newPlayer.kitNumber = kitnum;
     newPlayer.position = position;
     newPlayer.cost = playerCost;
+    newPlayer.goals =0;
+    newPlayer.assists = 0;
+    newPlayer.cleanSheets = 0 ;
+    newPlayer.yellowCards= 0;
     newPlayer.points= 0;
 
     playersList.push_back(newPlayer);

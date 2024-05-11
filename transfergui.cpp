@@ -36,6 +36,7 @@ TransferGui::TransferGui(QWidget *parent) :
     this->setPlayers();
     User::currentUserData.bank = Admin::usersList[User::userIndex].bank;
     ui->label_3->setText("Bank: " + QString::number(User::currentUserData.bank, 'f', 1) + "$");
+    ui->label_4->setText("GW : "+ QString::number(Admin::GAME_WEEK));
 
 }
 
@@ -53,7 +54,7 @@ void TransferGui::openPlayerWindow() {
 
     PlayerWindow playerWindow;
 
-    connect(&playerWindow, &PlayerWindow::playerSelected, this, [=](const QString &playerName, double userBank){
+    connect(&playerWindow, &PlayerWindow::playerSelected, this, [=](const QString &playerName, double userBank ){
         if (clickedButton == ui->pushButton) {
             ui->updateLabel->setText(playerName);
         } else if (clickedButton == ui->pushButton_2) {
@@ -90,7 +91,8 @@ void TransferGui::openPlayerWindow() {
         labels.push_back(ui->updateLabel_9->text());
         labels.push_back(ui->updateLabel_10->text());
         labels.push_back(ui->updateLabel_11->text());
-ui->label_3->setText("Bank: " + QString::number(userBank, 'f', 1) + "$");
+        ui->label_3->setText("Bank: " + QString::number(userBank, 'f', 1) + "$");
+        ui->label_4->setText("GW : "+ QString::number(Admin::GAME_WEEK));
 
     });
     playerWindow.exec();
@@ -190,7 +192,7 @@ void TransferGui::on_pushButton_12_clicked()
             PlayerWindow::playersInSquad.push_back(i);
     }
     qDebug() << count;
-    cout<<"hi niggaaaaaaaaa"<<endl;
+
 
     if(count<3){
         QMessageBox saveTransfersFailed;

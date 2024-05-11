@@ -22,9 +22,23 @@ void Team::savePlayers(vector<QString> players){
     }
 }
 void Team::calculatePoints(){
-    User::currentUserData.points=0;
+    // User::currentUserData.points=0;
+    // for(auto i=User::usersTeam.begin();i!=User::usersTeam.end();i++){
+    //     User::currentUserData.points +=i->second.points;
+    // }
+    // Admin::usersList[User::userIndex].points=User::currentUserData.points;
+
+    User::currentUserData.userGwPoints[Admin::GAME_WEEK] = 0 ;
+
     for(auto i=User::usersTeam.begin();i!=User::usersTeam.end();i++){
-        User::currentUserData.points +=i->second.points;
+        User::currentUserData.userGwPoints[Admin::GAME_WEEK] += i->second.gwPoints[Admin::GAME_WEEK];
     }
+
+    User::currentUserData.points+= User::currentUserData.userGwPoints[Admin::GAME_WEEK];
+
+    Admin::usersList[User::userIndex].userGwPoints[Admin::GAME_WEEK]=User::currentUserData.userGwPoints[Admin::GAME_WEEK];
     Admin::usersList[User::userIndex].points=User::currentUserData.points;
+
+
+
 }
