@@ -13,10 +13,13 @@ User::User(int i ,int point, string u , string p , string l, double ban)
     password = p;
     league = l;
     bank = ban;
+    for (int i = 1; i <19 ; ++i) {
+        userGwPoints[i]=0;
+    }
 }
 User::User(){}
     Admin adminn;
-User::User(int i ,int point, string u , string p , string l, double ban , bool wheel){
+User::User(int i , int point, string u , string p , string l, double ban , bool wheel , map<int,int> gw ){
     id = i;
     points=point;
     name = u ;
@@ -24,8 +27,20 @@ User::User(int i ,int point, string u , string p , string l, double ban , bool w
     league = l;
     bank = ban;
     luckyWheelUsed = wheel;
+    userGwPoints = gw;
 }
 
+User::User(int i , int point, string u , string p , string l, double ban , bool wheel ){
+    id = i;
+    points=point;
+    name = u ;
+    password = p;
+    league = l;
+    bank = ban;
+    luckyWheelUsed = wheel;
+    for (int i = 1; i <19 ; ++i) {
+        userGwPoints[i]=0;
+    }}
 bool User::registerUser(){
     const regex userPattern("^[A-Z][a-z]{2,}$");
     const regex passPattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");

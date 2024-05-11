@@ -26,12 +26,12 @@ void MainWindow::on_pushButton_clicked()
 }
 
 
-void MainWindow::on_commandLinkButton_clicked()
-{
-    close();
-    LoginUI loginPage;
-    loginPage.exec();
-}
+// void MainWindow::on_commandLinkButton_clicked()
+// {
+//     close();
+//     LoginUI loginPage;
+//     loginPage.exec();
+// }
 
 
 void MainWindow::on_pushButton_2_clicked()

@@ -47,6 +47,8 @@ void UsersData::loadData(){
             string leag;
             bool luckyWheel;
 
+            map <int  , int> gw;
+
 
             for(auto i:arr){
                 user = i.toObject();
@@ -60,6 +62,12 @@ void UsersData::loadData(){
                 // if (bank == NULL){
                 //     bank = 100;
                 // }
+
+                for (int i = 1; i < 19; ++i) {
+                    std::string week = "GameWeek" + std::to_string(i);
+                    gw[i] = user.value(QString::fromStdString(week)).toInt();
+                    // cout<<gw[i];
+                }
 
                 name = userName.toStdString();
                 pass = password.toStdString();
@@ -99,6 +107,10 @@ void UsersData::storeData(){
         sLucky = addData.usersList[i].luckyWheelUsed;
 
 
+        for (int j = 1; j < 19; j++) {
+            QString weekKey = "GameWeek" + QString::number(j);
+            user[weekKey] = addData.usersList[i].userGwPoints[j];
+        }
         user["id"] =  sid;
         user["name"] =  sname.data();
         user["password"] =  spass.data();

@@ -26,8 +26,13 @@ public:
     bool luckyWheelUsed;
 
 
+    map<int,int>userGwPoints;
+
+
     User(int ,int, string , string , string , double );
+    User(int ,int, string , string , string , double , bool , map<int,int>);
     User(int ,int, string , string , string , double , bool);
+
     User();
     static string CURRENTPOS;
     static map <int, vector<string>> userPlayers;
