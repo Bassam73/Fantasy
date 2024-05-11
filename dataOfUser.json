@@ -291,7 +291,7 @@
         "bank": 45.3,
         "id": 12,
         "league": "Premier League",
-        "luckyWheel": false,
+        "luckyWheel": true,
         "name": "x",
         "password": "x",
         "points": 90

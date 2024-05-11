@@ -138,13 +138,16 @@
     {
         "team": [
             {
-                "name": "Salah"
-            },
-            {
                 "name": "Haaland"
             },
             {
+                "name": "Hamed Traorè"
+            },
+            {
                 "name": "J.Alvarez"
+            },
+            {
+                "name": "Salah"
             }
         ],
         "userid": 12

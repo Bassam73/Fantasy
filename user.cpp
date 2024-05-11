@@ -43,7 +43,7 @@ User::User(int i , int point, string u , string p , string l, double ban , bool 
     }}
 bool User::registerUser(){
     const regex userPattern("^[A-Z][a-z]{2,}$");
-    const regex passPattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$");
+    const regex passPattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$");//Minimum eight characters, at least one letter, one number and one special character
     if(!regex_match(name,userPattern))return false;
     bool nameCheck= checkUsername(name);
     bool passCheck = regex_match(password, passPattern);
@@ -58,8 +58,6 @@ bool User::registerUser(){
 
     userIndex = registerAdmin.usersList.size() - 1;
 
-    qDebug()<<userIndex;
-
     currentUserData = registeredUser;
     for(int i = 0; i < User::userPlayers[User::currentUserData.id].size(); i++){
 
@@ -70,11 +68,6 @@ bool User::registerUser(){
             }
         }
     }
-
-
-    qDebug() << currentUserData.name;
-    qDebug()<<currentUserData.bank;
-    qDebug() << usersTeam.size();
     Team playersPoints;
     playersPoints.calculatePoints();
     User players;
@@ -86,7 +79,6 @@ bool User::registerUser(){
 
 
 bool User::checkUsername(string username){
-    cout <<"We ARE IN CHECK USER"<<endl;
     Admin mainAdmin ;
 
     if (mainAdmin.usersList.empty()) {
@@ -126,8 +118,6 @@ bool User::checkRegisteredUser(string name ,string password){
                 }
             }
 
-            qDebug()<<currentUserData.bank;
-            qDebug() << usersTeam.size();
             Team playersPoints;
             playersPoints.calculatePoints();
             User players;
@@ -137,52 +127,6 @@ bool User::checkRegisteredUser(string name ,string password){
 
     }
     return false;
-}
-int User::forgetPassword(string username,string newPassword,string reNewPassword){
-    bool isFound=false;
-    bool passCheck;
-    int i;
-    for(i=0;i<Admin::usersList.size();i++){
-        if(Admin::usersList[i].name==username){
-            isFound=true;
-            break;
-        }
-    }
-    if(!isFound){
-        return 1;
-    }
-    else{
-        const regex passPattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
-        passCheck = regex_match(newPassword, passPattern);
-        if(!passCheck){
-            return 2;
-        }
-    }
-    if(reNewPassword!=newPassword){
-        return 3;
-    }
-    Admin::usersList[i].password=newPassword;
-    return 4;
-
-}
-
-int User::getPlayerData(int id, double &cost, string &team, string &position, string &name, int high, int low, vector<Player>& playersList){
-
-    if (high >= low) {
-        int mid = low + (high - low) / 2;
-
-        if (playersList[mid].id == id){
-            // code
-
-
-        }
-
-        if (playersList[mid].id > id)
-            return getPlayerData(id, cost, team, position, name,low, mid - 1, playersList);
-
-        return getPlayerData(id, cost, team, position, name, mid + 1, high, playersList);
-    }
-
 }
 
 

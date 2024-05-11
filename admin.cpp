@@ -57,7 +57,7 @@ bool Admin::addTeams(string name, string league) {
         newTeam = Team(id, name, league);
 
         if (ligaTeamsList.size() == 10) {
-            cout << "LaLiga full" << endl;
+
             return false;
         } else {
             ligaTeamsList.push_back(newTeam);
@@ -81,7 +81,7 @@ bool Admin::addTeams(string name, string league) {
         newTeam = Team(id, name, league);
 
         if (plTeamsList.size() == 10) {
-            cout << "Premier League full" << endl;
+
             return false;
         }
 
@@ -158,12 +158,9 @@ int Admin::deletePlayer(vector<Player>& playersList,int low,int high,int PlayerI
             string squad = playersList[mid].team;
 
             playersList.erase(playersList.begin() + mid );
-            qDebug() << mid;
             for(auto it = teamPlayers[squad].begin(); it < teamPlayers[squad].end(); it++){
                 if((*it).id == PlayerID){
                     teamPlayers[squad].erase(it);
-                    qDebug() << "hola";
-                    qDebug() << (*it).name;
                     break;
                 }
             }
@@ -330,10 +327,6 @@ int Admin::addPoints(string playerName, QString action) {
             }
         }
     }
-    cout <<playerIt->goals<<endl;
-    cout <<playerIt->assists<<endl;
-    cout <<playerIt->yellowCards<<endl;
-    cout <<playerIt->cleanSheets<<endl;
 
     return 0;
 }
