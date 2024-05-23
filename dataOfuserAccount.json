@@ -2,34 +2,13 @@
     {
         "team": [
             {
-                "name": "A.Becker"
+                "name": "De Bruyne"
             },
             {
-                "name": "Pedro Porro"
+                "name": "Kane"
             },
             {
-                "name": "Rúben"
-            },
-            {
-                "name": "Schär"
-            },
-            {
-                "name": "Alexander-Arnold"
-            },
-            {
-                "name": "Buendia"
-            },
-            {
-                "name": "Gray"
-            },
-            {
-                "name": "Mount"
-            },
-            {
-                "name": "Moore"
-            },
-            {
-                "name": "Werner"
+                "name": "Watkins"
             },
             {
                 "name": "Haaland"
@@ -40,150 +19,15 @@
     {
         "team": [
             {
-                "name": "Schär"
+                "name": "Saka"
             },
             {
-                "name": "Robertson"
-            },
-            {
-                "name": "Kulusevski"
-            },
-            {
-                "name": "Mahrez"
-            },
-            {
-                "name": "Sancho"
+                "name": "Højlund"
             },
             {
                 "name": "N.Jackson"
-            },
-            {
-                "name": "Kane"
-            },
-            {
-                "name": "Haaland"
             }
         ],
-        "userid": 3
-    },
-    {
-        "team": [
-            {
-                "name": "Calvert-Lewin"
-            },
-            {
-                "name": "Danns"
-            },
-            {
-                "name": "Gakpo"
-            }
-        ],
-        "userid": 4
-    },
-    {
-        "team": [
-            {
-                "name": "Richarlison"
-            },
-            {
-                "name": "Szoboszlai"
-            },
-            {
-                "name": "Kulusevski"
-            }
-        ],
-        "userid": 7
-    },
-    {
-        "team": [
-            {
-                "name": "T.Silva"
-            },
-            {
-                "name": "Sterling"
-            }
-        ],
-        "userid": 8
-    },
-    {
-        "team": [
-            {
-                "name": "Havertz"
-            },
-            {
-                "name": "Mahrez"
-            },
-            {
-                "name": "Havertz"
-            }
-        ],
-        "userid": 9
-    },
-    {
-        "team": [
-            {
-                "name": "Mount"
-            }
-        ],
-        "userid": 10
-    },
-    {
-        "team": [
-            {
-                "name": "Antony"
-            }
-        ],
-        "userid": 11
-    },
-    {
-        "team": [
-            {
-                "name": "Haaland"
-            },
-            {
-                "name": "Hamed Traorè"
-            },
-            {
-                "name": "J.Alvarez"
-            },
-            {
-                "name": "Salah"
-            }
-        ],
-        "userid": 12
-    },
-    {
-        "team": [
-            {
-                "name": "Alexander-Arnold"
-            },
-            {
-                "name": "Virgil"
-            },
-            {
-                "name": "Endo"
-            },
-            {
-                "name": "Salah"
-            },
-            {
-                "name": "Haaland"
-            }
-        ],
-        "userid": 13
-    },
-    {
-        "team": [
-            {
-                "name": "Dimitri Foulquier"
-            },
-            {
-                "name": "Axel Witsel"
-            },
-            {
-                "name": "Nahuel Molina"
-            }
-        ],
-        "userid": 14
+        "userid": 2
     }
 ]

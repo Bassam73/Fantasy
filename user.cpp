@@ -42,8 +42,8 @@ User::User(int i , int point, string u , string p , string l, double ban , bool 
         userGwPoints[i]=0;
     }}
 bool User::registerUser(){
-    const regex userPattern("^[A-Z][a-z]{2,}$");
-    const regex passPattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$");//Minimum eight characters, at least one letter, one number and one special character
+    const regex userPattern("^[A-Z][a-z]{2,}$");  // Username pattern: Starts with an uppercase letter followed by 2 or more lowercase letters
+    const regex passPattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"); // Password pattern: Minimum 8 characters, at least one uppercase letter, one lowercase letter, one digit, and one special character
     if(!regex_match(name,userPattern))return false;
     bool nameCheck= checkUsername(name);
     bool passCheck = regex_match(password, passPattern);

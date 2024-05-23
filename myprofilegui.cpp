@@ -18,7 +18,7 @@ MyProfileGui::MyProfileGui(QWidget *parent)
     ui->label_4->setText(User::currentUserData.league.data());
     ui->label_5->setText(pointsText);
 
-    QObject::connect(ui->editButton, &QPushButton::clicked, this, &MyProfileGui::on_editButton_clicked);
+    // QObject::connect(ui->editButton, &QPushButton::clicked, this, &MyProfileGui::on_editButton_clicked);
 }
 
 MyProfileGui::~MyProfileGui()
@@ -36,7 +36,7 @@ void MyProfileGui::on_commandLinkButton_clicked()
 
 void MyProfileGui::on_editButton_clicked(bool ok)
 {
-    QObject::disconnect(ui->editButton, &QPushButton::clicked, this, &MyProfileGui::on_editButton_clicked);
+    // QObject::disconnect(ui->editButton, &QPushButton::clicked, this, &MyProfileGui::on_editButton_clicked);
 
     qDebug() << "Edit button clicked";
 
@@ -55,5 +55,5 @@ void MyProfileGui::on_editButton_clicked(bool ok)
         User::currentUserData.name = newUsername.toStdString();
     }
 
-    QObject::connect(ui->editButton, &QPushButton::clicked, this, &MyProfileGui::on_editButton_clicked);
+    // QObject::connect(ui->editButton, &QPushButton::clicked, this, &MyProfileGui::on_editButton_clicked);
 }
